@@ -20,6 +20,7 @@
 
                     <!--Register form-->
                     <form id="Register">
+
                         <div class="form-group">
 
                             <!--First name input-->
@@ -71,44 +72,49 @@
 							</div>
 						</div>
 
+						<!-- Submit button for sign-up form -->
+						<div class="form-group">
+							<button type="submit">sign up</button>
+						</div>
+					</form>
+						
+					<!-- Success message display -->
+					<div id="successMessage">Registration Completed</div>
+
+				</section>
+
+				<!-- Sign-in form section -->
+				<section class="form sign-in">
+					<h1>Ashesi Bus System</h1>
+					<h2>sign in</h2>
+
+					<!-- Login form -->
+					<form id="login">
 						<div class="form-group">
 
-							<!-- Submit button for sign-up form -->
-							<button type="submit">sign up</button>
-						  </div>
-						</form>
-						
-						<!-- Success message display -->
-						<div id="successMessage">Registration Completed</div>
-					  </section>
-					  <!-- Sign-in form section -->
-					  <section class="form sign-in">
-						<h1>Ashesi Bus System</h1>
-						<h2>sign in</h2>
-						<!-- Login form -->
-						<form id="login">
-						  <div class="form-group">
 							<!-- Email address input -->
 							<div class="form-control">
-							  <label>email address</label>
-							  <input type="email" name="txt-emailLogin" id="emailLogin" autocomplete="username" />
-							  <div id="emailLoginError" class="error-message"></div>
+								<label>email address</label>
+								<input type="email" name="txt-emailLogin" id="emailLogin" autocomplete="username" />
+								<div id="emailLoginError" class="error-message"></div>
 							</div>
-						  </div>
-						  <div class="form-group">
-							<!-- Password input -->
-							<div class="form-control">
-							  <label>password</label>
-							  <input type="password" name="txt-passLogin" id="passwordLogin" autocomplete="new-password"/>
-							  <div id="passwordLoginError" class="error-message"></div>
-							</div>
-						  </div>
-						  <div class="form-group">
-							<!-- Submit button for sign-in form -->
-							<button type="submit">sign in</button>
-						  </div>
+						</div>
 
+						<!-- Password input -->
+						<div class="form-group">
+							<div class="form-control">
+								<label>password</label>
+								<input type="password" name="txt-passLogin" id="passwordLogin" autocomplete="new-password"/>
+								<div id="passwordLoginError" class="error-message"></div>
+							</div>
+						</div>
+
+						<!-- Submit button for sign-in form -->
+						<div class="form-group">
+							<button type="submit">sign in</button>
+						</div>
                     </form>
+
                 </section>
 
             </div>
