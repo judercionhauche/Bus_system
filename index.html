@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+        <!--Link to external CSS stylesheet-->
+        <link rel="stylesheet" href="css/style.css"/>
+        <title>Login/Register Page</title>
+    </head>
+    <body>
+        <!--Main Container-->
+        <div class="container"> 
+            <div class="row">
+
+                <!--Sign up form section-->
+                <section class="form sign-up active">
+                    <h1>Ashesi Bus System</h1>
+                    <h2>Sign up</h2>
+
+                    <!--Register form-->
+                    <form id="Register">
+                        <div class="form-group">
+
+                            <!--First name input-->
+                            <div class="form-control">
+                                <label>First Name</label>
+                                <input type="text" name="text-fname" id="firstName"/>
+                                <div id="fisrtNameError" class="error-message"></div>
+                            </div>
+
+                            <!--Last name input-->
+                            <div class="form-control">
+                                <label>Last Name</label>
+                                <input type="text" name="txt-lname" id="lastName"/>
+                                <div id="lastNameError" class="error-message"></div>
+                            </div>
+
+                            <!--Email address input-->
+                            <div class="form-control">
+                                <label>Email </label>
+                            </div>
+                        </div>
+
+                    </form>
+                </section>
+
+            </div>
+        </div>
+    </body>
+</html>
