@@ -255,18 +255,7 @@ section {
   text-transform: capitalize;
 }
 
-/* Logout button styling */
-#logoutButton {
-  margin-left: 1rem;
-  outline: none;
-  border: none;
-  padding: 1rem 2rem;
-  font-size: var(--font-size-medium);
-  background-color: var(--primary-color);
-  color: var(--white-color);
-  border-radius: 0.5rem;
-  cursor: pointer;
-}
+
 
 /* Corner logo image styling */
 .corner-image {
