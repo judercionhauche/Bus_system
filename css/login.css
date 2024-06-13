@@ -175,11 +175,6 @@ section {
   border-left: 0.1rem solid var(--border-color);
 }
 
-/* Password toggle icon styling */
-.row .form .form-group .form-control span i {
-  font-size: var(--font-size-medium);
-  color: var(--primary-color);
-}
 
 /* Button styling */
 .row .form .form-group button {
