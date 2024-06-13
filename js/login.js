@@ -73,27 +73,4 @@ function hideError(field) {
     inputElement.classList.remove("error-input");
 }
 
-// Wait for the DOM to be fully loaded before executing the script
-document.addEventListener("DOMContentLoaded", function () {
-    // Retrieve the userEmail from localStorage
-    const userEmail = localStorage.getItem("userEmail");
-  
-    // Select the "sign-in" button element
-    const signInBtn = document.querySelector('.btn[data-btn="sign-in"]');
-  
-    // Select the element containing the buttons
-    const bottomDiv = document.querySelector(".bottom");
-  
-    // Check if the userEmail exists in localStorage
-    if (userEmail) {
-      // If userEmail exists, remove the "sign-in" button from the DOM
-      bottomDiv.removeChild(signInBtn);
-    }
-});
-  
-// Function to get the active form section
-function getActiveFormSection() {
-return document.querySelector(".form.active");
-}
-
-
+document.addEventListener("DOMContentLoaded", setupFormToggle);
