@@ -44,33 +44,5 @@ function setupFormToggle() {
     });
   }
 
-  // Function to validate a non-empty field
-function validateNonEmptyField(fieldName, displayName) {
-    const value = document.getElementById(fieldName).value.trim();
-    if (value === "") {
-      showError(fieldName, `${displayName} cannot be empty`);
-    } else {
-      hideError(fieldName);
-    }
-  }
-
-  // Function to show error messages
-function showError(field, message) {
-    const errorElement = document.getElementById(`${field}Error`);
-    errorElement.innerHTML = message;
-    errorElement.style.display = "block";
-  
-    const inputElement = document.getElementById(field);
-    inputElement.classList.add("error-input");
-}
-
-  // Function to hide error messages
-function hideError(field) {
-    const errorElement = document.getElementById(`${field}Error`);
-    errorElement.style.display = "none";
-  
-    const inputElement = document.getElementById(field);
-    inputElement.classList.remove("error-input");
-}
 
 document.addEventListener("DOMContentLoaded", setupFormToggle);
