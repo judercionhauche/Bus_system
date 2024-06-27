@@ -28,7 +28,10 @@
 
 			
 				<div class="inner">
-					<section>
+					<section style="height: 70vw;
+									padding: 15%;
+									padding-top: 0px;
+									padding-bottom: 0px">									
 						<form method="post" action="#">
 							<div class="fields">
 								<div class="field half">
@@ -49,6 +52,10 @@
 									<input type="text" name="field-2" id="field-2" placeholder="Name">
 								</div>
 
+								<div class="field full">
+									<input type="text" name="field-2" id="field-2" placeholder="Staff ID">
+								</div>
+
 								<div class="field half">
 									<input type="text" name="field-3" id="field-3" placeholder="Email">
 								</div>
@@ -57,37 +64,43 @@
 									<input type="text" name="field-4" id="field-4" placeholder="Phone">
 								</div>
 
-								<div class="field half">
-									<input type="text" name="field-5" id="field-5" placeholder="Address 1">
-								</div>
-
-								<div class="field half">
-									<input type="text" name="field-6" id="field-6" placeholder="Address 2">
-								</div>
-
-								<div class="field half">
-									<input type="text" name="field-7" id="field-7" placeholder="City">
-								</div>
-
-								<div class="field half">
-									<input type="text" name="field-8" id="field-8" placeholder="State">
-								</div>
-
-								<div class="field half">
-									<input type="text" name="field-7" id="field-7" placeholder="Zip">
+								<div class="field full">
+									<input type="text" name="field-2" id="field-2" placeholder="Departure Time">
 								</div>
 
 								<div class="field half">
 									<select>
-										<option value="">-- Choose Country--</option>
-										<option value="">-- Choose Country --</option>
-										<option value="">-- Choose Country --</option>
-										<option value="">-- Choose Country --</option>
+										<option value="">-- Choose Pickup Location--</option>
+										<option value="dr"> Town 1</option>
+										<option value="miss"> Town 2</option>
+										<option value="mr"> Town 3</option>
+										<option value="mrs"> Town 4</option>
+										<option value="ms"> Town 5</option>
+										<option value="other">Town 6</option>
+										<option value="prof">Town 7</option>
+										<option value="rev">Town 8</option>
 									</select>
 								</div>
 
 								<div class="field half">
+								<select>
+										<option value="">-- Choose Dropoff Location--</option>
+										<option value="dr"> Town 1</option>
+										<option value="miss"> Town 2</option>
+										<option value="mr"> Town 3</option>
+										<option value="mrs"> Town 4</option>
+										<option value="ms"> Town 5</option>
+										<option value="other">Town 6</option>
+										<option value="prof">Town 7</option>
+										<option value="rev">Town 8</option>
+									</select>
+								</div>
 
+								<div class="field full">
+									<input type="text" name="field-2" id="field-2" placeholder="Number of Seats">
+								</div>
+
+								<div class="field full">
 									<select>
 										<option value="">-- Choose Payment Method--</option>
 										<option value="">-- Choose Payment Method--</option>
@@ -96,11 +109,7 @@
 									</select>
 								</div>
 
-								<div class="field half">
-									<input type="text" name="field-9" id="field-9" placeholder="Captcha">
-								</div>
-
-								<div class="field">
+								<div class="field" style="padding-left: 35%">
 									<div>
 										<input type="checkbox" id="checkbox-4"> 
 										
@@ -111,9 +120,9 @@
 								</div>
 
 
-								<div class="field half text-right">
+								<div class="field half text-right" style="padding-left: 45%;">
 									<ul class="actions">
-										<li><input type="submit" value="Finish" class="primary"></li>
+										<li><input type="submit" value="Submit" class="primary"></li>
 									</ul>
 								</div>
 							</div>
