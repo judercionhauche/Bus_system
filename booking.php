@@ -23,11 +23,9 @@
 				
 
 				<!-- Main -->
-				<div id="main">
+				<div id="main" style="padding-bottom: 0px;">
 					<div class="inner">
-						<h1 style="align-: center;
-  								justify-content: center">
-								Book Your Seat</h1>
+						<h1 style="text-align: center; font-size: 30px;">Book Your Seat</h1>
 					</div>
 				</div>
 
