@@ -122,7 +122,7 @@
 
 								<div class="field half text-right" style="padding-left: 45%;">
 									<ul class="actions">
-										<li><input type="submit" value="Submit" class="primary"></li>
+										<li><input type="submit" value="Submit" class="primary" style="background-color: #9E4244;"></li>
 									</ul>
 								</div>
 							</div>
