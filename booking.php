@@ -25,22 +25,21 @@
 				<!-- Main -->
 				<div id="main">
 					<div class="inner">
-						<h1>Book Your Seat</h1>
+						<h1 style="align-: center;
+  								justify-content: center">
+								Book Your Seat</h1>
 					</div>
 				</div>
 
-			
 				<div class="inner" style="
-									padding: 15%;
-									padding-top: 0px;
+									padding: 5%;
 									padding-bottom: 0px;
 									background-color: #f9f9f9;border-color: #ccc;
 									max-width: 1280px;
 									width: 100%;
 									box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1); 
 									border-radius: 12px;">
-									
-													
+																
 					<form method="post" action="#">
 						<div class="fields">
 							<div class="field half">
