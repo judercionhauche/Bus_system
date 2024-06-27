@@ -8,7 +8,10 @@
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 	</head>
-	<body class="is-preload">
+	<body class="is-preload" style="display: flex;
+  								align-items: center;
+  								justify-content: center;
+								min-height: 100vh;">
 		<!-- Wrapper -->
 			<div id="wrapper">
 
@@ -20,115 +23,119 @@
 				
 
 				<!-- Main -->
-					<div id="main">
-						<div class="inner">
-							<h1>Book Your Seat</h1>
-						</div>
+				<div id="main">
+					<div class="inner">
+						<h1>Book Your Seat</h1>
 					</div>
+				</div>
 
 			
-				<div class="inner">
-					<section style="height: 70vw;
+				<div class="inner" style="
 									padding: 15%;
 									padding-top: 0px;
-									padding-bottom: 0px">									
-						<form method="post" action="#">
-							<div class="fields">
-								<div class="field half">
-									<select>
-										<option value="">-- Choose Title--</option>
-										<option value="dr">Dr.</option>
-										<option value="miss">Miss</option>
-										<option value="mr">Mr.</option>
-										<option value="mrs">Mrs.</option>
-										<option value="ms">Ms.</option>
-										<option value="other">Other</option>
-										<option value="prof">Prof.</option>
-										<option value="rev">Rev.</option>
-									</select>
-								</div>
-
-								<div class="field half">
-									<input type="text" name="field-2" id="field-2" placeholder="Name">
-								</div>
-
-								<div class="field full">
-									<input type="text" name="field-2" id="field-2" placeholder="Staff ID">
-								</div>
-
-								<div class="field half">
-									<input type="text" name="field-3" id="field-3" placeholder="Email">
-								</div>
-
-								<div class="field half">
-									<input type="text" name="field-4" id="field-4" placeholder="Phone">
-								</div>
-
-								<div class="field full">
-									<input type="text" name="field-2" id="field-2" placeholder="Departure Time">
-								</div>
-
-								<div class="field half">
-									<select>
-										<option value="">-- Choose Pickup Location--</option>
-										<option value="dr"> Town 1</option>
-										<option value="miss"> Town 2</option>
-										<option value="mr"> Town 3</option>
-										<option value="mrs"> Town 4</option>
-										<option value="ms"> Town 5</option>
-										<option value="other">Town 6</option>
-										<option value="prof">Town 7</option>
-										<option value="rev">Town 8</option>
-									</select>
-								</div>
-
-								<div class="field half">
+									padding-bottom: 0px;
+									background-color: #f9f9f9;border-color: #ccc;
+									max-width: 1280px;
+									width: 100%;
+									box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1); 
+									border-radius: 12px;">
+									
+													
+					<form method="post" action="#">
+						<div class="fields">
+							<div class="field half">
 								<select>
-										<option value="">-- Choose Dropoff Location--</option>
-										<option value="dr"> Town 1</option>
-										<option value="miss"> Town 2</option>
-										<option value="mr"> Town 3</option>
-										<option value="mrs"> Town 4</option>
-										<option value="ms"> Town 5</option>
-										<option value="other">Town 6</option>
-										<option value="prof">Town 7</option>
-										<option value="rev">Town 8</option>
-									</select>
-								</div>
+									<option value="">-- Choose Title--</option>
+									<option value="dr">Dr.</option>
+									<option value="miss">Miss</option>
+									<option value="mr">Mr.</option>
+									<option value="mrs">Mrs.</option>
+									<option value="ms">Ms.</option>
+									<option value="other">Other</option>
+									<option value="prof">Prof.</option>
+									<option value="rev">Rev.</option>
+								</select>
+							</div>
 
-								<div class="field full">
-									<input type="text" name="field-2" id="field-2" placeholder="Number of Seats">
-								</div>
+							<div class="field half">
+								<input type="text" name="field-2" id="field-2" placeholder="Name">
+							</div>
 
-								<div class="field full">
-									<select>
-										<option value="">-- Choose Payment Method--</option>
-										<option value="">-- Choose Payment Method--</option>
-										<option value="">-- Choose Payment Method--</option>
-										<option value="">-- Choose Payment Method--</option>
-									</select>
-								</div>
+							<div class="field full">
+								<input type="text" name="field-2" id="field-2" placeholder="Staff ID">
+							</div>
 
-								<div class="field" style="padding-left: 35%">
-									<div>
-										<input type="checkbox" id="checkbox-4"> 
-										
-										<label for="checkbox-4">
-											I agree with the <a href="terms.html" target="_blank">Terms &amp; Conditions</a>
-										</label>
-									</div>
-								</div>
+							<div class="field half">
+								<input type="text" name="field-3" id="field-3" placeholder="Email">
+							</div>
 
+							<div class="field half">
+								<input type="text" name="field-4" id="field-4" placeholder="Phone">
+							</div>
 
-								<div class="field half text-right" style="padding-left: 45%;">
-									<ul class="actions">
-										<li><input type="submit" value="Submit" class="primary" style="background-color: #9E4244;"></li>
-									</ul>
+							<div class="field full">
+								<input type="text" name="field-2" id="field-2" placeholder="Departure Time">
+							</div>
+
+							<div class="field half">
+								<select>
+									<option value="">-- Choose Pickup Location--</option>
+									<option value="dr"> Town 1</option>
+									<option value="miss"> Town 2</option>
+									<option value="mr"> Town 3</option>
+									<option value="mrs"> Town 4</option>
+									<option value="ms"> Town 5</option>
+									<option value="other">Town 6</option>
+									<option value="prof">Town 7</option>
+									<option value="rev">Town 8</option>
+								</select>
+							</div>
+
+							<div class="field half">
+							<select>
+									<option value="">-- Choose Dropoff Location--</option>
+									<option value="dr"> Town 1</option>
+									<option value="miss"> Town 2</option>
+									<option value="mr"> Town 3</option>
+									<option value="mrs"> Town 4</option>
+									<option value="ms"> Town 5</option>
+									<option value="other">Town 6</option>
+									<option value="prof">Town 7</option>
+									<option value="rev">Town 8</option>
+								</select>
+							</div>
+
+							<div class="field full">
+								<input type="text" name="field-2" id="field-2" placeholder="Number of Seats">
+							</div>
+
+							<div class="field full">
+								<select>
+									<option value="">-- Choose Payment Method--</option>
+									<option value="">-- Choose Payment Method--</option>
+									<option value="">-- Choose Payment Method--</option>
+									<option value="">-- Choose Payment Method--</option>
+								</select>
+							</div>
+
+							<div class="field" style="padding-left: 35%">
+								<div>
+									<input type="checkbox" id="checkbox-4"> 
+									
+									<label for="checkbox-4">
+										I agree with the <a href="terms.html" target="_blank">Terms &amp; Conditions</a>
+									</label>
 								</div>
 							</div>
-						</form>
-					</section>
-					<?php include "footer.html"?>		
+
+
+							<div class="field half text-right" style="padding-left: 45%;">
+								<ul class="actions">
+									<li><input type="submit" value="Submit" class="primary" style="background-color: #9E4244;"></li>
+								</ul>
+							</div>
+						</div>
+					</form>
 			</div>
 
 		<!-- Scripts -->
@@ -138,4 +145,5 @@
 			<script src="assets/js/jquery.scrollex.min.js"></script>
 			<script src="assets/js/main.js"></script>
 	</body>
+	<?php include "footer.html"?>
 </html>							
