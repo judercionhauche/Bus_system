@@ -22,130 +22,104 @@
 				<!-- Main -->
 					<div id="main">
 						<div class="inner">
-							<h1>Checkout</h1>
+							<h1>Book Your Seat</h1>
 						</div>
 					</div>
 
-				<!-- Footer -->
-					<footer id="footer">
-						<div class="inner">
-							<section>
-								<form method="post" action="#">
-									<div class="fields">
-										<div class="field half">
-											<select>
-		                                       <option value="">-- Choose Title--</option>
-		                                       <option value="dr">Dr.</option>
-		                                       <option value="miss">Miss</option>
-		                                       <option value="mr">Mr.</option>
-		                                       <option value="mrs">Mrs.</option>
-		                                       <option value="ms">Ms.</option>
-		                                       <option value="other">Other</option>
-		                                       <option value="prof">Prof.</option>
-		                                       <option value="rev">Rev.</option>
-											</select>
-										</div>
+			
+				<div class="inner">
+					<section>
+						<form method="post" action="#">
+							<div class="fields">
+								<div class="field half">
+									<select>
+										<option value="">-- Choose Title--</option>
+										<option value="dr">Dr.</option>
+										<option value="miss">Miss</option>
+										<option value="mr">Mr.</option>
+										<option value="mrs">Mrs.</option>
+										<option value="ms">Ms.</option>
+										<option value="other">Other</option>
+										<option value="prof">Prof.</option>
+										<option value="rev">Rev.</option>
+									</select>
+								</div>
 
-										<div class="field half">
-											<input type="text" name="field-2" id="field-2" placeholder="Name">
-										</div>
+								<div class="field half">
+									<input type="text" name="field-2" id="field-2" placeholder="Name">
+								</div>
 
-										<div class="field half">
-											<input type="text" name="field-3" id="field-3" placeholder="Email">
-										</div>
+								<div class="field half">
+									<input type="text" name="field-3" id="field-3" placeholder="Email">
+								</div>
 
-										<div class="field half">
-											<input type="text" name="field-4" id="field-4" placeholder="Phone">
-										</div>
+								<div class="field half">
+									<input type="text" name="field-4" id="field-4" placeholder="Phone">
+								</div>
 
-										<div class="field half">
-											<input type="text" name="field-5" id="field-5" placeholder="Address 1">
-										</div>
+								<div class="field half">
+									<input type="text" name="field-5" id="field-5" placeholder="Address 1">
+								</div>
 
-										<div class="field half">
-											<input type="text" name="field-6" id="field-6" placeholder="Address 2">
-										</div>
+								<div class="field half">
+									<input type="text" name="field-6" id="field-6" placeholder="Address 2">
+								</div>
 
-										<div class="field half">
-											<input type="text" name="field-7" id="field-7" placeholder="City">
-										</div>
+								<div class="field half">
+									<input type="text" name="field-7" id="field-7" placeholder="City">
+								</div>
 
-										<div class="field half">
-											<input type="text" name="field-8" id="field-8" placeholder="State">
-										</div>
+								<div class="field half">
+									<input type="text" name="field-8" id="field-8" placeholder="State">
+								</div>
 
-										<div class="field half">
-											<input type="text" name="field-7" id="field-7" placeholder="Zip">
-										</div>
+								<div class="field half">
+									<input type="text" name="field-7" id="field-7" placeholder="Zip">
+								</div>
 
-										<div class="field half">
-											<select>
-		                                       <option value="">-- Choose Country--</option>
-		                                       <option value="">-- Choose Country --</option>
-		                                       <option value="">-- Choose Country --</option>
-		                                       <option value="">-- Choose Country --</option>
-											</select>
-										</div>
+								<div class="field half">
+									<select>
+										<option value="">-- Choose Country--</option>
+										<option value="">-- Choose Country --</option>
+										<option value="">-- Choose Country --</option>
+										<option value="">-- Choose Country --</option>
+									</select>
+								</div>
 
-										<div class="field half">
+								<div class="field half">
 
-											<select>
-		                                       <option value="">-- Choose Payment Method--</option>
-		                                       <option value="">-- Choose Payment Method--</option>
-		                                       <option value="">-- Choose Payment Method--</option>
-		                                       <option value="">-- Choose Payment Method--</option>
-											</select>
-										</div>
+									<select>
+										<option value="">-- Choose Payment Method--</option>
+										<option value="">-- Choose Payment Method--</option>
+										<option value="">-- Choose Payment Method--</option>
+										<option value="">-- Choose Payment Method--</option>
+									</select>
+								</div>
 
-										<div class="field half">
-											<input type="text" name="field-9" id="field-9" placeholder="Captcha">
-										</div>
+								<div class="field half">
+									<input type="text" name="field-9" id="field-9" placeholder="Captcha">
+								</div>
 
-										<div class="field">
-					                        <div>
-												<input type="checkbox" id="checkbox-4"> 
-												
-												<label for="checkbox-4">
-					                            	I agree with the <a href="terms.html" target="_blank">Terms &amp; Conditions</a>
-					                        	</label>
-											</div>
-										</div>
-
-
-										<div class="field half text-right">
-											<ul class="actions">
-												<li><input type="submit" value="Finish" class="primary"></li>
-											</ul>
-										</div>
+								<div class="field">
+									<div>
+										<input type="checkbox" id="checkbox-4"> 
+										
+										<label for="checkbox-4">
+											I agree with the <a href="terms.html" target="_blank">Terms &amp; Conditions</a>
+										</label>
 									</div>
-								</form>
-							</section>
-							<section>
-								<h2>Contact Info</h2>
+								</div>
 
-								<ul class="alt">
-									<li><span class="fa fa-envelope-o"></span> <a href="#">contact@company.com</a></li>
-									<li><span class="fa fa-phone"></span> +1 333 4040 5566 </li>
-									<li><span class="fa fa-map-pin"></span> 212 Barrington Court New York, ABC 10001 United States of America</li>
-								</ul>
 
-								<h2>Follow Us</h2>
-
-								<ul class="icons">
-									<li><a href="#" class="icon style2 fa-twitter"><span class="label">Twitter</span></a></li>
-									<li><a href="#" class="icon style2 fa-facebook"><span class="label">Facebook</span></a></li>
-									<li><a href="#" class="icon style2 fa-instagram"><span class="label">Instagram</span></a></li>
-									<li><a href="#" class="icon style2 fa-linkedin"><span class="label">LinkedIn</span></a></li>
-								</ul>
-							</section>
-
-							<ul class="copyright">
-								<li>Copyright © 2020 Company Name </li>
-								<li>Template by: <a href="https://www.phpjabbers.com/">PHPJabbers.com</a></li>
-							</ul>
-						</div>
-					</footer>
-
+								<div class="field half text-right">
+									<ul class="actions">
+										<li><input type="submit" value="Finish" class="primary"></li>
+									</ul>
+								</div>
+							</div>
+						</form>
+					</section>
+					<?php include "footer.html"?>		
 			</div>
 
 		<!-- Scripts -->

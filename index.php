@@ -12,10 +12,10 @@
 		<!-- Wrapper -->
 			<div id="wrapper">
 
-					<?php 
-					include "header.html";
-					include "menu.html";
-					?>
+				<?php 
+				include "header.html";
+				include "menu.html";
+				?>
 
 				<!-- Main -->
 					<div id="main">
