@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>PHPJabbers.com | Free Book Online Store Website Template</title>
+		<title>ASHESI BUS SYSTEM</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css" />
@@ -128,7 +128,7 @@
 
 							<div class="field half text-right" style="padding-left: 45%;">
 								<ul class="actions">
-									<li><input type="submit" value="Submit" class="primary" style="background-color: #9E4244;"></li>
+									<li> <a href='payment.php'><input type="submit" value="Proceed to Payment" class="primary" style="background-color: #9E4244;"></a></li>
 								</ul>
 							</div>
 						</div>
