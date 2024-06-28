@@ -11,7 +11,8 @@
 	<body class="is-preload" style="display: flex;
   								align-items: center;
   								justify-content: center;
-								min-height: 100vh;">
+								min-height: 100vh;
+								padding-top: 0px;">
 		<!-- Wrapper -->
 			<div id="wrapper">
 
@@ -126,9 +127,11 @@
 							</div>
 
 
-							<div class="field half text-right" style="padding-left: 45%;">
+							<div class="field half text-right" 		style="padding-left: 45%;">
 								<ul class="actions">
-									<li> <a href='payment.php'><input type="submit" value="Proceed to Payment" class="primary" style="background-color: #9E4244;"></a></li>
+									<li><a href="payment.php">
+										<input type="submit" value="Proceed to Payment"  class="primary" style="background-color: #9E4244;"/></a>
+									</li>
 								</ul>
 							</div>
 						</div>
