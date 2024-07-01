@@ -10,7 +10,7 @@
 	</head>
 	<body class="is-preload" >
 		<!-- Wrapper -->
-		<div id="wrapper" style="padding:1%">
+		<div id="wrapper">
 
 			<!-- Header and Menu-->
 			<?php 
@@ -133,7 +133,7 @@
 				</form>		
 			</div>
 
-			<footer>
+			<footer style="padding-bottom:0%; margin-bottom:0%;">
 				<?php include "footer.html"?>
 			</footer>
 		</div>	

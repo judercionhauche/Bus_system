@@ -10,56 +10,56 @@
 	</head>
 	<body class="is-preload" >
 		<!-- Wrapper -->
-			<div id="wrapper">
+		<div id="wrapper">
 
-				<!-- Header and Menu-->
-				<?php 
-				include "header.html";
-				include "menu.html";
-				?>
-		
-				<!-- Main -->
-					<div id="main">
-						<div class="inner">
-							<h1>Bus Schedule</h1>
+			<!-- Header and Menu-->
+			<?php 
+			include "header.html";
+			include "menu.html";
+			?>
+	
+			<!-- Main -->
+			<div id="main">
+				<div class="inner">
+					<h1>Bus Schedule</h1>
 
-							<!-- Bus Schedule Table -->
-							<section>
-								<table class="table table-bordered">
-									<thead>
-										<tr>
-											<th>Departure Time</th>
-											<th> Bus </th>
-											<th>Route</th>
-											<th>Available Seats</th>
-											<th>Assigned Driver</th>
-										</tr>
-									</thead>
-									<tbody>
-										<tr>
-											<td> </td>
-											<td> </td>
-											<td> </td>
-											<td> </td>
-											<td> </td>
-										</tr>
-										<tr>
-											<td> </td>
-											<td> </td>
-											<td> </td>
-											<td> </td>
-											<td> </td>
-										</tr>	
-									</tbody>
-								</table>
-							</section>
-						</div>
-					</div>
-					
-					<footer>
-						<?php include "footer.html"?>
-					</footer>
+					<!-- Bus Schedule Table -->
+					<section>
+						<table class="table table-bordered">
+							<thead>
+								<tr>
+									<th>Departure Time</th>
+									<th> Bus </th>
+									<th>Route</th>
+									<th>Available Seats</th>
+									<th>Assigned Driver</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td> </td>
+									<td> </td>
+									<td> </td>
+									<td> </td>
+									<td> </td>
+								</tr>
+								<tr>
+									<td> </td>
+									<td> </td>
+									<td> </td>
+									<td> </td>
+									<td> </td>
+								</tr>	
+							</tbody>
+						</table>
+					</section>
 				</div>
+			</div>
+				
+			<footer style="padding-bottom:0%; margin-bottom:0%;">
+				<?php include "footer.html"?>
+			</footer>
+		</div>
 						
 
 		<!-- Scripts -->
