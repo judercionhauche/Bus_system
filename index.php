@@ -95,7 +95,9 @@
 							<p class="text-center"><a href="products.html">More Buses &nbsp;<i class="fa fa-long-arrow-right"></i></a></p>
 							<br>
 
-				<?php include "footer.html";?>
+					<footer>
+						<?php include "footer.html"?>
+					</footer>
 			</div>
 
 		<!-- Scripts -->
