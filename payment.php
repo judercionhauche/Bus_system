@@ -8,11 +8,7 @@
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 	</head>
-	<body class="is-preload" style="
-  								align-items: center;
-  								justify-content: center;
-								min-height: 100vh;
-								padding-top: 0px;">
+	<body class="is-preload">
 		<!-- Wrapper -->
 			<div id="wrapper">
 
