@@ -101,7 +101,7 @@
 			<script src="assets/js/jquery.scrollex.min.js"></script>
 			<script src="assets/js/main.js"></script>
 			
-			<!-- Apply Filters-->
+			<!-- Applying Filters-->
 			<script>
 				function applyFilters() {
 					var date = document.getElementById('filter-date').value;
