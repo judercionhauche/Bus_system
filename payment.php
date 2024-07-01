@@ -8,53 +8,19 @@
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 	</head>
-	<body class="is-preload">
+	<body class="is-preload" style="
+  								align-items: center;
+  								justify-content: center;
+								min-height: 100vh;
+								padding-top: 0px;">
 		<!-- Wrapper -->
 			<div id="wrapper">
 
-				<!-- Header -->
-				<header id="header">
-					<div class="inner">
-
-						<!-- Logo -->
-							<a href="index.html" class="logo">
-									<span class="fa fa-book"></span> <span class="title">Book Online Store Website</span>
-								</a>
-
-						<!-- Nav -->
-							<nav>
-								<ul>
-									<li><a href="#menu">Menu</a></li>
-								</ul>
-							</nav>
-
-					</div>
-				</header>
-
-			<!-- Menu -->
-				<nav id="menu">
-					<h2>Menu</h2>
-					<ul>
-						<li><a href="index.html" >Home</a></li>
-
-						<li><a href="products.html">Products</a></li>
-
-						<li><a href="checkout.html">Checkout</a></li>
-
-						<li>
-							<a href="#" class="dropdown-toggle">About</a>
-
-							<ul>
-								<li><a href="about.html">About Us</a></li>
-								<li><a href="blog.html">Blog</a></li>
-								<li><a href="testimonials.html">Testimonials</a></li>
-								<li><a href="terms.html"class="active">Terms</a></li>
-							</ul>
-						</li>
-
-						<li><a href="contact.html">Contact Us</a></li>
-					</ul>
-				</nav>
+				<!-- Header and Menu-->
+				<?php 
+					include 'header.html';
+					include 'menu.html'
+				?>
 
 				<!-- Main -->
 					<div id="main">
@@ -81,30 +47,8 @@
 							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dapibus rutrum facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam tristique libero eu nibh porttitor fermentum. Nullam venenatis erat id vehicula viverra. Nunc ultrices eros ut ultricies condimentum. Mauris risus lacus, blandit sit amet venenatis non, bibendum vitae dolor. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In non lorem sit amet elit placerat maximus. Pellentesque aliquam maximus risus, vel venenatis mauris vehicula hendrerit.</p>
 						</div>
 					</div>
-
-				<!-- Footer -->
-					<footer id="footer">
-						<div class="inner">
-							<section>
-								<ul class="icons">
-									<li><a href="#" class="icon style2 fa-twitter"><span class="label">Twitter</span></a></li>
-									<li><a href="#" class="icon style2 fa-facebook"><span class="label">Facebook</span></a></li>
-									<li><a href="#" class="icon style2 fa-instagram"><span class="label">Instagram</span></a></li>
-									<li><a href="#" class="icon style2 fa-linkedin"><span class="label">LinkedIn</span></a></li>
-								</ul>
-
-								&nbsp;
-							</section>
-
-							<ul class="copyright">
-								<li>Copyright © 2020 Company Name </li>
-								<li>Template by: <a href="https://www.phpjabbers.com/">PHPJabbers.com</a></li>
-							</ul>
-						</div>
-					</footer>
-
 			</div>
-
+			
 		<!-- Scripts -->
 			<script src="assets/js/jquery.min.js"></script>
 			<script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -112,4 +56,5 @@
 			<script src="assets/js/jquery.scrollex.min.js"></script>
 			<script src="assets/js/main.js"></script>
 	</body>
+	<?php include 'footer.html'?>
 </html>
