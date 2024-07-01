@@ -24,7 +24,7 @@
 				<div class="inner">
 					<h1 style="text-align: center; font-size: 30px;">Book Your Seat</h1>
 				</div>
-			</div>
+			
 
 			<div class="inner" style="
 								background-color: #f9f9f9;border-color: #ccc;
@@ -34,7 +34,7 @@
 								margin:10%;
 								margin-top:0px">
 															
-				<form method="post" action="#">
+				<form method="post" action="payment.php">
 					<div class="fields">
 						<div class="field half">
 							<select>
@@ -124,18 +124,17 @@
 
 						<div class="field half text-right" 		style="padding-left: 45%;">
 							<ul class="actions">
-								<li><a href="payment.php">
-									<input type="submit" value="Proceed to Payment"  class="primary" style="background-color: #9E4244;"/></a>
+								<li>								<input type="submit" value="Proceed to Payment"  class="primary" style="background-color: #9E4244;"/>
 								</li>
 							</ul>
 						</div>
 					</div>
 				</form>		
 			</div>
+			</div>
 
-			<footer style="padding-bottom:0%; margin-bottom:0%;">
-				<?php include "footer.html"?>
-			</footer>
+			<!-- Footer -->
+			<?php include 'footer.html'?>
 		</div>	
 
 		<!-- Scripts -->

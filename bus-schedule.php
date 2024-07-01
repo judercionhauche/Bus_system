@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>PHPJabbers.com | Free Book Online Store Website Template</title>
+	  	<title>ASHESI BUS SYSTEM</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css" />
@@ -56,9 +56,8 @@
 				</div>
 			</div>
 				
-			<footer style="padding-bottom:0%; margin-bottom:0%;">
-				<?php include "footer.html"?>
-			</footer>
+			<!-- Footer -->
+			<?php include 'footer.html'?>
 		</div>
 						
 
