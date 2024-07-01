@@ -21,7 +21,7 @@
 				<!-- Main -->
 				<div id="main">
 					<div class="inner">
-						<h1>Blog</h1>
+						<h1> Booking Details</h1>
 
 
 						<div class="container">
@@ -36,7 +36,7 @@
                                     <p><strong>Time:</strong>  </p>
                                     <p><strong>Route:</strong> </p>
                                     <p><strong>Bus Number:</strong> </p>
-                                    <p><strong>Driver's Name:</strong> </p>
+                                    <p><strong>Driver:</strong> </p>
                                     
                                     <button onclick="window.print()">Print Details</button>
                                     <button onclick="saveBookingDetails()">Save Details</button>
