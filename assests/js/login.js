@@ -36,6 +36,7 @@ function setupFormToggle() {
         activateSection(targetSection);
     }
 
+
     // Add a click event listener to each button and call the "handleClick" function when a button is clicked
     buttons.forEach((button) => {
         button.addEventListener("click", handleClick);
@@ -50,5 +51,6 @@ function setupFormToggle() {
         }
     }
 }
+
 
 document.addEventListener("DOMContentLoaded", setupFormToggle);

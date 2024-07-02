@@ -147,3 +147,4 @@ define("APPURL", "http://localhost/bus_system/");
 <script src="<?php echo APPURL; ?>assests/js/login.js"></script>
 </body>
 </html>
+

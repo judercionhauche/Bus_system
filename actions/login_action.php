@@ -13,6 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Collect form data and store in variables
     $email = $_POST['email'];
     $password = $_POST['password']; // Test Password: Test2024! 
+
   
     // Write a query to select a record from the users table using email
     $sql = "SELECT * FROM users WHERE email = '$email'";
@@ -32,6 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // If login is successful, redirect to the bus-schedule.php page
             header("Location: ".APPURL."bus-schedule.php");
             exit(); // Ensure no further processing happens after redirection
+
         } else {
             // If verification fails, provide the response
             echo "<script>alert('Incorrect email or password');</script>";
