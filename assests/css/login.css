@@ -147,6 +147,15 @@ section {
   text-transform: capitalize;
 }
 
+/* Select field styling */
+.row .form .form-group .form-control select {
+  padding: 1rem 1.5rem;
+  border-radius: 0.8rem;
+  outline: none;
+  border: 0.2rem solid var(--border-color);
+}
+
+
 /* Input field styling */
 .row .form .form-group .form-control input {
   padding: 1rem 1.5rem;
