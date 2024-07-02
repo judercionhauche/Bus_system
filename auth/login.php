@@ -19,7 +19,7 @@
                     <h2>Sign up</h2>
 
                     <!--Register form-->
-                    <form id="Register">
+                    <form id="Register" method="POST" action="../actions/signup_action.php">
 
                         <div class="form-group">
 
@@ -104,7 +104,7 @@
 					<h2>sign in</h2>
 
 					<!-- Login form -->
-					<form id="login">
+					<form id="login" method="POST" action="../actions/login_action.php">
 						<div class="form-group">
 
 							<!-- Email address input -->
