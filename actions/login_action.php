@@ -1,21 +1,18 @@
 <?php
 require '../config/connection.php';
 
+
 // Define APPURL
 define("APPURL", "http://localhost/bus_system/");
 
-
-
-// Checks if user is already logged in
-if(isset($_SESSION['name'])){
-    header("Location: ".APPURL."");
-}
+// Start the session
+session_start();
 
 // Check if login button was clicked
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Collect form data and store in variables
     $email = $_POST['email'];
-    $password = $_POST['password'];
+    $password = $_POST['password']; // Test Password: Test2024! 
   
     // Write a query to select a record from the users table using email
     $sql = "SELECT * FROM users WHERE email = '$email'";
@@ -28,14 +25,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $row = mysqli_fetch_assoc($result);
 
         // Verify the password user provided against database record using the php method password_verify()
-        if (password_verify($password, $row['userpassword'])) {
-            // If verification is successful, store the user details in a session
-            session_start();
-            $_SESSION['user_id'] = $row['id'];
-            $_SESSION['username'] = $row['username'];
+        if (password_verify($password, $row['password'])) {
+            // Set session variables
+            $_SESSION['email'] = $row['email'];
             
-            // If login is successful, redirect to home page
-            header("Location: ".APPURL."");
+            // If login is successful, redirect to the bus-schedule.php page
+            header("Location: ".APPURL."bus-schedule.php");
+            exit(); // Ensure no further processing happens after redirection
         } else {
             // If verification fails, provide the response
             echo "<script>alert('Incorrect email or password');</script>";
@@ -46,7 +42,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "<script>alert('User not registered: Email not found');</script>";
         exit(); // Stop processing
     }
-
-    exit();
 }
 ?>
