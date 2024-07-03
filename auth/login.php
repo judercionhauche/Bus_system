@@ -8,7 +8,7 @@ define("APPURL", "http://localhost/bus_system/");
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
     <!--Link to external CSS stylesheet-->
-    <link rel="stylesheet" href="<?php echo APPURL; ?>assests/css/login.css"/>
+    <link rel="stylesheet" href="<?php echo APPURL; ?>assets/css/login.css"/>
     <title>Login/Register Page</title>
 </head>
 <body>
@@ -144,6 +144,6 @@ define("APPURL", "http://localhost/bus_system/");
 </div>
 
 <!-- JavaScript for toggling between sign in and sign up -->
-<script src="<?php echo APPURL; ?>assests/js/login.js"></script>
+<script src="<?php echo APPURL; ?>assets/js/login.js"></script>
 </body>
 </html>
