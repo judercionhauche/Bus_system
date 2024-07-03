@@ -14,8 +14,8 @@
 
 			<!-- Header and Menu-->
 			<?php 
-				include 'header.html';
-				include 'menu.html'
+				include 'header.php';
+				include 'menu.php'
 			?>
 
 			<!-- Main -->
@@ -45,7 +45,7 @@
 			</div>
 			
 			<!-- footer-->
-			<?php include "footer.html"?>
+			<?php include "footer.php"?>
 			
 		</div>
 			
