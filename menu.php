@@ -8,5 +8,6 @@
         <li><a href="trips.php"> Trips</a></li>
         <li><a href="about.html">About Us</a></li>
         <li><a href="contact.html">Contact Us</a></li>
+        <li><a href="auth/login.php">Sign out</a></li>
     </ul>
 </nav>
