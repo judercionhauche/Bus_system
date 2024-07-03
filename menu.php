@@ -1,9 +1,11 @@
 <!-- Menu -->
+<?php
+    define("APPURL","http://localhost/bus_system/")?>
 <nav id="menu">
     <h2>Menu</h2>
     <ul>
         <li><a href="index.php" class="active">Home</a></li>
-        <li><a href="bus-schedule.php">Bus Schedule</a></li>
+        <li><a href="auth/login.php">Sign in</a></li>
         <li><a href="booking.php">Book Ride</a></li>
         <li><a href="trips.php"> Trips</a></li>
         <li><a href="about.html">About Us</a></li>
