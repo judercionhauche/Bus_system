@@ -30,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION['email'] = $row['email'];
             
             // If login is successful, redirect to the bus-schedule.php page
-            header("Location: ".APPURL."bus-schedule.php");
+            header("Location: ".APPURL."index.php");
             exit(); // Ensure no further processing happens after redirection
         } else {
             // If verification fails, provide the response
