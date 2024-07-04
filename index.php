@@ -11,7 +11,6 @@
 	<body class="is-preload">
 		<!-- Wrapper -->
 		<div id="wrapper" >
-
 		<?php 
 		include "header.php";
 		include "menu.php";
@@ -27,13 +26,13 @@
 					</ol>
 					<div class="carousel-inner">
 					<div class="carousel-item active">
-						<img class="d-block w-100" src="images/slider-image-1-1920x700.jpg" alt="First slide">
+						<img class="d-block w-100" src="images/ashesi-admin.jpg" alt="First slide">
 					</div>
 					<div class="carousel-item">
-						<img class="d-block w-100" src="images/slider-image-2-1920x700.jpg" alt="Second slide">
+						<img class="d-block w-100" src="images/ashesi-admin-2.jpg" alt="Second slide">
 					</div>
 					<div class="carousel-item">
-						<img class="d-block w-100" src="images/slider-image-3-1920x700.jpg" alt="Third slide">
+						<img class="d-block w-100" src="images/ashesi-admin-3.jpg" alt="Third slide">
 					</div>
 					</div>
 					<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -62,7 +61,7 @@
 
 					<h2 class="h2">BUSES</h2>
 
-					<!-- Products -->
+					<!-- Buses -->
 					<section class="tiles">
 						<article class="style1">
 							<span class="image">
@@ -92,7 +91,6 @@
 						</article>
 					</section>
 
-					<p class="text-center"><a href="products.html">More Buses &nbsp;<i class="fa fa-long-arrow-right"></i></a></p>
 					<br>
 				</div>
 			</div>
