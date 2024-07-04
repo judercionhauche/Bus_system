@@ -12,6 +12,7 @@
     <!-- Wrapper -->
     <div id="wrapper">
 
+<<<<<<< HEAD
         <!-- Header and Menu-->
         <?php 
             include "header.html";
@@ -47,6 +48,14 @@
                                 <option value="rev">Rev.</option>
                             </select>
                         </div>
+=======
+			<!-- Header and Menu-->
+			<?php 
+				include "header.php";
+				include "menu.php";
+			?>
+			
+>>>>>>> e740e7e928f7a7f28ef73a7ca85e56e7123d3306
 
                         <div class="field half">
                             <input type="text" name="name" id="name" placeholder="Name">
@@ -132,9 +141,47 @@
             </div>
             </div>
 
+<<<<<<< HEAD
             <!-- Footer -->
             <?php include 'footer.html'?>
         </div>    
+=======
+						<div class="field" style="padding-left: 35%">
+							<div>
+								<input type="checkbox" id="checkbox-4"> 
+								
+								<label for="checkbox-4">
+									I agree with the <a href="terms.html" target="_blank">Terms &amp; Conditions</a>
+								</label>
+							</div>
+						</div>
+
+
+						<div class="field half text-right" 		style="padding-left: 45%;">
+							<ul class="actions">
+								<li>								<input type="submit" value="Proceed to Payment"  class="primary" style="background-color: #9E4244;"/>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</form>		
+			</div>
+			</div>
+
+			<!-- Footer -->
+			<?php include 'footer.php'?>
+		</div>	
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/main.js"></script>
+	</body>
+	
+</html>							
+>>>>>>> e740e7e928f7a7f28ef73a7ca85e56e7123d3306
 
         <!-- Scripts -->
             <script src="assets/js/jquery.min.js"></script>
