@@ -83,7 +83,7 @@ define("APPURL", "http://localhost/bus_system/");
                         <div class="form-control">
                             <label for="role-selection">Select Role</label>
                             <select name="role" id="role-selection">
-                                <option value="">--Select Role--</option>
+                                <option value="">-- Select Role --</option>
                                 <option value="staff">Staff</option>
                                 <option value="driver">Driver</option>
                             </select>
