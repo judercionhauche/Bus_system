@@ -1,6 +1,10 @@
 <?php
 include 'config/connection.php';
 
+/**
+ * Process the booking form data and insert it into the database.
+ */
+ 
 // Check if form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Retrieve form data
@@ -14,7 +18,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $dropoff_location = $_POST['dropoff_location'];
     $number_of_seats = $_POST['number_of_seats'];
     $payment_method = $_POST['payment_method'];
-    
 
     // Insert data into the database
     $sql = "INSERT INTO bookings (title, name, staff_id, email, phone, departure_time, pickup_location, dropoff_location, number_of_seats, payment_method)

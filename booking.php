@@ -14,8 +14,8 @@
 
         <!-- Header and Menu-->
         <?php 
-            include "header.html";
-            include "menu.html";
+            include "header.php";
+            include "menu.php";
         ?>
         
         <!-- Main -->
