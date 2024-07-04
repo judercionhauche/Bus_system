@@ -12,7 +12,6 @@
     <!-- Wrapper -->
     <div id="wrapper">
 
-<<<<<<< HEAD
         <!-- Header and Menu-->
         <?php 
             include "header.html";
@@ -48,14 +47,6 @@
                                 <option value="rev">Rev.</option>
                             </select>
                         </div>
-=======
-			<!-- Header and Menu-->
-			<?php 
-				include "header.php";
-				include "menu.php";
-			?>
-			
->>>>>>> e740e7e928f7a7f28ef73a7ca85e56e7123d3306
 
                         <div class="field half">
                             <input type="text" name="name" id="name" placeholder="Name">
