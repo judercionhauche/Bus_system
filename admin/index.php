@@ -5,12 +5,12 @@
     <!-- Required meta tags-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="au theme template">
-    <meta name="author" content="Hau Nguyen">
-    <meta name="keywords" content="au theme template">
+    <meta name="description" content="Bus management system">
+    <meta name="author" content="Ashesi University">
+    <meta name="keywords" content="bus management, logistics, dashboard">
 
     <!-- Title Page-->
-    <title>Dashboard</title>
+    <title>Bus Management Dashboard</title>
 
     <!-- CSS STYLES-->
     <?php include 'styles.html'?>
@@ -36,9 +36,9 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="overview-wrap">
-                                    <h2 class="title-1">overview</h2>
+                                    <h2 class="title-1">Overview</h2>
                                     <button class="au-btn au-btn-icon au-btn--blue">
-                                        <i class="zmdi zmdi-plus"></i>add item</button>
+                                        <i class="zmdi zmdi-plus"></i>Add Bus</button>
                                 </div>
                             </div>
                         </div>
