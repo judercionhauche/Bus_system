@@ -1,16 +1,15 @@
-<!DOCTYPE html>
 <html lang="en">
 
 <head>
     <!-- Required meta tags-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="au theme template">
-    <meta name="author" content="Hau Nguyen">
-    <meta name="keywords" content="au theme template">
+    <meta name="description" content="bus management system">
+    <meta name="author" content="Your Name">
+    <meta name="keywords" content="bus management, logistics, dashboard">
 
     <!-- Title Page-->
-    <title>Dashboard</title>
+    <title>Bus Management Dashboard</title>
 
     <!-- CSS STYLES-->
     <?php include 'styles.html'?>
@@ -33,159 +32,201 @@
             <div class="main-content">
                 <div class="section__content section__content--p30">
                     <div class="container-fluid">
+                        <!-- Overview Section-->
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="overview-wrap">
-                                    <h2 class="title-1">overview</h2>
+                                    <h2 class="title-1">Overview</h2>
                                     <button class="au-btn au-btn-icon au-btn--blue">
-                                        <i class="zmdi zmdi-plus"></i>add item</button>
+                                        <i class="zmdi zmdi-plus"></i>Add Bus</button>
                                 </div>
                             </div>
                         </div>
+                        
+                        <!-- Bus Management Section-->
                         <div class="row m-t-25">
-                            <div class="col-sm-6 col-lg-3">
+                            <div class="col-sm-6 col-lg-4">
                                 <div class="overview-item overview-item--c1">
                                     <div class="overview__inner">
                                         <div class="overview-box clearfix">
                                             <div class="icon">
-                                                <i class="zmdi zmdi-account-o"></i>
+                                                <i class="zmdi zmdi-bus"></i>
                                             </div>
                                             <div class="text">
-                                                <h2>10368</h2>
-                                                <span>members online</span>
+                                                <h2>20</h2>
+                                                <span>Buses Available</span>
                                             </div>
-                                        </div>
-                                        <div class="overview-chart">
-                                            <canvas id="widgetChart1"></canvas>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-lg-3">
+                            <div class="col-sm-6 col-lg-4">
                                 <div class="overview-item overview-item--c2">
                                     <div class="overview__inner">
                                         <div class="overview-box clearfix">
                                             <div class="icon">
-                                                <i class="zmdi zmdi-shopping-cart"></i>
+                                                <i class="zmdi zmdi-account-box"></i>
                                             </div>
                                             <div class="text">
-                                                <h2>388,688</h2>
-                                                <span>items solid</span>
+                                                <h2>15</h2>
+                                                <span>Drivers Assigned</span>
                                             </div>
-                                        </div>
-                                        <div class="overview-chart">
-                                            <canvas id="widgetChart2"></canvas>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm-6 col-lg-3">
+                            <div class="col-sm-6 col-lg-4">
                                 <div class="overview-item overview-item--c3">
                                     <div class="overview__inner">
                                         <div class="overview-box clearfix">
                                             <div class="icon">
-                                                <i class="zmdi zmdi-calendar-note"></i>
+                                                <i class="zmdi zmdi-calendar"></i>
                                             </div>
                                             <div class="text">
-                                                <h2>1,086</h2>
-                                                <span>this week</span>
+                                                <h2>30</h2>
+                                                <span>Trips Scheduled</span>
                                             </div>
-                                        </div>
-                                        <div class="overview-chart">
-                                            <canvas id="widgetChart3"></canvas>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-6 col-lg-3">
-                                <div class="overview-item overview-item--c4">
-                                    <div class="overview__inner">
-                                        <div class="overview-box clearfix">
-                                            <div class="icon">
-                                                <i class="zmdi zmdi-money"></i>
-                                            </div>
-                                            <div class="text">
-                                                <h2>$1,060,386</h2>
-                                                <span>total earnings</span>
-                                            </div>
-                                        </div>
-                                        <div class="overview-chart">
-                                            <canvas id="widgetChart4"></canvas>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         
+                        <!-- Bus Information Table-->
                         <div class="row">
-                            <div class="col-lg-9">
-                                <h2 class="title-1 m-b-25">Earnings By Items</h2>
+                            <div class="col-lg-12">
+                                <h2 class="title-1 m-b-25">Bus Information</h2>
                                 <div class="table-responsive table--no-card m-b-40">
                                     <table class="table table-borderless table-striped table-earning">
                                         <thead>
                                             <tr>
-                                                <th>date</th>
-                                                <th>order ID</th>
-                                                <th>name</th>
-                                                <th class="text-right">price</th>
-                                                <th class="text-right">quantity</th>
-                                                <th class="text-right">total</th>
+                                                <th>Bus Number</th>
+                                                <th>Seating Capacity</th>
+                                                <th>Availability</th>
+                                                <th>Actions</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td>2018-09-29 05:57</td>
-                                                <td>100398</td>
-                                                <td>iPhone X 64Gb Grey</td>
-                                                <td class="text-right">$999.00</td>
-                                                <td class="text-right">1</td>
-                                                <td class="text-right">$999.00</td>
+                                                <td>BUS123</td>
+                                                <td>50</td>
+                                                <td>Available</td>
+                                                <td>
+                                                    <button class="btn btn-success">Edit</button>
+                                                    <button class="btn btn-danger">Delete</button>
+                                                </td>
                                             </tr>
                                             <tr>
-                                                <td>2018-09-28 01:22</td>
-                                                <td>100397</td>
-                                                <td>Samsung S8 Black</td>
-                                                <td class="text-right">$756.00</td>
-                                                <td class="text-right">1</td>
-                                                <td class="text-right">$756.00</td>
+                                                <td>BUS456</td>
+                                                <td>40</td>
+                                                <td>Not Available</td>
+                                                <td>
+                                                    <button class="btn btn-success">Edit</button>
+                                                    <button class="btn btn-danger">Delete</button>
+                                                </td>
                                             </tr>
                                         </tbody>
                                     </table>
                                 </div>
                             </div>
-                        </div>    
+                        </div>  
+
+                        <!-- Driver Assignment Section-->
                         <div class="row">
                             <div class="col-lg-6">
-                                <div class="au-card au-card--no-shadow au-card--no-pad m-b-40">
-                                    <div class="au-card-title" style="background-image:url('images/bg-title-01.jpg');">
-                                        <div class="bg-overlay bg-overlay--blue"></div>
-                                        <h3>
-                                            <i class="zmdi zmdi-account-calendar"></i>26 April, 2018</h3>
-                                        <button class="au-btn-plus">
-                                            <i class="zmdi zmdi-plus"></i>
-                                        </button>
-                                    </div>
-                                    <div class="au-task js-list-load">
-                                        <div class="au-task__title">
-                                            <p>Tasks for John Doe</p>
-                                        </div>
-                                        <div class="au-task-list js-scrollbar3">
-                                            <div class="au-task__item au-task__item--danger">
-                                                <div class="au-task__item-inner">
-                                                    <h5 class="task">
-                                                        <a href="#">Meeting about plan for Admin Template 2018</a>
-                                                    </h5>
-                                                    <span class="time">10:00 AM</span>
-                                                </div>
-                                            </div>
-                                        <div class="au-task__footer">
-                                            <button class="au-btn au-btn-load js-load-btn">load more</button>
-                                        </div>
-                                    </div>
+                                <h2 class="title-1 m-b-25">Assign Drivers</h2>
+                                <div class="table-responsive table--no-card m-b-40">
+                                    <table class="table table-borderless table-striped table-earning">
+                                        <thead>
+                                            <tr>
+                                                <th>Driver</th>
+                                                <th>Bus Number</th>
+                                                <th>Trip Date</th>
+                                                <th>Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>John Doe</td>
+                                                <td>BUS123</td>
+                                                <td>2024-07-10</td>
+                                                <td>
+                                                    <button class="btn btn-success">Assign</button>
+                                                    <button class="btn btn-danger">Remove</button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Jane Smith</td>
+                                                <td>BUS456</td>
+                                                <td>2024-07-11</td>
+                                                <td>
+                                                    <button class="btn btn-success">Assign</button>
+                                                    <button class="btn btn-danger">Remove</button>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
-                        </div>
+                        </div>  
                         
+                        <!-- Driver Dashboard Section-->
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <h2 class="title-1 m-b-25">Driver Dashboard</h2>
+                                <div class="table-responsive table--no-card m-b-40">
+                                    <table class="table table-borderless table-striped table-earning">
+                                        <thead>
+                                            <tr>
+                                                <th>Bus Number</th>
+                                                <th>Route</th>
+                                                <th>Departure Time</th>
+                                                <th>Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>BUS123</td>
+                                                <td>Route A</td>
+                                                <td>08:00 AM</td>
+                                                <td>
+                                                    <button class="btn btn-success">Mark Attendance</button>
+                                                    <button class="btn btn-info">Manage Passengers</button>
+                                                    <button class="btn btn-warning">Update Status</button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>BUS456</td>
+                                                <td>Route B</td>
+                                                <td>09:00 AM</td>
+                                                <td>
+                                                    <button class="btn btn-success">Mark Attendance</button>
+                                                    <button class="btn btn-info">Manage Passengers</button>
+                                                    <button class="btn btn-warning">Update Status</button>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>  
+                        
+                        <!-- Home Page Section-->
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <h2 class="title-1 m-b-25">Home Page</h2>
+                                <div class="overview-wrap">
+                                    <p>Welcome to the Bus Management System. Use the quick links below to get started:</p>
+                                    <button class="au-btn au-btn-icon au-btn--blue">
+                                        <i class="zmdi zmdi-bus"></i>Book a Ride</button>
+                                    <button class="au-btn au-btn-icon au-btn--green">
+                                        <i class="zmdi zmdi-calendar"></i>View Trips</button>
+                                    <button class="au-btn au-btn-icon au-btn--red">
+                                        <i class="zmdi zmdi-settings"></i>Manage Bookings</button>
+                                </div>
+                            </div>
+                        </div>  
+
                         <!-- FOOTER-->
                         <?php include 'footer.html'?>
                     </div>
@@ -202,3 +243,4 @@
     
 </body>
 
+</html>
