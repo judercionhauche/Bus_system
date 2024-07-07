@@ -1,41 +1,46 @@
-<aside class="menu-sidebar d-none d-lg-block">
-    <div class="logo">
-        
+<!-- HEADER MOBILE-->
+<header class="header-mobile d-block d-lg-none">
+    <div class="header-mobile__bar">
+        <div class="container-fluid">
+            <div class="header-mobile-inner">
 
-        <a href="#">  
-            <span class="fa fa-bus" style="color:#9E4244; font-size: larger;" > ASHESI BUS SYSTEM </span> 
-        </a>
+                <a href="index.php" class="logo">
+                    <span class="fa fa-bus" style="color:#9E4244; font-size: larger;"> ASHESI BUS SYSTEM</span>
+                </a>
 
+                <button class="hamburger hamburger--slider" type="button">
+                    <span class="hamburger-box">
+                        <span class="hamburger-inner"></span>
+                    </span>
+                </button>
+               
+            </div>
+        </div>
     </div>
-    <div class="menu-sidebar__content js-scrollbar1">
-        <nav class="navbar-sidebar">
-            <ul class="list-unstyled navbar__list">
-                <li class="active has-sub">
+    <nav class="navbar-mobile">
+        <div class="container-fluid">
+            <ul class="navbar-mobile__list list-unstyled">
+                <li class="has-sub">
                     <a class="js-arrow" href="#">
-                        <i class="fas fa-tachometer-alt" ></i>Dashboard
+                        <i class="fas fa-tachometer-alt"></i>Dashboard
                         <span class="arrow">
                             <i class="fas fa-angle-down"></i>
                         </span>
                     </a>
-                       
-                    <ul class="list-unstyled navbar__sub-list js-sub-list">
+                    <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
                         <li>
-                            <a href="index.html">Dashboard 1</a>
+                            <a href="tabel.php">Bus</a>
                         </li>
                         <li>
-                            <a href="index2.html">Dashboard 2</a>
+                            <a href="index2.php">Drivers</a>
                         </li>
                         <li>
-                            <a href="index3.html">Dashboard 3</a>
+                            <a href="index3.php">Logistics</a>
                         </li>
                         <li>
-                            <a href="index4.html">Dashboard 4</a>
+                            <a href="index4.php">Staff</a>
                         </li>
                     </ul>
-                </li>
-                <li>
-                    <a href="chart.html">
-                        <i class="fas fa-chart-bar"></i>Charts</a>
                 </li>
                 <li>
                     <a href="table.html">
@@ -53,25 +58,11 @@
                     <a href="map.html">
                         <i class="fas fa-map-marker-alt"></i>Maps</a>
                 </li>
-                <li class="has-sub">
-                    <a class="js-arrow" href="#">
-                        <i class="fas fa-copy"></i>Pages</a>
-                    <ul class="list-unstyled navbar__sub-list js-sub-list">
-                        <li>
-                            <a href="login.html">Login</a>
-                        </li>
-                        <li>
-                            <a href="register.html">Register</a>
-                        </li>
-                        <li>
-                            <a href="forget-pass.html">Forget Password</a>
-                        </li>
-                    </ul>
-                </li>
+                
                 <li class="has-sub">
                     <a class="js-arrow" href="#">
                         <i class="fas fa-desktop"></i>UI Elements</a>
-                    <ul class="list-unstyled navbar__sub-list js-sub-list">
+                    <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
                         <li>
                             <a href="button.html">Button</a>
                         </li>
@@ -108,7 +99,7 @@
                     </ul>
                 </li>
             </ul>
-        </nav>
-    </div>
-</aside>
-<!-- END MENU SIDEBAR-->
+        </div>
+    </nav>
+</header>
+<!-- END HEADER MOBILE-->
