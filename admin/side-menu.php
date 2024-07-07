@@ -2,7 +2,7 @@
     <div class="logo">
         
 
-        <a href="#">  
+        <a href="index.php">  
             <span class="fa fa-bus" style="color:#9E4244; font-size: larger;" > ASHESI BUS SYSTEM </span> 
         </a>
 
@@ -20,13 +20,16 @@
                        
                     <ul class="list-unstyled navbar__sub-list js-sub-list">
                         <li>
+                            <a href="index.php">Dashboard</a>
+                        </li>
+                        <li>
                             <a href="bus.php">Bus</a>
                         </li>
                         <li>
                             <a href="index2.html">Driver</a>
                         </li>
                         <li>
-                            <a href="index3.html">Logistics</a>
+                            <a href="logistics.php">Logistics</a>
                         </li>
                         <li>
                             <a href="index4.html">Staff</a>
