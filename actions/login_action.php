@@ -12,7 +12,7 @@ session_start();
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Collect form data and store in variables
     $email = $_POST['email'];
-    $password = $_POST['password']; // Test Password: Test2024! 
+    $password = $_POST['password']; // Test Password: Test2024! Test Email: favourmdev@gmail.com
   
     // Write a query to select a record from the users table using email
     $sql = "SELECT * FROM users WHERE email = '$email'";
