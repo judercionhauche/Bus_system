@@ -12,21 +12,21 @@
     <title>Bus Management Dashboard</title>
 
     <!-- CSS STYLES-->
-    <?php include 'styles.html'?>
+    <?php include 'styles.php'?>
 </head>
 
 <body class="animsition">
     <div class="page-wrapper">
         <!-- HEADER MOBILE-->
-        <?php include 'header.html'?>
+        <?php include 'mobile-header.php'?>
 
         <!-- MENU SIDEBAR-->
-        <?php include 'side-menu.html'?>
+        <?php include 'side-menu.php'?>
 
         <!-- PAGE CONTAINER-->
         <div class="page-container">
             <!-- HEADER DESKTOP-->
-            <?php include 'header-desktop.html'?>
+            <?php include 'desktop-header.php'?>
             
             <!-- MAIN CONTENT-->
             <div class="main-content">
@@ -37,8 +37,6 @@
                             <div class="col-md-12">
                                 <div class="overview-wrap">
                                     <h2 class="title-1">Overview</h2>
-                                    <button class="au-btn au-btn-icon au-btn--blue">
-                                        <i class="zmdi zmdi-plus"></i>Add Bus</button>
                                 </div>
                             </div>
                         </div>
@@ -228,7 +226,7 @@
                         </div>  
 
                         <!-- FOOTER-->
-                        <?php include 'footer.html'?>
+                        <?php include 'footer.php'?>
                     </div>
                 </div>
             </div>
@@ -239,7 +237,7 @@
     </div>
 
     <!-- SCRIPTS-->
-    <?php include 'scripts.html'?>
+    <?php include 'scripts.php'?>
     
 </body>
 
