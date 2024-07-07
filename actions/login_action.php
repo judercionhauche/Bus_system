@@ -28,6 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (password_verify($password, $row['password'])) {
             // Set session variables
             $_SESSION['email'] = $row['email'];
+            $_SESSION['user_id'] = $row['user_id'];
             
             // If login is successful, redirect to the bus-schedule.php page
             header("Location: ".APPURL."index.php");
