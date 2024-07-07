@@ -18,7 +18,7 @@
 <body class="animsition">
     <div class="page-wrapper">
         <!-- HEADER MOBILE-->
-        <?php include 'header.php'?>
+        <?php include 'mobile-header.php'?>
 
         <!-- MENU SIDEBAR-->
         <?php include 'side-menu.php'?>
@@ -26,7 +26,7 @@
         <!-- PAGE CONTAINER-->
         <div class="page-container">
             <!-- HEADER DESKTOP-->
-            <?php include 'header-desktop.php'?>
+            <?php include 'desktop-header.php'?>
             
             <!-- MAIN CONTENT-->
             <div class="main-content">

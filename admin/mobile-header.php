@@ -29,7 +29,7 @@
                     </a>
                     <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
                         <li>
-                            <a href="tabel.php">Bus</a>
+                            <a href="bus.php">Bus</a>
                         </li>
                         <li>
                             <a href="index2.php">Drivers</a>

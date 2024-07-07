@@ -20,7 +20,7 @@
                        
                     <ul class="list-unstyled navbar__sub-list js-sub-list">
                         <li>
-                            <a href="table.php">Bus</a>
+                            <a href="bus.php">Bus</a>
                         </li>
                         <li>
                             <a href="index2.html">Driver</a>
