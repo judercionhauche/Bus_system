@@ -16,7 +16,7 @@
     <?php include 'styles.php'?>
 </head>
 
-<body class="animsition">
+<body>
     <div class="page-wrapper">
         <!-- HEADER MOBILE-->
         <?php include 'mobile-header.php'?>
@@ -40,8 +40,98 @@
                             <div class="col-md-12">
                                 <div class="overview-wrap">
                                     <h2 class="title-1">Buses</h2>
-                                    <button class="au-btn au-btn-icon au-btn--blue">
-                                        <i class="zmdi zmdi-plus"></i>Add Bus</button>
+                                    <div class="popup">
+                                    <button class="au-btn au-btn-icon au-btn--blue" onclick="addBus()">
+                                        <i class="zmdi zmdi-plus" ></i>Add Bus</button>
+                                    
+                                        <span class="bus-form-popup" id="busPopup">
+                                            <div class="col-lg-6">
+                                                <div class="card">
+                                                    
+                                                    <div class="card-body">
+                                                        
+                                                        
+                                                        <form action="" method="post">
+                                                            <div class="form-group">
+                                                                <label for="cc-payment" class="control-label mb-1">Name</label>
+                                                                <input id="cc-pament" name="cc-payment" type="text" class="form-control" aria-required="true" aria-invalid="false" value="100.00">
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="cc-name" class="control-label mb-1">Number</label>
+                                                                <input id="cc-name" name="cc-name" type="text" class="form-control cc-name valid">
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="cc-number" class="control-label mb-1">Brand</label>
+                                                                <input id="cc-number" name="cc-number" type="tel" class="form-control cc-number">
+                                                            </div>
+
+                                                            <div class="form-group">
+                                                                <label for="cc-number" class="control-label mb-1">Model</label>
+                                                                <input id="cc-number" name="cc-number" type="tel" class="form-control cc-number">
+                                                            </div>
+
+                                                            <div class="form-group">
+                                                                <label for="cc-number" class="control-label mb-1">Capacity</label>
+                                                                <input id="cc-number" name="cc-number" type="tel" class="form-control cc-number">
+                                                            </div>
+                                                        
+                                                            <div>
+                                                                <button id="payment-button" type="submit" class="btn btn-lg btn-info btn-block">
+                                                                    <i class="fa fa-lock fa-lg"></i>&nbsp;
+                                                                    <span id="payment-button-amount">Pay $100.00</span>
+                                                                    <span id="payment-button-sending" style="display:none;">Sending…</span>
+                                                                </button>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                    
+                                                </div>
+                                            </div>
+                                        </span>
+                                </div>
+                                        
+                                    <style>
+                                        
+                                        .popup .bus-form-popup{
+                                        position: absolute;
+                                        visibility: hidden;
+                                        }                                    
+
+
+
+                                        /* Toggle this class when clicking on the popup container (hide and show the popup) */
+                                        .popup .show {
+                                        visibility: visible;
+                                        position: relative;
+                                        margin-right: 0%;
+                                        -webkit-animation: fadeIn 1s;
+                                        animation: fadeIn 1s
+                                        }
+
+                                        /* Add animation (fade in the popup) */
+                                        @-webkit-keyframes fadeIn {
+                                        from {opacity: 0;}
+                                        to {opacity: 1;}
+                                        }
+
+                                        @keyframes fadeIn {
+                                        from {opacity: 0;}
+                                        to {opacity:1 ;}
+                                        }
+
+                                        
+                                    </style>
+
+                                    <script>
+                                    // When the user clicks on div, open the popup
+                                    function addBus() {
+                                    var popup = document.getElementById("busPopup");
+                                    popup.classList.toggle("show");
+                                    }
+                                    </script>
+
+
+
                                 </div>
                             </div>
                         

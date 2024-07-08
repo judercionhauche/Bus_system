@@ -15,7 +15,7 @@
     <?php include 'styles.php'?>
 </head>
 
-<body class="animsition">
+<body>
     <div class="page-wrapper">
         <!-- HEADER MOBILE-->
         <?php include 'mobile-header.php'?>
