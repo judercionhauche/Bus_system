@@ -65,28 +65,28 @@
 					<section class="tiles">
 						<article class="style1">
 							<span class="image">
-								<img src="images/product-1-720x480.jpg" alt="" />
+								<img src="images/bus1.webp" alt="" />
 							</span>
 							<a href="bus-details.html">
-								<h2>Lorem ipsum dolor sit amet, consectetur</h2>
+								<h2>Toyota Coaster BB7, 15 seats</h2>
 							</a>
 						</article>
 
 						<article class="style2">
 							<span class="image">
-								<img src="images/product-2-720x480.jpg" alt="" />
+								<img src="images/bus2.webp" alt="" />
 							</span>
 							<a href="bus-details.html">
-								<h2>Lorem ipsum dolor sit amet, consectetur</h2>
+								<h2>Toyota Coaster BB3, 14 seats</h2>
 							</a>
 						</article>
 
 						<article class="style3">
 							<span class="image">
-								<img src="images/product-2-720x480.jpg" alt="" />
+								<img src="images/bus3.webp" alt="" />
 							</span>
 							<a href="bus-details.html">
-								<h2>Lorem ipsum dolor sit amet, consectetur</h2>
+								<h2>LToyota Coaster BB3, 15 seats</h2>
 							</a>
 						</article>
 					</section>
