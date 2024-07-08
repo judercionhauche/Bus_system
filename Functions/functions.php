@@ -45,4 +45,5 @@ function display_msg($msg = array()) {
     return ""; // Return an empty string if $msg is empty
   }
 }
+
 ?>

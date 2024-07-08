@@ -3,6 +3,10 @@ ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
 require '../config/connection.php'; // Adjust the path as necessary
+require '../Functions/functions.php'; // Adjust the path as necessary
+require '../Functions/session.php'; // Adjust the path as necessary
+
+
 
 if (isset($_GET['ref'])) {
     $reference = $_GET['ref'];
@@ -58,6 +62,7 @@ if (isset($_GET['ref'])) {
                     $stmt->bind_param("issssssssiss", $user_id, $title, $fname, $lname, $email, $phone, $departure_time, $pickup, $dropoff, $seats, $invoice_no, $booking_date);
                     
                     if ($stmt->execute()) {
+                      $session->msg("s", "Booking and Payment Successful");
                         echo "Booking successful.";
                         header('Location: ../trip-details.php');
                         exit;
