@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>ASHESI BUS SYSTEM</title>
+		<title>Mobility</title>
 		<meta charset="utf-8"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css" />
@@ -11,7 +11,6 @@
 	<body class="is-preload">
 		<!-- Wrapper -->
 		<div id="wrapper" >
-
 		<?php 
 		include "header.php";
 		include "menu.php";
@@ -27,13 +26,13 @@
 					</ol>
 					<div class="carousel-inner">
 					<div class="carousel-item active">
-						<img class="d-block w-100" src="images/slider-image-1-1920x700.jpg" alt="First slide">
+						<img class="d-block w-100" src="images/ashesi-admin.jpg" alt="First slide">
 					</div>
 					<div class="carousel-item">
-						<img class="d-block w-100" src="images/slider-image-2-1920x700.jpg" alt="Second slide">
+						<img class="d-block w-100" src="images/ashesi-admin-2.jpg" alt="Second slide">
 					</div>
 					<div class="carousel-item">
-						<img class="d-block w-100" src="images/slider-image-3-1920x700.jpg" alt="Third slide">
+						<img class="d-block w-100" src="images/ashesi-admin-3.jpg" alt="Third slide">
 					</div>
 					</div>
 					<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -62,37 +61,36 @@
 
 					<h2 class="h2">BUSES</h2>
 
-					<!-- Products -->
+					<!-- Buses -->
 					<section class="tiles">
 						<article class="style1">
 							<span class="image">
-								<img src="images/product-1-720x480.jpg" alt="" />
+								<img src="images/bus1.webp" alt="" />
 							</span>
 							<a href="bus-details.html">
-								<h2>Lorem ipsum dolor sit amet, consectetur</h2>
+								<h2>Toyota Coaster BB7, 15 seats</h2>
 							</a>
 						</article>
 
 						<article class="style2">
 							<span class="image">
-								<img src="images/product-2-720x480.jpg" alt="" />
+								<img src="images/bus2.webp" alt="" />
 							</span>
 							<a href="bus-details.html">
-								<h2>Lorem ipsum dolor sit amet, consectetur</h2>
+								<h2>Toyota Coaster BB3, 14 seats</h2>
 							</a>
 						</article>
 
 						<article class="style3">
 							<span class="image">
-								<img src="images/product-2-720x480.jpg" alt="" />
+								<img src="images/bus3.webp" alt="" />
 							</span>
 							<a href="bus-details.html">
-								<h2>Lorem ipsum dolor sit amet, consectetur</h2>
+								<h2>LToyota Coaster BB3, 15 seats</h2>
 							</a>
 						</article>
 					</section>
 
-					<p class="text-center"><a href="products.html">More Buses &nbsp;<i class="fa fa-long-arrow-right"></i></a></p>
 					<br>
 				</div>
 			</div>
