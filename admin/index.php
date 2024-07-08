@@ -222,6 +222,13 @@
                                     <button class="au-btn au-btn-icon au-btn--red">
                                         <i class="zmdi zmdi-settings"></i>Manage Bookings</button>
                                 </div>
+
+                                <!-- link for viewing booking details  -->
+                                <div class="overview-wrap">
+                                    <ul>
+                                        <li><a href="booking_details.php">View Booking Details</a></li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>  
 
