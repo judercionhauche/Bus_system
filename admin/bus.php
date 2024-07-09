@@ -45,17 +45,17 @@
                                         <i class="zmdi zmdi-plus" ></i>Add Bus</button>
                                     
                                         <span class="bus-form-popup" id="busPopup">
-                                            <div class="col-lg-6" style="width: 500px";>
-                                                <div class="card" style="width: 500px";>
+                                            <div class="col-lg-6";>
+                                                <div class="card" style="width: 30vw";>
                                                     
-                                                    <div class="card-body" style="width: 500px;">
+                                                    <div class="card-body" style="width: 29vw;">
                                                         
-                                                        <form action="" method="post" style="width: 500px;">
-                                                            <div class="form-group">
+                                                        <form action="" method="post" >
+                                                            <div class="form-group" >
                                                                 <label for="cc-payment" class="control-label mb-1">Name</label>
                                                                 <input id="cc-pament" name="cc-payment" type="text" class="form-control">
                                                             </div>
-                                                            <div class="form-group">
+                                                            <div class="form-group" >
                                                                 <label for="cc-name" class="control-label mb-1">Number</label>
                                                                 <input id="cc-name" name="cc-name" type="text" class="form-control cc-name valid">
                                                             </div>
@@ -75,10 +75,8 @@
                                                             </div>
                                                         
                                                             <div>
-                                                                <button id="payment-button" type="submit" class="btn btn-lg btn-info btn-block">
-                                                                    <i class="fa fa-lock fa-lg"></i>&nbsp;
-                                                                    <span id="payment-button-amount">Pay $100.00</span>
-                                                                    <span id="payment-button-sending" style="display:none;">Sending…</span>
+                                                                <button id="" type="submit" class="btn btn-lg btn-info btn-block">
+                                                                   DONE
                                                                 </button>
                                                             </div>
                                                         </form>
