@@ -7,6 +7,13 @@
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css" />
     <link rel="stylesheet" href="assets/css/main.css" />
     <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+    <style>
+        .total-price {
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+    </style>
 </head>
 <body class="is-preload">
     <!-- Wrapper -->
@@ -19,7 +26,9 @@
         ?>
         
         <!-- Main -->
+      
         <div id="main" style="padding-bottom: 0px;">
+              
             <div class="inner">
                 <h1 style="text-align: center; font-size: 30px;">Book Your Seat</h1>
             </div>
@@ -29,10 +38,9 @@
                     max-width: 60%;
                     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1); 
                     border-radius: 12px;
-                    
                     margin-top:0px">
                                         
-                <form method="post" action="trip-details.php">
+                <form method="post" action="../actions/success.php" id="form">
                     <div class="fields">
                         <div class="field half">
                             <select name="title">
@@ -47,13 +55,11 @@
                                 <option value="rev">Rev.</option>
                             </select>
                         </div>
-
                         <div class="field half">
-                            <input type="text" name="name" id="name" placeholder="Name">
+                            <input type="text" name="fname" id="fname" placeholder="First Name">
                         </div>
-
-                        <div class="field full">
-                            <input type="text" name="staff_id" id="staff_id" placeholder="Staff ID">
+                        <div class="field half">
+                            <input type="text" name="lname" id="lname" placeholder="Last Name">
                         </div>
 
                         <div class="field half">
@@ -64,9 +70,10 @@
                             <input type="text" name="phone" id="phone" placeholder="Phone">
                         </div>
 
-                        <div class="field full">
-                            <input type="text" name="departure_time" id="departure_time" placeholder="Departure Time">
+                        <div class="field full">Departure Time</div>
+                            <input type="time" name="departure_time" id="departure_time" placeholder="Departure Time">
                         </div>
+
 
                         <div class="field half">
                             <select name="pickup_location">
@@ -79,6 +86,7 @@
                                 <option value="airport_residential_area">Airport Residential Area</option>
                                 <option value="kaneshie">Kaneshie</option>
                                 <option value="teshie">Teshie</option>
+                                <option value="ashesi_university">Ashesi University</option>
                             </select>
                         </div>
 
@@ -95,52 +103,80 @@
                                 <option value="teshie">Teshie</option>
                             </select>
                         </div>
-
-                        <div class="field full">
-                            <input type="text" name="number_of_seats" id="number_of_seats" placeholder="Number of Seats">
+                        <div class="field full" style="display: inline;">
+                            <input type="number" name="number_of_seats" id="number_of_seats" placeholder="Number of Seats" min="1" style="display: inline; width: auto;" onchange="calculateTotalPrice()">
                         </div>
 
-                        <div class="field full">
-                            <select name="payment_method">
-                                <option value="">-- Choose Payment Method--</option>
-                                <option value="mobile_money">Mobile Money</option>
-                                <option value="credit_card">Credit Card</option>
-                                <option value="cash">Cash</option>
-                                <option value="bank_transfer">Bank Transfer</option>
-                            </select>
+                        <div class="field full total-price" id="total-price">
+                            Total Price: GHS 0
                         </div>
 
                         <div class="field" style="padding-left: 35%">
-                            <div>
-                                <input type="checkbox" id="checkbox-4" name="terms"> 
-                                
-                                <label for="checkbox-4">
-                                    I agree with the <a href="terms.html" target="_blank">Terms &amp; Conditions</a>
-                                </label>
-                            </div>
+                            
                         </div>
 
                         <div class="field half text-right" style="padding-left: 45%;">
                             <ul class="actions">
                                 <li>
-                                    <input type="submit" value="Proceed to Payment" class="primary" style="background-color: #9E4244;"/>
+                                    <button crossorigin="anonymous" class="btn_3" style="margin-top: 30px; margin-left:90px; background-color: #9E4244; ">Proceed to Payment</button>
                                 </li>
                             </ul>
                         </div>
                     </div>
                 </form>        
             </div>
-            </div>
+        </div>
 
-            <!-- Footer -->
-            <?php include 'footer.php'?>
-        </div>    
+        <!-- Footer -->
+        <?php include 'footer.php'?>
+    </div>    
 
-        <!-- Scripts -->
-            <script src="assets/js/jquery.min.js"></script>
-            <script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
-            <script src="assets/js/jquery.scrolly.min.js"></script>
-            <script src="assets/js/jquery.scrollex.min.js"></script>
-            <script src="assets/js/main.js"></script>
-    </body>
+    <script src="https://js.paystack.co/v1/inline.js"></script>
+    <script>
+    const pricePerSeat = 35; // Bus fare price per seat
 
+    function calculateTotalPrice() {
+        const numberOfSeats = document.getElementById('number_of_seats').value;
+        const totalPrice = numberOfSeats * pricePerSeat;
+        document.getElementById('total-price').innerText = 'Total Price: GHS ' + totalPrice;
+    }
+
+    function payWithPaystack() {
+        const numberOfSeats = document.getElementById('number_of_seats').value;
+        const totalPrice = numberOfSeats * pricePerSeat * 100; // Convert to the lowest currency unit
+
+        var handler = PaystackPop.setup({
+            key: 'pk_test_ab49a5d290b88ba99712d41d80b66b14ae01a751', 
+            email: 'judercionhauche@gmail.com',
+            amount: totalPrice,
+            currency: 'GHS', 
+            ref: '' + Math.floor(Math.random() * 1000000 + 1),
+            callback: function(response) {
+                var reference = response.reference;
+                // Collect form data
+                const formData = new FormData(document.getElementById('form'));
+                const params = new URLSearchParams(formData).toString();
+
+                // Redirect with form data and payment reference
+                window.location.href = "actions/success.php?ref=" + reference + "&" + params;
+            },
+            onClose: function() {
+                alert('Transaction was not completed, window closed.');
+            },
+        });
+        handler.openIframe();
+    }
+    const form = document.getElementById("form");
+    form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        payWithPaystack();
+    });
+</script>
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/jquery.scrollex.min.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
