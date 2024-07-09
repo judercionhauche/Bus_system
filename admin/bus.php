@@ -45,16 +45,15 @@
                                         <i class="zmdi zmdi-plus" ></i>Add Bus</button>
                                     
                                         <span class="bus-form-popup" id="busPopup">
-                                            <div class="col-lg-6">
-                                                <div class="card">
+                                            <div class="col-lg-6" style="width: 500px";>
+                                                <div class="card" style="width: 500px";>
                                                     
-                                                    <div class="card-body">
+                                                    <div class="card-body" style="width: 500px;">
                                                         
-                                                        
-                                                        <form action="" method="post">
+                                                        <form action="" method="post" style="width: 500px;">
                                                             <div class="form-group">
                                                                 <label for="cc-payment" class="control-label mb-1">Name</label>
-                                                                <input id="cc-pament" name="cc-payment" type="text" class="form-control" aria-required="true" aria-invalid="false" value="100.00">
+                                                                <input id="cc-pament" name="cc-payment" type="text" class="form-control">
                                                             </div>
                                                             <div class="form-group">
                                                                 <label for="cc-name" class="control-label mb-1">Number</label>
