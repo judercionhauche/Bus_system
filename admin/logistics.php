@@ -133,7 +133,45 @@
                                             
                                         </tbody>
                                     </table>
+
                                 </div>
+
+                                
+                        <br><br><br>
+                                <!-- Overview Section-->
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="overview-wrap">
+                                    <h2 class="title-1">Trash (Logistics)</h2>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <!-- DATA TABLE-->
+                        <div class="table-responsive m-b-40">
+                            <table class="table table-borderless table-data3">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Email</th>
+                                        <th>ID</th>
+                                        
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Benard</td>
+                                        <td>benard@ashesi</td>
+                                        <td>25692025</td>
+                                        
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- END DATA TABLE-->
+
+
                             </div>
                         </div>
                     </div>

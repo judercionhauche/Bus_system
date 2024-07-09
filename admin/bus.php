@@ -203,7 +203,7 @@
                         <!-- END DATA TABLE-->
 
                         <br><br><br><br><br><br>
-                        <div class="row">
+                        <div class="row" style="display: none;">
                             <div class="col-lg-6">
                                 <!-- USER DATA-->
                                 <div class="user-data m-b-30">
@@ -451,7 +451,7 @@
                                 <!--  END TOP CAMPAIGN-->
                             </div>
                         </div>
-                        <div class="row">
+                        <div class="row" style="display:none">
                             <div class="col-md-12">
                                 <!-- DATA TABLE -->
                                 <h3 class="title-5 m-b-35">data table</h3>
