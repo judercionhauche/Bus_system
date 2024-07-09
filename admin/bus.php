@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,125 +14,141 @@
     <title>Tables</title>
 
     <!-- Fontfaces CSS-->
-    <?php include 'styles.php'?>
+    <?php include 'styles.php' ?>
 </head>
 
 <body>
+<div>
+<?php
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
+require '../Functions/functions.php'; 
+require '../Functions/session.php'; 
+echo display_msg($msg); ?>
+</div>
     <div class="page-wrapper">
         <!-- HEADER MOBILE-->
-        <?php include 'mobile-header.php'?>
-        
+        <?php include 'mobile-header.php' ?>
+
 
         <!-- MENU SIDEBAR-->
-        <?php include 'side-menu.php'?>
+        <?php include 'side-menu.php' ?>
 
         <!-- PAGE CONTAINER-->
         <div class="page-container">
-           
-            <!-- HEADER DESKTOP-->
-            <?php include 'desktop-header.php'?>
 
+            <!-- HEADER DESKTOP-->
+           
             <!-- MAIN CONTENT-->
             <div class="main-content">
                 <div class="section__content section__content--p30">
                     <div class="container-fluid">
                         <div class="row">
                             <!-- Overview Section-->
+                            <?php include 'desktop-header.php' ?>
+          
                             <div class="col-md-12">
                                 <div class="overview-wrap">
+          
                                     <h2 class="title-1">Buses</h2>
                                     <div class="popup">
-                                    <button class="au-btn au-btn-icon au-btn--blue" onclick="addBus()">
-                                        <i class="zmdi zmdi-plus" ></i>Add Bus</button>
-                                    
+                                        <button class="au-btn au-btn-icon au-btn--blue" onclick="addBus()">
+                                            <i class="zmdi zmdi-plus"></i>Add Bus</button>
+
                                         <span class="bus-form-popup" id="busPopup">
-                                            <div class="col-lg-6";>
-                                                <div class="card" style="width: 30vw";>
-                                                    
+                                            <div class="col-lg-6" ;>
+                                                <div class="card" style="width: 30vw" ;>
+
                                                     <div class="card-body" style="width: 29vw;">
-                                                        
-                                                        <form action="" method="post" >
-                                                            <div class="form-group" >
-                                                                <label for="cc-payment" class="control-label mb-1">Name</label>
-                                                                <input id="cc-pament" name="cc-payment" type="text" class="form-control">
-                                                            </div>
-                                                            <div class="form-group" >
-                                                                <label for="cc-name" class="control-label mb-1">Number</label>
-                                                                <input id="cc-name" name="cc-name" type="text" class="form-control cc-name valid">
+
+                                                        <form action="../actions/add_bus_actions.php" method="post">
+                                                            <div class="form-group">
+                                                                <label for="cc-payment" class="control-label mb-1"> Bus Name</label>
+                                                                <input id="bus_name" name="bus_name" type="text" class="form-control">
                                                             </div>
                                                             <div class="form-group">
-                                                                <label for="cc-number" class="control-label mb-1">Brand</label>
-                                                                <input id="cc-number" name="cc-number" type="tel" class="form-control cc-number">
+                                                                <label for="cc-name" class="control-label mb-1">Bus Number</label>
+                                                                <input id="bus_no" name="bus_no" type="text" class="form-control cc-name valid">
                                                             </div>
 
+
                                                             <div class="form-group">
-                                                                <label for="cc-number" class="control-label mb-1">Model</label>
-                                                                <input id="cc-number" name="cc-number" type="tel" class="form-control cc-number">
+                                                                <label for="status" class="control-label mb-1">Status</label>
+                                                                <select id="status" name="status" class="form-control">
+                                                                    <option value="active">Active</option>
+                                                                    <option value="inactive">Inactive</option>
+                                                                    <option value="maintenance">Maintenance</option>
+                                                                </select>
                                                             </div>
+
 
                                                             <div class="form-group">
                                                                 <label for="cc-number" class="control-label mb-1">Capacity</label>
-                                                                <input id="cc-number" name="cc-number" type="tel" class="form-control cc-number">
+                                                                <input id="capacity" name="capacity" type="tel" class="form-control cc-number">
                                                             </div>
-                                                        
+
                                                             <div>
                                                                 <button id="" type="submit" class="btn btn-lg btn-info btn-block">
-                                                                   DONE
+                                                                    DONE
                                                                 </button>
                                                             </div>
                                                         </form>
                                                     </div>
-                                                    
+
                                                 </div>
                                             </div>
                                         </span>
-                                </div>
-                                        
+                                    </div>
+
                                     <style>
-                                        
-                                        .popup .bus-form-popup{
-                                        position: absolute;
-                                        visibility: hidden;
-                                        }                                    
+                                        .popup .bus-form-popup {
+                                            position: absolute;
+                                            visibility: hidden;
+                                        }
 
 
 
                                         /* Toggle this class when clicking on the popup container (hide and show the popup) */
                                         .popup .show {
-                                        visibility: visible;
-                                        position: relative;
-                                        margin-right: 0%;
-                                        -webkit-animation: fadeIn 1s;
-                                        animation: fadeIn 1s
+                                            visibility: visible;
+                                            position: relative;
+                                            margin-right: 0%;
+                                            -webkit-animation: fadeIn 1s;
+                                            animation: fadeIn 1s
                                         }
 
                                         /* Add animation (fade in the popup) */
                                         @-webkit-keyframes fadeIn {
-                                        from {opacity: 0;}
-                                        to {opacity: 1;}
+                                            from {
+                                                opacity: 0;
+                                            }
+
+                                            to {
+                                                opacity: 1;
+                                            }
                                         }
 
                                         @keyframes fadeIn {
-                                        from {opacity: 0;}
-                                        to {opacity:1 ;}
-                                        }
+                                            from {
+                                                opacity: 0;
+                                            }
 
-                                        
+                                            to {
+                                                opacity: 1;
+                                            }
+                                        }
                                     </style>
 
                                     <script>
-                                    // When the user clicks on div, open the popup
-                                    function addBus() {
-                                    var popup = document.getElementById("busPopup");
-                                    popup.classList.toggle("show");
-                                    }
+                                        // When the user clicks on div, open the popup
+                                        function addBus() {
+                                            var popup = document.getElementById("busPopup");
+                                            popup.classList.toggle("show");
+                                        }
                                     </script>
-
-
 
                                 </div>
                             </div>
-                        
                             <div class="col-lg-9">
                                 <div class="table-responsive table--no-card m-b-30">
                                     <table class="table table-borderless table-striped table-earning">
@@ -140,36 +157,43 @@
                                                 <th>Bus Name</th>
                                                 <th>Number</th>
                                                 <th>Capacity</th>
-                                                <th class="text-right">Driver</th>
                                                 <th class="text-right">Status</th>
                                                 <th class="text-right">Actions</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>Bus 1</td>
-                                                <td>10039</td>
-                                                <td>54</td>
-                                                <td class="text-right">Mr. Kofi</td>
-                                                <td class="text-right">Active</td>
-                                                <td class="text-right">
-                                                    <button class="btn btn-success">Edit</button>
-                                                    <button class="btn btn-danger">Delete</button>
-                                                </td>
-                                            </tr>
-                                            
+                                        <?php
+                                        // Fetch bus data from database
+                                        $bus_data = get_bus_data(); // This function should return bus data from the database
+                                        foreach ($bus_data as $bus) {
+                                            echo "<tr>";
+                                            echo "<td>{$bus['name']}</td>";
+                                            echo "<td>{$bus['number']}</td>";
+                                            echo "<td>{$bus['capacity']}</td>";
+                                            echo "<td class='text-right'>{$bus['status']}</td>";
+                                            echo "<td class='text-right'>
+                                                <button class='btn btn-success'>Edit</button>
+                                                <button class='btn btn-danger'>Delete</button>
+                                            </td>";
+                                            echo "</tr>";
+                                        }
+                                        ?>
+
                                         </tbody>
                                     </table>
                                 </div>
                             </div>
-                        </div>    
+                        </div>
 
                         <br><br><br>
-                       
+                          
+                      </div>
                         <!-- Overview Section-->
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="overview-wrap">
+                           
+                                <div>
                                     <h2 class="title-1">Trash (Buses)</h2>
                                 </div>
                             </div>
@@ -208,7 +232,8 @@
                                 <!-- USER DATA-->
                                 <div class="user-data m-b-30">
                                     <h3 class="title-3 m-b-30">
-                                        <i class="zmdi zmdi-account-calendar"></i>user data</h3>
+                                        <i class="zmdi zmdi-account-calendar"></i>user data
+                                    </h3>
                                     <div class="filters m-b-45">
                                         <div class="rs-select2--dark rs-select2--md m-r-10 rs-select2--border">
                                             <select class="js-select2" name="property">
@@ -654,9 +679,9 @@
                                 <!-- END DATA TABLE -->
                             </div>
                         </div>
-                      
-                       
-                        <?php include 'footer.php'?>
+
+
+                        <?php include 'footer.php' ?>
                     </div>
                 </div>
             </div>
@@ -665,7 +690,7 @@
     </div>
 
     <!--Scripts-->
-    <?php include 'scripts.php'?>
+    <?php include 'scripts.php' ?>
 
     <!-- Main JS-->
     <script src="js/main.js"></script>
@@ -673,4 +698,6 @@
 </body>
 
 </html>
-<!-- end document-->
+<!-- end document-->                            
+
+?>

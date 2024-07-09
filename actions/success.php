@@ -44,6 +44,7 @@ if (isset($_GET['ref'])) {
             // Process form data from the URL
             if (isset($_SESSION['user_id'])) {
                 $user_id = $_SESSION['user_id'];
+                 
                 $booking_date = date("Y-m-d H:i:s");
                 $invoice_no = mt_rand();
                 $phone = $connection->real_escape_string($_GET['phone']);
@@ -54,13 +55,13 @@ if (isset($_GET['ref'])) {
                 $departure_time = $connection->real_escape_string($_GET['departure_time']);
                 $pickup = $connection->real_escape_string($_GET['pickup_location']);
                 $dropoff = $connection->real_escape_string($_GET['dropoff_location']);
-                $seats = $connection->real_escape_string($_GET['number_of_seats']);
+                $seats = $connection->real_escape_string($_GET['number_of_seats']);          
                 $sql = "INSERT INTO booking (user_id, title, fname, lname, email, phone, departure_time, pickup_location, dropoff_location, number_of_seats, invoice_number, created_at)
                         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-
+                         
                 if ($stmt = $connection->prepare($sql)) {
                     $stmt->bind_param("issssssssiss", $user_id, $title, $fname, $lname, $email, $phone, $departure_time, $pickup, $dropoff, $seats, $invoice_no, $booking_date);
-                    
+                    echo 'good';
                     if ($stmt->execute()) {
                       $session->msg("s", "Booking and Payment Successful");
                         echo "Booking successful.";

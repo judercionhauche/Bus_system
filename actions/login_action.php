@@ -29,6 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             if (password_verify($password, $row['password'])) {
                 // Set session variables
                 $_SESSION['email'] = $row['email'];
+                $_SESSION['user_id'] = $row['user_id'];
                 
                 // Redirect on successful login
                 header("Location: ".APPURL."index.php");

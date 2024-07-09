@@ -1,4 +1,5 @@
 <?php
+require '../config/connection.php';
 // Function to remove junk characters from a string or an array of strings
 function remove_junk($string) {
     if(is_array($string)) {
@@ -11,6 +12,31 @@ function remove_junk($string) {
         return trim($string); 
     }
   }
+ 
+// Include your database connection file
+
+function get_bus_data() {
+     global $connection;
+    $sql = "SELECT * FROM buses";
+    $result = $connection->query($sql);
+
+    if ($result->num_rows > 0) {
+        $bus_data = [];
+        while ($row = $result->fetch_assoc()) {
+            $bus_data[] = [
+                'name' => $row['bus_name'],
+                'number' => $row['bus_number'],
+                'capacity' => $row['capacity'],
+                'status' => $row['bus_status']
+            ];
+        }
+        return $bus_data;
+    } else {
+        return [];
+    }
+}
+
+
   function first_character($string) {
     if(is_array($string)) {
         $first_chars = array();
