@@ -37,41 +37,65 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <h2 class="title-1">Logistics</h2>
+
+
+                                <div class="popup">
+                                    <button class="au-btn au-btn-icon au-btn--blue" onclick="addBus()" style="position: absolute; right: 5vw; top: -1vw;">
+                                        <i class="zmdi zmdi-plus" ></i>Add</button>
+                                    
+                                        <span class="bus-form-popup" id="busPopup">
+                                            <div class="col-lg-6";>
+                                                <div class="card" style="width: 30vw";>
+                                                    
+                                                    <div class="card-body" style="width: 29vw;">
+                                                        
+                                                        <form action="" method="post" >
+                                                            <div class="form-group" >
+                                                                <label for="cc-payment" class="control-label mb-1">Name</label>
+                                                                <input id="cc-pament" name="cc-payment" type="text" class="form-control">
+                                                            </div>
+                                                            <div class="form-group" >
+                                                                <label for="cc-name" class="control-label mb-1">Email</label>
+                                                                <input id="cc-name" name="cc-name" type="text" class="form-control cc-name valid">
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <label for="cc-number" class="control-label mb-1">ID</label>
+                                                                <input id="cc-number" name="cc-number" type="tel" class="form-control cc-number">
+                                                            </div>
+
+                                                                                                                    
+                                                            <div>
+                                                                <button id="" type="submit" class="btn btn-lg btn-info btn-block">
+                                                                   DONE
+                                                                </button>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                    
+                                                </div>
+                                            </div>
+                                        </span>
+                                </div>
+                                        
+                                    
+
                                 <div class="table-responsive table-responsive-data2">
                                     <table class="table table-data2">
                                         <thead>
-                                            <tr>
-                                                <th>
-                                                    <label class="au-checkbox">
-                                                        <input type="checkbox">
-                                                        <span class="au-checkmark"></span>
-                                                    </label>
-                                                </th>
+                                            <tr>                                              
                                                 <th>Name</th>
-                                                <th>ID</th>
                                                 <th>EMAIL</th>
-                                                
-                                                <th></th>
+                                                <th>ID</th>
+                                                <th> ACTIONS</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr class="tr-shadow">
-                                                <td>
-                                                    <label class="au-checkbox">
-                                                        <input type="checkbox">
-                                                        <span class="au-checkmark"></span>
-                                                    </label>
-                                                </td>
                                                 <td>Lori Lynch</td>
                                                 <td>
                                                     <span class="block-email">lori@example.com</span>
                                                 </td>
-                                                <td class="desc">Samsung S8 Black</td>
-                                                <td>2018-09-27 02:12</td>
-                                                <td>
-                                                    <span class="status--process">Processed</span>
-                                                </td>
-                                                <td>$679.00</td>
+                                                <td class="desc">123455</td>
                                                 <td>
                                                     <div class="table-data-feature">
                                                         <button class="item" data-toggle="tooltip" data-placement="top" title="Edit">
@@ -86,109 +110,27 @@
                                             </tr>
                                             <tr class="spacer"></tr>
                                             <tr class="tr-shadow">
-                                                <td>
-                                                    <label class="au-checkbox">
-                                                        <input type="checkbox">
-                                                        <span class="au-checkmark"></span>
-                                                    </label>
-                                                </td>
+                                                
                                                 <td>Lori Lynch</td>
                                                 <td>
                                                     <span class="block-email">john@example.com</span>
                                                 </td>
-                                                <td class="desc">iPhone X 64Gb Grey</td>
-                                                <td>2018-09-29 05:57</td>
-                                                <td>
-                                                    <span class="status--process">Processed</span>
-                                                </td>
-                                                <td>$999.00</td>
+                                                <td class="desc">357434</td>
+                                                
                                                 <td>
                                                     <div class="table-data-feature">
-                                                        <button class="item" data-toggle="tooltip" data-placement="top" title="Send">
-                                                            <i class="zmdi zmdi-mail-send"></i>
-                                                        </button>
+                                                        
                                                         <button class="item" data-toggle="tooltip" data-placement="top" title="Edit">
                                                             <i class="zmdi zmdi-edit"></i>
                                                         </button>
                                                         <button class="item" data-toggle="tooltip" data-placement="top" title="Delete">
                                                             <i class="zmdi zmdi-delete"></i>
                                                         </button>
-                                                        <button class="item" data-toggle="tooltip" data-placement="top" title="More">
-                                                            <i class="zmdi zmdi-more"></i>
-                                                        </button>
+                                                        
                                                     </div>
                                                 </td>
                                             </tr>
-                                            <tr class="spacer"></tr>
-                                            <tr class="tr-shadow">
-                                                <td>
-                                                    <label class="au-checkbox">
-                                                        <input type="checkbox">
-                                                        <span class="au-checkmark"></span>
-                                                    </label>
-                                                </td>
-                                                <td>Lori Lynch</td>
-                                                <td>
-                                                    <span class="block-email">lyn@example.com</span>
-                                                </td>
-                                                <td class="desc">iPhone X 256Gb Black</td>
-                                                <td>2018-09-25 19:03</td>
-                                                <td>
-                                                    <span class="status--denied">Denied</span>
-                                                </td>
-                                                <td>$1199.00</td>
-                                                <td>
-                                                    <div class="table-data-feature">
-                                                        <button class="item" data-toggle="tooltip" data-placement="top" title="Send">
-                                                            <i class="zmdi zmdi-mail-send"></i>
-                                                        </button>
-                                                        <button class="item" data-toggle="tooltip" data-placement="top" title="Edit">
-                                                            <i class="zmdi zmdi-edit"></i>
-                                                        </button>
-                                                        <button class="item" data-toggle="tooltip" data-placement="top" title="Delete">
-                                                            <i class="zmdi zmdi-delete"></i>
-                                                        </button>
-                                                        <button class="item" data-toggle="tooltip" data-placement="top" title="More">
-                                                            <i class="zmdi zmdi-more"></i>
-                                                        </button>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr class="spacer"></tr>
-                                            <tr class="tr-shadow">
-                                                <td>
-                                                    <label class="au-checkbox">
-                                                        <input type="checkbox">
-                                                        <span class="au-checkmark"></span>
-                                                    </label>
-                                                </td>
-                                                <td>Lori Lynch</td>
-                                                <td>
-                                                    <span class="block-email">doe@example.com</span>
-                                                </td>
-                                                <td class="desc">Camera C430W 4k</td>
-                                                <td>2018-09-24 19:10</td>
-                                                <td>
-                                                    <span class="status--process">Processed</span>
-                                                </td>
-                                                <td>$699.00</td>
-                                                <td>
-                                                    <div class="table-data-feature">
-                                                        <button class="item" data-toggle="tooltip" data-placement="top" title="Send">
-                                                            <i class="zmdi zmdi-mail-send"></i>
-                                                        </button>
-                                                        <button class="item" data-toggle="tooltip" data-placement="top" title="Edit">
-                                                            <i class="zmdi zmdi-edit"></i>
-                                                        </button>
-                                                        <button class="item" data-toggle="tooltip" data-placement="top" title="Delete">
-                                                            <i class="zmdi zmdi-delete"></i>
-                                                        </button>
-                                                        <button class="item" data-toggle="tooltip" data-placement="top" title="More">
-                                                            <i class="zmdi zmdi-more"></i>
-                                                        </button>
-                                                    </div>
-                                                </td>
-                                            </tr>
+                                            
                                         </tbody>
                                     </table>
                                 </div>
@@ -243,6 +185,49 @@
 
     <!-- Main JS-->
     <script src="js/main.js"></script>
+
+    
+    <!-- CSS for ADD form popup-->
+    <style>
+    
+        
+        .popup .bus-form-popup{
+            position: absolute;
+            visibility: hidden;
+        }                                    
+
+
+
+        /* Toggle this class when clicking on the popup container (hide and show the popup) */
+        .popup .show {
+        visibility: visible;
+        position: relative;
+        margin-right: 0%;
+        -webkit-animation: fadeIn 1s;
+        animation: fadeIn 1s
+        }
+
+        /* Add animation (fade in the popup) */
+        @-webkit-keyframes fadeIn {
+        from {opacity: 0;}
+        to {opacity: 1;}
+        }
+
+        @keyframes fadeIn {
+        from {opacity: 0;}
+        to {opacity:1 ;}
+        }
+
+            
+    </style>
+
+    <script>
+        // When the user clicks on div, open the popup
+        function addBus() {
+        var popup = document.getElementById("busPopup");
+        popup.classList.toggle("show");
+        }
+    </script>
 
 </body>
 
