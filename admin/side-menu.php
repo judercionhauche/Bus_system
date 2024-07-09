@@ -37,11 +37,11 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="chart.html">
+                    <a href="../bus-schedule.php">
                         <i class="fas fa-table"></i> Trips</a>
                 </li>
                 <li>
-                    <a href="table.html">
+                    <a href="../booking.php">
                         <i class="fas fa-pencil-square-o"></i>Booking</a>
                 </li>
                 <li>
