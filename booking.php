@@ -2,11 +2,12 @@
 <html>
 <head>
     <title>ASHESI BUS SYSTEM</title>
-    <meta charset="utf-8" />
+    <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css" />
     <link rel="stylesheet" href="assets/css/main.css" />
     <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+
     <style>
         .total-price {
             font-size: 18px;
@@ -34,7 +35,8 @@
             </div>
         
             <div class="inner" style="
-                    background-color: #f9f9f9;border-color: #ccc;
+                    background-color: #f9f9f9;
+                    border-color: #ccc;
                     max-width: 60%;
                     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1); 
                     border-radius: 12px;
@@ -171,7 +173,7 @@
         e.preventDefault();
         payWithPaystack();
     });
-</script>
+    </script>
     <!-- Scripts -->
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
