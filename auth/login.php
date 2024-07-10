@@ -117,6 +117,7 @@ if (isset($_SESSION['signup_success'])) {
                                 <option value="">-- Select Role --</option>
                                 <option value="staff" <?= isset($signup_data['role']) && $signup_data['role'] == 'staff' ? 'selected' : '' ?>>Staff</option>
                                 <option value="driver" <?= isset($signup_data['role']) && $signup_data['role'] == 'driver' ? 'selected' : '' ?>>Driver</option>
+                                <option value="logistics" <?= isset($signup_data['role']) && $signup_data['role'] == 'logistics' ? 'selected' : '' ?>>Logistics</option>
                             </select>
                         </div>
                     </div>
