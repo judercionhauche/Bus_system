@@ -144,7 +144,7 @@
                                             </tr>
                                         </tbody>
                                     </table>
-                                </div>
+                                
                             </div>
                                 
                         <br><br><br> 
@@ -152,7 +152,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="overview-wrap">
-                                    <h2 class="title-1">Trash (Logistics)</h2>
+                                    <h2 class="title-1">Trash (Driver)</h2>
                                 </div>
                             </div>
                         </div>

@@ -36,7 +36,7 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-md-12">
-                                <h2 class="title-1">Logistics</h2>
+                                <h2 class="title-1" style="margin-left: 35%">LOGISTICS</h2>
 
 
                                 <div class="popup">
@@ -54,13 +54,19 @@
                                                                 <label for="cc-payment" class="control-label mb-1">Name</label>
                                                                 <input id="cc-pament" name="cc-payment" type="text" class="form-control">
                                                             </div>
+                                                            <div class="form-group">
+                                                                <label for="cc-number" class="control-label mb-1">ID</label>
+                                                                <input id="cc-number" name="cc-number" type="tel" class="form-control cc-number">
+                                                            </div>
+
                                                             <div class="form-group" >
                                                                 <label for="cc-name" class="control-label mb-1">Email</label>
                                                                 <input id="cc-name" name="cc-name" type="text" class="form-control cc-name valid">
                                                             </div>
-                                                            <div class="form-group">
-                                                                <label for="cc-number" class="control-label mb-1">ID</label>
-                                                                <input id="cc-number" name="cc-number" type="tel" class="form-control cc-number">
+
+                                                            <div class="form-group" >
+                                                                <label for="cc-name" class="control-label mb-1">Phone</label>
+                                                                <input id="cc-name" name="cc-name" type="number" class="form-control cc-name valid">
                                                             </div>
 
                                                                                                                     
@@ -84,18 +90,22 @@
                                         <thead>
                                             <tr>                                              
                                                 <th>Name</th>
-                                                <th>EMAIL</th>
                                                 <th>ID</th>
+                                                <th>PHONE</th>
+                                                <th>EMAIL</th>
                                                 <th> ACTIONS</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr class="tr-shadow">
                                                 <td>Lori Lynch</td>
+                                                
+                                                <td>123456</td>
+                                                <td class="desc">+2335345563456</td>
                                                 <td>
                                                     <span class="block-email">lori@example.com</span>
                                                 </td>
-                                                <td class="desc">123455</td>
+                                                
                                                 <td>
                                                     <div class="table-data-feature">
                                                         <button class="item" data-toggle="tooltip" data-placement="top" title="Edit">
@@ -111,15 +121,16 @@
                                             <tr class="spacer"></tr>
                                             <tr class="tr-shadow">
                                                 
-                                                <td>Lori Lynch</td>
+                                            <td>Lori Lynch</td>
+                                                
+                                                <td>123456</td>
+                                                <td class="desc">+2335345563456</td>
                                                 <td>
-                                                    <span class="block-email">john@example.com</span>
+                                                    <span class="block-email">lori@example.com</span>
                                                 </td>
-                                                <td class="desc">357434</td>
                                                 
                                                 <td>
                                                     <div class="table-data-feature">
-                                                        
                                                         <button class="item" data-toggle="tooltip" data-placement="top" title="Edit">
                                                             <i class="zmdi zmdi-edit"></i>
                                                         </button>
@@ -130,12 +141,12 @@
                                                     </div>
                                                 </td>
                                             </tr>
-                                            
                                         </tbody>
                                     </table>
+                                    
 
                                 </div>
-
+                            
                                 
                         <br><br><br>
                                 <!-- Overview Section-->
@@ -150,24 +161,63 @@
 
                         <!-- DATA TABLE-->
                         <div class="table-responsive m-b-40">
-                            <table class="table table-borderless table-data3">
-                                <thead>
-                                    <tr>
-                                        <th>Name</th>
-                                        <th>Email</th>
-                                        <th>ID</th>
-                                        
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>Benard</td>
-                                        <td>benard@ashesi</td>
-                                        <td>25692025</td>
-                                        
-                                    </tr>
-                                </tbody>
-                            </table>
+                        <table class="table table-data2">
+                                        <thead>
+                                            <tr>                                              
+                                                <th>Name</th>
+                                                <th>ID</th>
+                                                <th>PHONE</th>
+                                                <th>EMAIL</th>
+                                                <th> ACTIONS</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr class="tr-shadow">
+                                                <td>Lori Lynch</td>
+                                                
+                                                <td>123456</td>
+                                                <td class="desc">+2335345563456</td>
+                                                <td>
+                                                    <span class="block-email">lori@example.com</span>
+                                                </td>
+                                                
+                                                <td>
+                                                    <div class="table-data-feature">
+                                                        <button class="item" data-toggle="tooltip" data-placement="top" title="Edit">
+                                                            <i class="zmdi zmdi-edit"></i>
+                                                        </button>
+                                                        <button class="item" data-toggle="tooltip" data-placement="top" title="Delete">
+                                                            <i class="zmdi zmdi-delete"></i>
+                                                        </button>
+                                                        
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr class="spacer"></tr>
+                                            <tr class="tr-shadow">
+                                                
+                                            <td>Lori Lynch</td>
+                                                
+                                                <td>123456</td>
+                                                <td class="desc">+2335345563456</td>
+                                                <td>
+                                                    <span class="block-email">lori@example.com</span>
+                                                </td>
+                                                
+                                                <td>
+                                                    <div class="table-data-feature">
+                                                        <button class="item" data-toggle="tooltip" data-placement="top" title="Edit">
+                                                            <i class="zmdi zmdi-edit"></i>
+                                                        </button>
+                                                        <button class="item" data-toggle="tooltip" data-placement="top" title="Delete">
+                                                            <i class="zmdi zmdi-delete"></i>
+                                                        </button>
+                                                        
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
                         </div>
                         <!-- END DATA TABLE-->
 
