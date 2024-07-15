@@ -12,26 +12,8 @@
     <!-- Title Page-->
     <title>Dashboard 2</title>
 
-     <!-- Fontfaces CSS-->
-     <link href="assests/css/font-face.css" rel="stylesheet" media="all">
-     <link href="assests/vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
-     <link href="assests/vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all">
-     <link href="assests/vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
- 
-     <!-- Bootstrap CSS-->
-     <link href="assests/vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
- 
-     <!-- Vendor CSS-->
-     <link href="assets/vendor/animsition/animsition.min.css" rel="stylesheet" media="all">
-     <link href="assets/vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet" media="all">
-     <link href="assets/vendor/wow/animate.css" rel="stylesheet" media="all">
-     <link href="assets/vendor/css-hamburgers/hamburgers.min.css" rel="stylesheet" media="all">
-     <link href="assets/vendor/slick/slick.css" rel="stylesheet" media="all">
-     <link href="assets/vendor/select2/select2.min.css" rel="stylesheet" media="all">
-     <link href="assets/vendor/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" media="all">
- 
-     <!-- Main CSS-->
-     <link href="assests/css/theme.css" rel="stylesheet" media="all">
+    <!--Styles-->
+    <?php include 'styles.php'?>
 
 </head>
 
@@ -903,30 +885,8 @@
 
     </div>
 
-    <!-- Jquery JS-->
-    <script src="assests/vendor/jquery-3.2.1.min.js"></script>
-    <!-- Bootstrap JS-->
-    <script src="assets/vendor/bootstrap-4.1/popper.min.js"></script>
-    <script src="assets/vendor/bootstrap-4.1/bootstrap.min.js"></script>
-    <!-- Vendor JS       -->
-    <script src="assests/vendor/slick/slick.min.js">
-    </script>
-    <script src="assets/vendor/wow/wow.min.js"></script>
-    <script src="assests/vendor/animsition/animsition.min.js"></script>
-    <script src="assests/vendor/bootstrap-progressbar/bootstrap-progressbar.min.js">
-    </script>
-    <script src="assets/vendor/counter-up/jquery.waypoints.min.js"></script>
-    <script src="assets/vendor/counter-up/jquery.counterup.min.js">
-    </script>
-    <script src="assets/vendor/circle-progress/circle-progress.min.js"></script>
-    <script src="assests/vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
-    <script src="assests/vendor/chartjs/Chart.bundle.min.js"></script>
-    <script src="assets/vendor/select2/select2.min.js">
-    </script>
-
-    <!-- Main JS-->
-    <script src="assets/js/main.js"></script>
-
+    <!-- Scripts-->
+    <?php include 'scripts.php'?>
 </body>
 
 </html>
