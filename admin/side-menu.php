@@ -32,7 +32,7 @@
                             <a href="logistics.php">Logistics</a>
                         </li>
                         <li>
-                            <a href="index4.html">Staff</a>
+                            <a href="staff.php">Staff</a>
                         </li>
                     </ul>
                 </li>
