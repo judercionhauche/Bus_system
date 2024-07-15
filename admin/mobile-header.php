@@ -35,7 +35,7 @@
                             <a href="bus.php">Bus</a>
                         </li>
                         <li>
-                            <a href="index2.php">Drivers</a>
+                            <a href="driver.php">Drivers</a>
                         </li>
                         <li>
                             <a href="logistics.php">Logistics</a>

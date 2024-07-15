@@ -26,7 +26,7 @@
                             <a href="bus.php">Bus</a>
                         </li>
                         <li>
-                            <a href="index2.html">Driver</a>
+                            <a href="driver.php">Driver</a>
                         </li>
                         <li>
                             <a href="logistics.php">Logistics</a>
@@ -46,7 +46,7 @@
                 </li>
                 <li>
                     <a href="form.html">
-                        <i class="far fa-check-square"></i>Forms</a>
+                        <i c lass="far fa-check-square"></i>Forms</a>
                 </li>
                 <li>
                     <a href="calendar.html">
