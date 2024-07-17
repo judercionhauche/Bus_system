@@ -43,18 +43,10 @@
                 <li>
                     <a href="../booking.php">
                         <i class="fas fa-pencil-square-o"></i>Booking</a>
-                </li>
+                </li>              
                 <li>
-                    <a href="assign-driver.php">
-                        <i c lass="far fa-check-square"></i>Assign-Driver</a>
-                </li>
-                <li>
-                    <a href="calendar.html">
-                        <i class="fas fa-calendar-alt"></i>Calendar</a>
-                </li>
-                <li>
-                    <a href="map.html">
-                        <i class="fas fa-map-marker-alt"></i>Maps</a>
+                     <a href="assign-driver.php">
+                        <i class="fas fa-asterisk"></i>Assign-Driver</a>
                 </li>
             </ul>
         </nav>
