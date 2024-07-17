@@ -22,10 +22,10 @@
         <?php include 'mobile-header.php'?>
 
         <!-- HEADER DESKTOP-->
-        <?PHP INCLUDE 'side-menu.php'?>
+        <?PHP include 'side-menu.php'?>
 
          <!-- HEADER DESKTOP-->
-         <?PHP INCLUDE 'desktop-header.php'?>
+         <?PHP include 'desktop-header.php'?>
         
         <!-- PAGE CONTENT-->
         <div class="page-container">
@@ -117,7 +117,7 @@
                 
             </div>
             <!-- FOOTER-->
-            <?PHP INCLUDE 'footer.php'?>
+            <?php include 'footer.php'?>
 
             <!-- END COPYRIGHT-->
         </div>
