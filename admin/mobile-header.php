@@ -32,9 +32,6 @@
                             <a href="index.php">Dashboard</a>
                         </li>
                         <li>
-                            <a href="bus.php">Bus</a>
-                        </li>
-                        <li>
                             <a href="driver.php">Drivers</a>
                         </li>
                         <li>
@@ -43,31 +40,24 @@
                         <li>
                             <a href="staff.php">Staff</a>
                         </li>
+                        <li>
+                            <a href="bus.php">Bus</a>
+                        </li>
                     </ul>
                 </li>
                 <li>
-                    <a href="table.html">
+                    <a href="trips.php">
                         <i class="fas fa-table"></i>Trips</a>
                 </li>
                 <li>
-                    <a href="chart.html">
-                        <i class="far fa-pencil-square-o"></i>Booking</a>
+                    <a href="../booking.php">
+                        <i class="fas fa-pencil-square-o"></i>Booking</a>
                 </li>
 
                 <li>
                      <a href="assign-driver.php">
-                    <i class="far fa-check-square"></i>Assign-Driver</a>
-                </li>
-
-                <li>
-                    <a href="calendar.html">
-                        <i class="fas fa-calendar-alt"></i>Calendar</a>
-                </li>
-                <li>
-                    <a href="map.html">
-                        <i class="fas fa-map-marker-alt"></i>Maps</a>
-                </li>
-                
+                    <i class="fas fa-asterisk"></i>Assign-Driver</a>
+                </li>                
             </ul>
         </div>
     </nav>

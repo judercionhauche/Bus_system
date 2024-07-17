@@ -23,9 +23,6 @@
                             <a href="index.php">Dashboard</a>
                         </li>
                         <li>
-                            <a href="bus.php">Bus</a>
-                        </li>
-                        <li>
                             <a href="driver.php">Driver</a>
                         </li>
                         <li>
@@ -33,6 +30,9 @@
                         </li>
                         <li>
                             <a href="staff.php">Staff</a>
+                        </li>
+                        <li>
+                            <a href="bus.php">Bus</a>
                         </li>
                     </ul>
                 </li>
