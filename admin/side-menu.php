@@ -37,7 +37,7 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="../bus-schedule.php">
+                    <a href="trips.php">
                         <i class="fas fa-table"></i> Trips</a>
                 </li>
                 <li>
@@ -45,8 +45,8 @@
                         <i class="fas fa-pencil-square-o"></i>Booking</a>
                 </li>
                 <li>
-                    <a href="form.html">
-                        <i c lass="far fa-check-square"></i>Forms</a>
+                    <a href="assign-driver.php">
+                        <i c lass="far fa-check-square"></i>Assign-Driver</a>
                 </li>
                 <li>
                     <a href="calendar.html">

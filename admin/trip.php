@@ -8,25 +8,13 @@
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 	</head>
-	<body class="is-preload" >
-		<!-- Wrapper -->
-		<div id="wrapper">
-
-			<!-- Header and Menu-->
-			<?php 
-			include "header.php";
-			include "menu.php";
-			?>
 	
-			<!-- Main -->
-			<div id="main">
-				<div class="inner">
-					<h1>Bus Schedule</h1>
 
 					<!-- Filter Options -->
-					<section>
-						<form id="filter-form" class="mb-4">
-							<div class="form-row">
+					<section style="background-color:  #f8f8f8;
+											margin:5%; margin-top: 10px;">
+						<form id="filter-form" class="mb-4" >
+							<div class="form-row" >
 								<!-- Date Filter-->
 								<div class="col-md-4 mb-3">
 									<label for="filter-date">Date</label>
@@ -53,49 +41,71 @@
 							<button style="margin-left: 89%" type="button"  onclick="applyFilters()">Apply</button>
 						</form>
                 	</section>
-					<br> <br>
 
 
 					<!-- Bus Schedule Table -->
-					<section>
+					<section style="background-color:  #f8f8f8;
+											margin:5%">
 						<table class="table table-bordered">
 							<thead>
 								<tr>
-									<th>Date</th>
+                                    <th>Date</th>
 									<th>Time</th>
 									<th> Bus </th>
 									<th>Route</th>
 									<th>Available Seats</th>
 									<th>Driver</th>
+                                    <th>Action</th>
 								</tr>
 							</thead>
 							<tbody>
 								<tr>
+                                    <td></td>
 									<td> </td>
 									<td> </td>
 									<td> </td>
 									<td> </td>
 									<td> </td>
-									<td> </td>
+                                    <td>
+                                        <div class="table-data-feature">
+                                            <button class="item" data-toggle="tooltip" data-placement="top" title="Edit" >
+                                                <i class="zmdi zmdi-edit" ></i>
+                                            </button>
+                                            <button class="item" data-toggle="tooltip" data-placement="top" title="Delete">
+                                                <i class="zmdi zmdi-delete"></i>
+                                            </button>
+                                            
+                                        </div>
+                                    </td>
 								</tr>
 								<tr>
-									<td></td>
+                                    <td></td>
 									<td> </td>
 									<td> </td>
 									<td> </td>
 									<td> </td>
 									<td> </td>
+                                    <td>
+                                        <div class="table-data-feature">
+                                            <button class="item" data-toggle="tooltip" data-placement="top" title="Edit" >
+                                                <i class="zmdi zmdi-edit" ></i>
+                                            </button>
+                                            <button class="item" data-toggle="tooltip" data-placement="top" title="Delete">
+                                                <i class="zmdi zmdi-delete"></i>
+                                            </button>
+                                            
+                                        </div>
+                                    </td>
 								</tr>	
 							</tbody>
 						</table>
 					</section>
-				</div>
-			</div>
 				
-			<!-- Footer -->
-			<?php include 'footer.php'?>
-		</div>
-						
+		<style>
+            form, th, td{
+			text-align: center;
+        }
+        </style>				
 
 		<!-- Scripts -->
 			<script src="assets/js/jquery.min.js"></script>
@@ -131,5 +141,5 @@
 					}
 				}
 		</script>
-	</body>
+	
 </html>

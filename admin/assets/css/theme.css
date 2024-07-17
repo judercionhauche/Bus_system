@@ -713,7 +713,7 @@ section {
 /* ----- Input ----- */
 .au-input {
     line-height: 43px;
-    border: 1px solid #e5e5e5;
+    border: 1px solid     #e5e5e5;
     font-size: 14px;
     color: #666;
     padding: 0 17px;
@@ -4613,11 +4613,11 @@ section {
     display: -moz-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-pack: end;
-    -webkit-justify-content: flex-end;
-    -moz-box-pack: end;
-    -ms-flex-pack: end;
-    justify-content: flex-end;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -moz-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
 }
 
 .table-data-feature .item {
