@@ -27,7 +27,7 @@ if (isset($_SESSION['signup_success'])) {
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <link rel="stylesheet" href="<?php echo APPURL; ?>assets/css/login.css"/>
+    <link rel="stylesheet" href="../assets/css/login.css"/>
     <title>Login/Register Page</title>
     <style>
         .the-error-message { 
@@ -65,7 +65,7 @@ if (isset($_SESSION['signup_success'])) {
         <div class="row">
             <section class="form sign-up active">
                 <h1>Ashesi Bus System</h1>
-                <h2>SIGN UP</h2>
+                <h2>Sign Up</h2>
                 <?php if ($signup_success): ?>
                     <div class="the-success-message"><h2>Registration Completed Successfully! You can now sign in.</h2></div>
                 <?php endif; ?>
@@ -128,8 +128,8 @@ if (isset($_SESSION['signup_success'])) {
                 </form>
             </section>
             <section class="form sign-in">
-                <h1>Ashesi Bus System</h1>
-                <h2>SIGN IN</h2>
+                <h1>Mobility</h1>
+                <h2>Sign In</h2>
                 <?php
                 // Display login errors if any
                 if (isset($_SESSION['login_errors'])) {
@@ -157,13 +157,13 @@ if (isset($_SESSION['signup_success'])) {
                     </div>
                 </form>
             </section>
-            <img src="<?php echo APPURL; ?>images/Ashesi_logo.jpg" class="corner-image" alt="Ashesi Logo">
+            <img src="../images/Ashesi_logo.jpg" class="corner-image" alt="Ashesi Logo">
         </div>
         <ul class="bottom">
             <li class="btn active" data-btn="sign-up">Sign Up</li>
             <li class="btn" data-btn="sign-in">Sign In</li>
         </ul>
     </div>
-    <script src="<?php echo APPURL; ?>assets/js/login.js"></script>
+    <script src="../assets/js/login.js"></script>
 </body>
 </html>

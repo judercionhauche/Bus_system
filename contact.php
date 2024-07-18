@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>PHPJabbers.com | Free Book Online Store Website Template</title>
+		<title>Mobility | Ashesi Ride Made Easy</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css" />
@@ -18,7 +18,7 @@
 
 							<!-- Logo -->
 								<a href="index.html" class="logo">
-									<span class="fa fa-book"></span> <span class="title">Book Online Store Website</span>
+									<span class="fa fa-book"></span> <span class="title">Book Your Ride With Ease</span>
 								</a>
 
 							<!-- Nav -->
@@ -61,7 +61,7 @@
 						<div class="inner">
 							<h1>Contact Us</h1>
 							<span class="image main"><img src="images/map.jpg" alt="" /></span>
-							<p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fergiat. Pellentesque in mi eu massa lacinia malesuada et a elit. Donec urna ex, lacinia in purus ac, pretium pulvinar mauris. Curabitur sapien risus, commodo eget turpis at, elementum convallis elit. Pellentesque enim turpis, hendrerit tristique.</p>
+							<p>We are one email or phone call away</p>
 						</div>
 					</div>
 
@@ -104,7 +104,7 @@
 								<ul class="alt">
 									<li><span class="fa fa-envelope-o"></span> <a href="#">contact@company.com</a></li>
 									<li><span class="fa fa-phone"></span> +1 333 4040 5566 </li>
-									<li><span class="fa fa-map-pin"></span> 212 Barrington Court New York, ABC 10001 United States of America</li>
+									<li><span class="fa fa-map-pin"></span> 1 University Avenue, Ashesi University</li>
 								</ul>
 
 								<h2>Follow Us</h2>
