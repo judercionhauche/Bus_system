@@ -83,7 +83,7 @@
 
 						<article class="style3">
 							<span class="image">
-								<img src="images/bus3.webp" alt="" />
+								<img src="images/bus2.webp" alt="" />
 							</span>
 							<a href="auth/login.php">
 								<h2>Toyota Coaster BB3, 15 seats</h2>
