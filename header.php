@@ -17,7 +17,7 @@
                     <li><a href="#menu">Menu</a></li>
                 </ul>
                 <?php else: ?>
-                    <li><a href="<?php echo APPURL;?>auth/login.php">Sign in</a></li>
+                    <li><a href="auth/login.php">Sign in</a></li>
                     <li><a href="about.php">About Us</a></li>
                 <?php endif; ?>
             </nav>

@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-	  	<title>Mobility</title>
+	  	<title>Mobility | Ashesi Ride Made Easy</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css" />

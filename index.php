@@ -59,7 +59,7 @@
 
 					<br>
 
-					<h2 class="h2">BUSES</h2>
+					<h2 class="h2">Buses</h2>
 
 					<!-- Buses -->
 					<section class="tiles">
@@ -86,7 +86,7 @@
 								<img src="images/bus3.webp" alt="" />
 							</span>
 							<a href="bus-details.html">
-								<h2>LToyota Coaster BB3, 15 seats</h2>
+								<h2>Toyota Coaster BB3, 15 seats</h2>
 							</a>
 						</article>
 					</section>

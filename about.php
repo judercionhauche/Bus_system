@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>PHPJabbers.com | Free Book Online Store Website Template</title>
+		<title>Mobility | Ashesi Ride Made Easy</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css" />
@@ -18,7 +18,7 @@
 
 						<!-- Logo -->
 							<a href="index.html" class="logo">
-									<span class="fa fa-book"></span> <span class="title">Book Online Store Website</span>
+									<span class="fa fa-book"></span> <span class="title">Book Your Ride</span>
 								</a>
 					</div>
 				</header>
@@ -32,10 +32,7 @@
 							<div class="image main">
 								<img src="images/banner-image-1-1920x500.jpg" class="img-fluid" alt="" />
 							</div>
-							<p>Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. 
-								Praesent rutrum sem diam, vitae egestas enim auctor sit amet. 
-								Pellentesque leo mauris, consectetur id ipsum sit amet, fersapien risus, commodo eget turpis at, elementum convallis elit. 
-								Pellentesque enim turpis, hendrerit tristique lorem ipsum dolor.</p>
+							<p>You can now book your ride at the speed of your fingers!</p>
 						</div>
 					</div>
 
