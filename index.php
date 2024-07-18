@@ -67,7 +67,7 @@
 							<span class="image">
 								<img src="images/bus1.webp" alt="" />
 							</span>
-							<a href="bus-details.html">
+							<a href="auth/login.php">
 								<h2>Toyota Coaster BB7, 15 seats</h2>
 							</a>
 						</article>
@@ -76,7 +76,7 @@
 							<span class="image">
 								<img src="images/bus2.webp" alt="" />
 							</span>
-							<a href="bus-details.html">
+							<a href="auth/login.php">
 								<h2>Toyota Coaster BB3, 14 seats</h2>
 							</a>
 						</article>
@@ -85,7 +85,7 @@
 							<span class="image">
 								<img src="images/bus3.webp" alt="" />
 							</span>
-							<a href="bus-details.html">
+							<a href="auth/login.php">
 								<h2>Toyota Coaster BB3, 15 seats</h2>
 							</a>
 						</article>
