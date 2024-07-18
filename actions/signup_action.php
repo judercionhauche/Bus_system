@@ -1,6 +1,8 @@
 <?php
 session_start();
 require '../config/connection.php';
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
 
 define("APPURL", "http://localhost/bus_system/");
 
@@ -15,7 +17,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $phone_number = $_POST['phone_number'];
     $role = $_POST['role'];
 
-    // Validation ()
+    // Role mapping
+    $role_mapping = [
+        'staff' => 3,
+        'driver' => 2,
+        'logistics' => 1
+    ];
+
+    // Validation
     if (empty($first_name) || empty($last_name) || empty($email) || empty($password) || empty($confirm_password) || empty($phone_number) || empty($role)) {
         $errors[] = "All fields are required.";
     } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
@@ -30,11 +39,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $errors[] = "Passwords do not match.";
     } elseif (!is_numeric($phone_number)) {
         $errors[] = "Your phone number should contain only numbers.";
+    } elseif (!array_key_exists($role, $role_mapping)) {
+        $errors[] = "Invalid role selected.";
     }
 
     if (count($errors) == 0) {
         // No validation errors, proceed with signup process
         $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+        $role_value = $role_mapping[$role];
 
         // Use prepared statements to prevent SQL injection
         $stmt = $connection->prepare("SELECT * FROM users WHERE email = ?");
@@ -42,12 +54,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt->execute();
         $result = $stmt->get_result();
 
-        if ($result->num_rows> 0) {
+        if ($result->num_rows > 0) {
             $errors[] = "This email has already been used to sign up.";
         } else {
             // Insert user into database
             $stmt = $connection->prepare("INSERT INTO users (first_name, last_name, email, password, phone_number, role) VALUES (?, ?, ?, ?, ?, ?)");
-            $stmt->bind_param("ssssss", $first_name, $last_name, $email, $hashed_password, $phone_number, $role);
+            $stmt->bind_param("sssssi", $first_name, $last_name, $email, $hashed_password, $phone_number, $role_value);
 
             if ($stmt->execute()) {
                 $_SESSION['signup_success'] = true;
@@ -71,7 +83,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             'phone_number' => $phone_number,
             'role' => $role
         ];
-        header("Location: ../auth/login.php");
+        header("Location: ../auth/signup.php");
         exit();
     }
 }

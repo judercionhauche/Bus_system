@@ -54,10 +54,7 @@
                         <i class="fas fa-pencil-square-o"></i>Booking</a>
                 </li>
 
-                <li>
-                     <a href="assign-driver.php">
-                    <i class="fas fa-asterisk"></i>Assign-Driver</a>
-                </li>                
+                               
             </ul>
         </div>
     </nav>
