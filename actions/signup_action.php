@@ -51,7 +51,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             if ($stmt->execute()) {
                 $_SESSION['signup_success'] = true;
-                header("Location: " . APPURL . "auth/login.php");
+                header("Location: ../auth/login.php");
                 exit();
             } else {
                 $errors[] = "Error: " . $stmt->error;
@@ -71,7 +71,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             'phone_number' => $phone_number,
             'role' => $role
         ];
-        header("Location: " . APPURL . "auth/login.php");
+        header("Location: ../auth/login.php");
         exit();
     }
 }

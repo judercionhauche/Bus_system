@@ -32,7 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $_SESSION['user_id'] = $row['user_id'];
                 
                 // Redirect on successful login
-                header("Location: ".APPURL."index.php");
+                header("Location: ../index.php");
                 exit();
             } else {
                 $errors[] = "Incorrect password.";
@@ -44,7 +44,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Store errors in session
     $_SESSION['login_errors'] = $errors;
-    header("Location: " . APPURL . "auth/login.php");
+    header("Location: ../auth/login.php");
     exit();
 }
 
