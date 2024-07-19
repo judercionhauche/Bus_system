@@ -1,7 +1,6 @@
 <?php
-// At the top of trip_action.php
 
-require '../../config/connection.php';  // Make sure this path is correct
+require '../../config/connection.php';  
 
 if(isset($_POST['submit'])) {
     // Get the date and time from the form
