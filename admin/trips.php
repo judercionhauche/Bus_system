@@ -1,18 +1,33 @@
-<!DOCTYPE html>
-<html lang="en">
+<!-- Title Page-->
+<?php include 'styles.php'?>
+<?php require '../config/connection.php';?>
 
-<head>
-    <!-- Required meta tags-->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="au theme template">
-    <meta name="author" content="Hau Nguyen">
-    <meta name="keywords" content="au theme template">
+<?php 
+// Prepare a query --> QUERY FOR BUS
+$getBuses = $connection->prepare("SELECT bus_name, capacity FROM buses");
+// Execute the query
+$getBuses->execute();
+// Fetch results
+$busResults = $getBuses->get_result();
+$allBuses = $busResults->fetch_all(MYSQLI_ASSOC);
 
-    <!-- Title Page-->
-    <?php include 'styles.php'?>
+// Prepare a query --> QUERY FOR DRIVER
+$getDrivers = $connection->prepare("SELECT driver_name FROM drivers");
+// Execute the query
+$getDrivers->execute();
+// Fetch results
+$driverResults = $getDrivers->get_result();
+$allDrivers = $driverResults->fetch_all(MYSQLI_ASSOC);
 
-</head>
+// Prepare a query --> QUERY FOR TRIPS
+$getTrips = $connection->prepare("SELECT departure_time, route FROM trips");
+// Execute the query
+$getTrips->execute();
+// Fetch results
+$tripResults = $getTrips->get_result();
+$allTrips = $tripResults->fetch_all(MYSQLI_ASSOC);
+
+?>
 
 <body>
     <div class="page-wrapper">
@@ -22,10 +37,10 @@
         <?php include 'mobile-header.php'?>
 
         <!-- HEADER DESKTOP-->
-        <?PHP INCLUDE 'side-menu.php'?>
+        <?php include 'side-menu.php'?>
 
          <!-- HEADER DESKTOP-->
-         <?PHP INCLUDE 'desktop-header.php'?>
+         <?php include 'desktop-header.php'?>
         
         <!-- PAGE CONTENT-->
         <div class="page-container">
@@ -49,54 +64,54 @@
 											
 											<div class="card-body" style="width: 29vw;">
 												
-												<form action="" method="post" >
+												<form id="addTrip" action="./admin-actions/trip_action.php" method="POST" >
 													<div class="form-group" >
 														<label for="cc-payment" class="control-label mb-1">Date</label>
-														<input id="cc-pament" name="cc-payment" type="date" class="form-control">
+														<input id="cc-pament" name="date" type="date" class="form-control">
 													</div>
 													
 													<div class="form-group">
 														<label for="cc-number" class="control-label mb-1"> Time</label>
-														<input id="cc-number" name="cc-number" type="time" class="form-control cc-number">
+														<input id="cc-number" name="time" type="time" class="form-control cc-number">
 													</div>
 
 													<div class="form-group" >
 														<label for="select-route">Route</label>
-														<select class="form-control" id="select-route">
+														<select class="form-control" name="route">
 															<option value="">--Select Route--</option>
-															<option value="Route A">Route A</option>
-															<option value="Route B">Route B</option>
-															<option value="Route C">Route C</option>
+															<option value="Legon">Legon</option>
+															<option value="Madina">Madina</option>
+															<option value="Kwabenya">Kwabenya</option>
 														</select>
 													</div>
 
 													<div class="form-group" >
 														<label for="select-bus">Bus</label>
-														<select class="form-control" id="select-route">
+														<select class="form-control" name="bus">
 															<option value="">--Select Bus--</option>
-															<option value="Route A">Bus1</option>
-															<option value="Route B">Bus2</option>
-															<option value="Route C">Bus3</option>
+															<option value="Toyota Hiace (Small)">Toyota Hiace (Small)</option>
+															<option value="Toyota Long">Toyota Long</option>
+															<option value="Toyota Hiace (Big)">Toyota Hiace (Big)</option>
 														</select>
 													</div>
 
 													<div class="form-group" >
-														<label for="cc-payment" class="control-label mb-1"> Available Seats</label>
-														<input id="cc-pament" name="cc-payment" type="text" class="form-control">
+														<label for="cc-payment" class="control-label mb-1"> Bus Capacity</label>
+														<input id="cc-pament" name="seats" type="text" class="form-control">
 													</div>
 
 													<div class="form-group" >
-														<label for="select-bus">Bus</label>
-														<select class="form-control" id="select-route">
+														<label for="select-bus">Driver</label>
+														<select class="form-control" name="driver">
 															<option value="">--Select Driver--</option>
-															<option value="Route A">Driver 1</option>
-															<option value="Route B">Driver 2</option>
-															<option value="Route C">Driver 3</option>
+															<option value="Driver 1">Driver 1</option>
+															<option value="Driver 2">Driver 2</option>
+															<option value="Driver 3">Driver 3</option>
 														</select>
 													</div>
 																											
 													<div>
-														<button id="" type="submit" class="btn btn-lg btn-info btn-block">
+														<button name="submit" type="submit" class="btn btn-lg btn-info btn-block">
 															DONE
 														</button>
 													</div>
@@ -115,7 +130,7 @@
                 
             </div>
             <!-- FOOTER-->
-            <?PHP INCLUDE 'footer.php'?>
+            <?php include 'footer.php'?>
 
             <!-- END COPYRIGHT-->
         </div>
@@ -218,5 +233,4 @@
 
 </body>
 
-</html>
 <!-- end document-->
