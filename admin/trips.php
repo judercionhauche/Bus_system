@@ -2,9 +2,13 @@
 <?php include 'styles.php'?>
 <?php require '../config/connection.php';?>
 
+
+
+
+
 <?php 
 // Prepare a query --> QUERY FOR BUS
-$getBuses = $connection->prepare("SELECT bus_name, capacity FROM buses");
+$getBuses = $connection->prepare("SELECT bus_id, bus_name, capacity FROM buses");
 // Execute the query
 $getBuses->execute();
 // Fetch results
@@ -20,7 +24,7 @@ $driverResults = $getDrivers->get_result();
 $allDrivers = $driverResults->fetch_all(MYSQLI_ASSOC);
 
 // Prepare a query --> QUERY FOR TRIPS
-$getTrips = $connection->prepare("SELECT departure_time, route FROM trips");
+$getTrips = $connection->prepare("SELECT trip_date, departure_time, route FROM trips");
 // Execute the query
 $getTrips->execute();
 // Fetch results
@@ -66,22 +70,22 @@ $allTrips = $tripResults->fetch_all(MYSQLI_ASSOC);
 												
 												<form id="addTrip" action="./admin-actions/trip_action.php" method="POST" >
 													<div class="form-group" >
-														<label for="cc-payment" class="control-label mb-1">Date</label>
-														<input id="cc-pament" name="date" type="date" class="form-control">
+														<label for="trip-date" class="control-label mb-1">Date</label>
+														<input id="date" id="trip-date" name="trip-date" type="date" class="form-control" required>
 													</div>
 													
 													<div class="form-group">
-														<label for="cc-number" class="control-label mb-1"> Time</label>
-														<input id="cc-number" name="time" type="time" class="form-control cc-number">
-													</div>
+                                                        <label for="departure-time" class="control-label mb-1">Time</label>
+                                                        <input type="time" id="departure-time" name="departure_time" class="form-control" required>
+                                                    </div>
 
 													<div class="form-group" >
 														<label for="select-route">Route</label>
 														<select class="form-control" name="route">
 															<option value="">--Select Route--</option>
-															<option value="Legon">Legon</option>
-															<option value="Madina">Madina</option>
-															<option value="Kwabenya">Kwabenya</option>
+															<?php foreach ($allTrips as $trip): ?>
+                                                                <option value="<?= $trip['route'] ?>"><?= $trip['route'] ?></option>
+                                                            <?php endforeach; ?>
 														</select>
 													</div>
 
@@ -89,24 +93,25 @@ $allTrips = $tripResults->fetch_all(MYSQLI_ASSOC);
 														<label for="select-bus">Bus</label>
 														<select class="form-control" name="bus">
 															<option value="">--Select Bus--</option>
-															<option value="Toyota Hiace (Small)">Toyota Hiace (Small)</option>
-															<option value="Toyota Long">Toyota Long</option>
-															<option value="Toyota Hiace (Big)">Toyota Hiace (Big)</option>
+                                                            <?php foreach ($allBuses as $bus): ?>
+                                                            <option value="<?= $bus['bus_id'] ?>" data-capacity="<?= $bus['capacity'] ?>"><?= $bus['bus_name'] ?></option>
+                                                            <?php endforeach; ?>
+
 														</select>
 													</div>
 
-													<div class="form-group" >
-														<label for="cc-payment" class="control-label mb-1"> Bus Capacity</label>
-														<input id="cc-pament" name="seats" type="text" class="form-control">
-													</div>
+                                                    <div class="form-group">
+                                                        <label for="bus-capacity" class="control-label mb-1">Bus Capacity</label>
+                                                        <input id="bus-capacity" name="seats" type="text" class="form-control" readonly>
+                                                    </div>
 
 													<div class="form-group" >
 														<label for="select-bus">Driver</label>
 														<select class="form-control" name="driver">
 															<option value="">--Select Driver--</option>
-															<option value="Driver 1">Driver 1</option>
-															<option value="Driver 2">Driver 2</option>
-															<option value="Driver 3">Driver 3</option>
+                                                            <?php foreach ($allDrivers as $driver): ?>
+                                                                <option value="<?= $driver['driver_name'] ?>"><?= $driver['driver_name'] ?></option>
+                                                            <?php endforeach; ?>
 														</select>
 													</div>
 																											
@@ -180,6 +185,13 @@ $allTrips = $tripResults->fetch_all(MYSQLI_ASSOC);
         var popup = document.getElementById("busPopup");
         popup.classList.toggle("show");
         }
+        
+        // Update bus capacity when a bus is selected
+        document.querySelector('select[name="bus"]').addEventListener('change', function() {
+        var selectedBus = this.options[this.selectedIndex];
+        var busCapacity = selectedBus.getAttribute('data-capacity');
+        document.getElementById('bus-capacity').value = busCapacity;
+        });
     </script>
 
    <!--Script-->
