@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Jul 18, 2024 at 08:17 PM
--- Server version: 10.4.21-MariaDB
--- PHP Version: 8.1.2
+-- Host: 127.0.0.1
+-- Generation Time: Jul 20, 2024 at 12:11 PM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -41,7 +41,7 @@ CREATE TABLE `booking` (
   `number_of_seats` int(11) NOT NULL,
   `invoice_number` varchar(50) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `booking`
@@ -64,7 +64,7 @@ CREATE TABLE `bookings` (
   `user_id` int(11) NOT NULL,
   `booking_date` date NOT NULL,
   `status` enum('booked','cancelled') NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -78,7 +78,7 @@ CREATE TABLE `buses` (
   `capacity` int(11) NOT NULL,
   `bus_name` varchar(255) NOT NULL,
   `bus_status` enum('active','inactive','maintenance/unavailable') NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `buses`
@@ -108,7 +108,14 @@ CREATE TABLE `drivers` (
   `user_id` int(11) NOT NULL,
   `driver_name` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `drivers`
+--
+
+INSERT INTO `drivers` (`driver_id`, `user_id`, `driver_name`, `email`) VALUES
+(1, 3, 'Nana Emma', 'emma@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -121,7 +128,7 @@ CREATE TABLE `logistics` (
   `user_id` int(11) NOT NULL,
   `logistics_name` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -136,7 +143,7 @@ CREATE TABLE `payments` (
   `payment_date` date NOT NULL,
   `payment_method` enum('MoMo','cash') NOT NULL,
   `status` enum('completed','pending','failed') NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -149,7 +156,7 @@ CREATE TABLE `staff` (
   `user_id` int(11) NOT NULL,
   `staff_name` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -163,10 +170,15 @@ CREATE TABLE `trips` (
   `driver_id` int(11) NOT NULL,
   `trip_date` date NOT NULL,
   `departure_time` time NOT NULL,
-  `arrival_time` time NOT NULL,
-  `route` varchar(255) NOT NULL,
-  `status` enum('scheduled','completed','cancelled') NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `route` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `trips`
+--
+
+INSERT INTO `trips` (`trip_id`, `bus_id`, `driver_id`, `trip_date`, `departure_time`, `route`) VALUES
+(1, 20, 1, '2024-07-25', '05:00:00', 'Legon');
 
 -- --------------------------------------------------------
 
@@ -180,18 +192,19 @@ CREATE TABLE `users` (
   `last_name` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `password` varchar(60) NOT NULL,
-  `confirm_password` varchar(60) NOT NULL,
   `phone_number` int(20) NOT NULL,
-  `role` varchar(7) NOT NULL,
+  `role` int(2) NOT NULL,
   `date_created` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`user_id`, `first_name`, `last_name`, `email`, `password`, `confirm_password`, `phone_number`, `role`, `date_created`) VALUES
-(1, 'Emma', 'Agyei', 'favourmdev@gmail.com', '$2y$10$Y366c6K2Z/Cy8hsCKpCuduhy26wAqbf1qqtIvxTQ9R3jOF3VMkN9i', '', 203456789, 'staff', '2024-07-02 20:10:48');
+INSERT INTO `users` (`user_id`, `first_name`, `last_name`, `email`, `password`, `phone_number`, `role`, `date_created`) VALUES
+(1, 'Emma', 'Agyei', 'favourmdev@gmail.com', '$2y$10$Y366c6K2Z/Cy8hsCKpCuduhy26wAqbf1qqtIvxTQ9R3jOF3VMkN9i', 203456789, 3, '2024-07-02 20:10:48'),
+(2, 'Judercio', 'N', 'jn@gmail.com', '$2y$10$lAQ/gPYYRzmBdJMw/uslJOQkb.V4scXZKW1B5FdIXWItRAgFNbANO', 203456789, 3, '2024-07-18 19:55:37'),
+(3, 'Nana', 'Emma', 'emma@gmail.com', '$2y$10$NVbhCq34nS/z8RrCpazSD.qOrLZBByBaTbXnqw5BDr2tQUbTkrjRC', 203456589, 2, '2024-07-18 20:11:13');
 
 --
 -- Indexes for dumped tables
@@ -291,7 +304,7 @@ ALTER TABLE `buses`
 -- AUTO_INCREMENT for table `drivers`
 --
 ALTER TABLE `drivers`
-  MODIFY `driver_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `driver_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `logistics`
@@ -315,13 +328,13 @@ ALTER TABLE `staff`
 -- AUTO_INCREMENT for table `trips`
 --
 ALTER TABLE `trips`
-  MODIFY `trip_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `trip_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Constraints for dumped tables
