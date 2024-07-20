@@ -29,16 +29,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete'])) {
 
 // Handle addition
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add_staff'])) {
-    $name = $_POST['name'];
+    $first_name = $_POST['first_name'];
+    $last_name = $_POST['last_name'];
     $email = $_POST['email'];
     $phone = $_POST['phone'];
     $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
     $role = '3'; // '3' is the role for staff
-
-    // Split name into first and last name
-    $name_parts = explode(' ', $name, 2);
-    $first_name = $name_parts[0];
-    $last_name = isset($name_parts[1]) ? $name_parts[1] : '';
 
     // Insert the new staff member into the database
     $stmt = $connection->prepare("INSERT INTO users (first_name, last_name, phone_number, email, password, role) VALUES (?, ?, ?, ?, ?, ?)");
@@ -47,7 +43,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add_staff'])) {
     if ($stmt->execute()) {
         $message = "Staff member added successfully.";
     } else {
-        $message = "Error adding staff member: " . $stmt->error;
+        if ($stmt->errno === 1062) { // Duplicate entry error code
+            $message = "Error: The email address is already in use.";
+        } else {
+            $message = "Error adding staff member: " . $stmt->error;
+        }
     }
 
     $stmt->close();
@@ -146,8 +146,12 @@ $connection->close();
                                                 <form action="" method="post">
                                                     <input type="hidden" name="add_staff" value="true">
                                                     <div class="form-group">
-                                                        <label for="name" class="control-label mb-1">Name</label>
-                                                        <input id="name" name="name" type="text" class="form-control" required>
+                                                        <label for="first_name" class="control-label mb-1">First Name</label>
+                                                        <input id="first_name" name="first_name" type="text" class="form-control" required>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="last_name" class="control-label mb-1">Last Name</label>
+                                                        <input id="last_name" name="last_name" type="text" class="form-control" required>
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="email" class="control-label mb-1">Email</label>
