@@ -26,6 +26,7 @@ function get_bus_data() {
             $bus_data[] = [
                 'name' => $row['bus_name'],
                 'number' => $row['bus_number'],
+                'bus_id' => $row['bus_id'],
                 'capacity' => $row['capacity'],
                 'status' => $row['bus_status']
             ];
