@@ -216,57 +216,6 @@ $connection->close();
                                     </table>
                                 </div>
 
-                                <br><br><br>
-                                <!-- Overview Section-->
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <div class="overview-wrap">
-                                            <h2 class="title-1">Trash (Staff)</h2>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- DATA TABLE-->
-                                <div class="table-responsive m-b-40">
-                                    <table class="table table-data2">
-                                        <thead>
-                                            <tr>
-                                                <th>Name</th>
-                                                <th>Phone</th>
-                                                <th>Email</th>
-                                                <th>Actions</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <?php foreach ($staffs as $staff): ?>
-                                            <tr class="tr-shadow">
-                                                <td><?php echo htmlspecialchars($staff['first_name'] . ' ' . $staff['last_name']); ?></td>
-                                                <td class="desc"><?php echo htmlspecialchars($staff['phone_number']); ?></td>
-                                                <td>
-                                                    <span class="block-email"><?php echo htmlspecialchars($staff['email']); ?></span>
-                                                </td>
-                                                <td>
-                                                    <div class="table-data-feature">
-                                                        <button class="item" data-toggle="tooltip" data-placement="top" title="Edit">
-                                                            <i class="zmdi zmdi-edit"></i>
-                                                        </button>
-                                                        <form id="deleteForm-<?php echo $staff['email']; ?>" method="POST" action="" style="display:inline;">
-                                                            <input type="hidden" name="email" value="<?php echo htmlspecialchars($staff['email']); ?>">
-                                                            <button type="button" class="item" data-toggle="tooltip" data-placement="top" title="Delete" onclick="confirmDelete('<?php echo $staff['email']; ?>')">
-                                                                <i class="zmdi zmdi-delete"></i>
-                                                            </button>
-                                                            <input type="hidden" name="delete" value="true">
-                                                        </form>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr class="spacer"></tr>
-                                            <?php endforeach; ?>
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <!-- END DATA TABLE-->
-
                             </div>
                         </div>
                     </div>
