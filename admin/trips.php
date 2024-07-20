@@ -64,7 +64,7 @@ $allTrips = $tripResults->fetch_all(MYSQLI_ASSOC);
 											
 											<div class="card-body" style="width: 29vw;">
 												
-												<form id="addTrip" action="./admin-actions/trip_action.php" method="POST" >
+												<form id="addTrip" action="./admin-actions/trips_action.php" method="POST" >
 													<div class="form-group" >
 														<label for="trip-date" class="control-label mb-1">Date</label>
 														<input id="date" id="trip-date" name="trip-date" type="date" class="form-control" required>
@@ -194,7 +194,7 @@ $allTrips = $tripResults->fetch_all(MYSQLI_ASSOC);
    <?php include 'scripts.php'?>
 
     <!-- Main JS-->
-    <script src="js/main.js"></script>
+    <script src="../assets/js/main.js"></script>
 
     
     <!-- CSS for ADD form popup-->

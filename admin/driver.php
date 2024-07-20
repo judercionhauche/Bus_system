@@ -1,6 +1,11 @@
 <?php include 'styles.php'; ?>
 <?php require '../config/connection.php'; ?>
-
+<?php
+    // Fetch data from the users table where role is 2 (drivers)
+    $stmt = $connection->prepare("SELECT user_id, first_name, last_name, phone_number, email FROM users WHERE role = 2");
+    $stmt->execute();
+    $result = $stmt->get_result();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,66 +35,25 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <h2 class="title-1" style="margin-left:35%">DRIVERS</h2>
-                                <div class="popup">
-                                    <button class="au-btn au-btn-icon au-btn--blue" onclick="addDriver()" style="position: absolute; right: 5vw; top: -1vw;">
-                                        <i class="zmdi zmdi-plus"></i>Add
-                                    </button>
-                                    <span class="bus-form-popup" id="busPopup">
-                                        <div class="col-lg-6">
-                                            <div class="card" style="width: 30vw;">
-                                                <div class="card-body" style="width: 29vw;">
-                                                    <form id="addDriverForm" method="POST">
-                                                        <div class="form-group">
-                                                            <label for="email" class="control-label mb-1">Email</label>
-                                                            <input id="email" name="email" type="email" class="form-control" required>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label for="first_name" class="control-label mb-1">First Name</label>
-                                                            <input id="first_name" name="first_name" type="text" class="form-control" readonly>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label for="last_name" class="control-label mb-1">Last Name</label>
-                                                            <input id="last_name" name="last_name" type="text" class="form-control" readonly>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label for="phone" class="control-label mb-1">Phone</label>
-                                                            <input id="phone" name="phone" type="text" class="form-control" required>
-                                                        </div>
-                                                        <div>
-                                                            <button type="button" class="btn btn-lg btn-info btn-block" onclick="submitForm()">
-                                                                DONE
-                                                            </button>
-                                                        </div>
-                                                    </form>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </span>
-                                </div>
                                 <div class="table-responsive table-responsive-data2">
-                                <table class="table table-data2">
+                                    <table class="table table-data2">
                                         <thead>
                                             <tr>
                                                 <th>Driver ID</th>
                                                 <th>Name</th>
                                                 <th>Phone</th>
                                                 <th>Email</th>
-                                                <th> Actions</th>
+                                                <th>Actions</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <?php
-                                            // Fetch data from the drivers table
-                                            $query = "SELECT driver_id, driver_name, phone_number, email FROM drivers";
-                                            $result = $connection->query($query);
-
-                                            if ($result->num_rows > 0) {
-                                                while ($row = $result->fetch_assoc()) { ?>
+                                            <?php if ($result->num_rows > 0): ?>
+                                                <?php while ($row = $result->fetch_assoc()): ?>
                                                     <tr class="tr-shadow">
-                                                        <td><?php echo htmlspecialchars($row['driver_id']); ?></td>
-                                                        <td><?php echo htmlspecialchars($row['driver_name']); ?></td>
-                                                        <td class="desc"><?php echo htmlspecialchars($row['phone_number']); ?></td>
-                                                        <td><span class="block-email"><?php echo htmlspecialchars($row['email']); ?></span></td>
+                                                        <td><?= htmlspecialchars($row['user_id']); ?></td>
+                                                        <td><?= htmlspecialchars($row['first_name'] . ' ' . $row['last_name']); ?></td>
+                                                        <td class="desc"><?= htmlspecialchars($row['phone_number']); ?></td>
+                                                        <td><span class="block-email"><?= htmlspecialchars($row['email']); ?></span></td>
                                                         <td>
                                                             <div class="table-data-feature">
                                                                 <button class="item" data-toggle="tooltip" data-placement="top" title="Edit">
@@ -102,15 +66,13 @@
                                                         </td>
                                                     </tr>
                                                     <tr class="spacer"></tr>
-                                                <?php }
-                                            } else { ?>
+                                                <?php endwhile; ?>
+                                            <?php else: ?>
                                                 <tr>
                                                     <td colspan="5">No drivers found</td>
                                                 </tr>
-                                            <?php }
-
-                                            $connection->close();
-                                            ?>
+                                            <?php endif; ?>
+                                            <?php $connection->close(); ?>
                                         </tbody>
                                     </table>
                                 </div>
@@ -167,77 +129,6 @@
         }
     </style>
 
-    <script>
-        function addDriver() {
-            var popup = document.getElementById("busPopup");
-            popup.classList.toggle("show");
-        }
-        document.getElementById('email').addEventListener('blur', function() {
-            var email = this.value;
-            if (email) {
-                var xhr = new XMLHttpRequest();
-                xhr.open('POST', '../admin/admin-actions/fetch_user_info.php', true); // Correct path
-                xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-                xhr.onload = function() {
-                    if (this.status == 200) {
-                        console.log('Response:', this.responseText); // Log the response
-                        try {
-                            var response = JSON.parse(this.responseText);
-                            if (response.success) {
-                                document.getElementById('first_name').value = response.first_name;
-                                document.getElementById('last_name').value = response.last_name;
-                                document.getElementById('phone').value = response.phone_number;
-                            } else {
-                                alert(response.message || 'User not found or is not a driver.');
-                                document.getElementById('first_name').value = '';
-                                document.getElementById('last_name').value = '';
-                                document.getElementById('phone').value = '';
-                            }
-                        } catch (e) {
-                            console.error('Parsing error:', e);
-                            alert('An error occurred while processing your request.');
-                        }
-                    } else {
-                        console.error('Server error:', this.statusText);
-                        alert('An error occurred while processing your request.');
-                    }
-                };
-                xhr.send('email=' + encodeURIComponent(email));
-            }
-        });
-
-        function submitForm() {
-            var form = document.getElementById('addDriverForm');
-            var formData = new FormData(form);
-
-            var xhr = new XMLHttpRequest();
-            xhr.open('POST', 'admin-actions/driver_action.php', true);
-            xhr.onload = function() {
-                if (xhr.status === 200) {
-                    Swal.fire({
-                        title: 'Success!',
-                        text: 'Driver added successfully',
-                        icon: 'success',
-                        confirmButtonText: 'OK'
-                    }).then((result) => {
-                        if (result.isConfirmed) {
-                            window.location.href = 'driver.php';
-                        }
-                    });
-                } else {
-                    Swal.fire({
-                        title: 'Error!',
-                        text: 'An error occurred while adding the driver',
-                        icon: 'error',
-                        confirmButtonText: 'OK'
-                    });
-                }
-            };
-            xhr.send(formData);
-        }
-    </script>
-
 </body>
 
 </html>
-<!-- end document-->

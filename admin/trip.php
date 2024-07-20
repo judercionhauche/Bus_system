@@ -48,9 +48,10 @@ $allBuses = $busResults->fetch_all(MYSQLI_ASSOC);
 <table class="table table-bordered">
 	<thead>
 		<tr>
-            <th>Date</th>
+        	<th>Trip Number</th>    
+			<th>Date</th>
+			<th>Bus</th>
 			<th>Time</th>
-			<th> Bus </th>
 			<th>Route</th>
 			<th>Available Seats</th>
 			<th>Driver</th>
@@ -60,6 +61,7 @@ $allBuses = $busResults->fetch_all(MYSQLI_ASSOC);
 	<tbody>
 		<tr>
             <td></td>
+			<td> </td>
 			<td> </td>
 			<td> </td>
 			<td> </td>
@@ -88,10 +90,10 @@ $allBuses = $busResults->fetch_all(MYSQLI_ASSOC);
 
 </style>				
 <!-- Scripts -->
-<script src="assets/js/jquery.min.js"></script>
-<script src="assets/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="assets/js/jquery.scrolly.min.js"></script>
-<script src="assets/js/jquery.scrollex.min.js"></script>
+<script src="../assets/js/jquery.min.js"></script>
+<script src="../assets/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../assets/js/jquery.scrolly.min.js"></script>
+<script src="../assets/js/jquery.scrollex.min.js"></script>
 <script src="assets/js/main.js"></script>
 		
 <!-- Applying Filters-->
