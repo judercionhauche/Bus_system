@@ -2,6 +2,14 @@
 session_start();
 require '../config/connection.php'; // Adjust the path if needed
 
+// Enable error reporting for debugging
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+// Initialize messages
+$message = '';
+
 // Handle deletion
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete'])) {
     $email = $_POST['email'];
@@ -11,9 +19,35 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete'])) {
     $stmt->bind_param("s", $email);
 
     if ($stmt->execute()) {
-        $_SESSION['message'] = "Staff member deleted successfully.";
+        $message = "Staff member deleted successfully.";
     } else {
-        $_SESSION['message'] = "Error deleting staff member: " . $stmt->error;
+        $message = "Error deleting staff member: " . $stmt->error;
+    }
+
+    $stmt->close();
+}
+
+// Handle addition
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add_staff'])) {
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $phone = $_POST['phone'];
+    $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+    $role = '1'; // Assuming '1' is the role for staff
+
+    // Split name into first and last name
+    $name_parts = explode(' ', $name, 2);
+    $first_name = $name_parts[0];
+    $last_name = isset($name_parts[1]) ? $name_parts[1] : '';
+
+    // Insert the new staff member into the database
+    $stmt = $connection->prepare("INSERT INTO users (first_name, last_name, phone_number, email, password, role) VALUES (?, ?, ?, ?, ?, ?)");
+    $stmt->bind_param("sssssi", $first_name, $last_name, $phone, $email, $password, $role);
+
+    if ($stmt->execute()) {
+        $message = "Staff member added successfully.";
+    } else {
+        $message = "Error adding staff member: " . $stmt->error;
     }
 
     $stmt->close();
@@ -45,37 +79,16 @@ $connection->close();
     <!-- Title Page-->
     <?php include 'styles.php'?>
 
+    <!-- Include Bootstrap CSS for the modal -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
     <style>
-        .popup .bus-form-popup {
-            position: absolute;
-            visibility: hidden;
-        }
-
-        .popup .show {
-            visibility: visible;
-            position: relative;
-            margin-right: 0%;
-            -webkit-animation: fadeIn 1s;
-            animation: fadeIn 1s;
-        }
-
-        @-webkit-keyframes fadeIn {
-            from {opacity: 0;}
-            to {opacity: 1;}
-        }
-
-        @keyframes fadeIn {
-            from {opacity: 0;}
-            to {opacity: 1;}
+        .modal-body .form-control {
+            margin-bottom: 10px;
         }
     </style>
 
     <script>
-        function addBus() {
-            var popup = document.getElementById("busPopup");
-            popup.classList.toggle("show");
-        }
-
         function confirmDelete(email) {
             if (confirm("Are you sure you want to delete this staff member?")) {
                 document.getElementById('deleteForm-' + email).submit();
@@ -100,6 +113,13 @@ $connection->close();
         <div class="page-container">
             <div class="main-content">
 
+                <!-- Display messages -->
+                <?php if ($message): ?>
+                    <div class="alert alert-info">
+                        <?php echo htmlspecialchars($message); ?>
+                    </div>
+                <?php endif; ?>
+
                 <!-- DATA TABLE-->
                 <section class="p-t-20">
                     <div class="container">
@@ -107,41 +127,48 @@ $connection->close();
                             <div class="col-md-12">
                                 <h2 class="title-1" style="margin-left: 35%">STAFF</h2>
 
-                                <div class="popup">
-                                    <button class="au-btn au-btn-icon au-btn--blue" onclick="addBus()" style="position: absolute; right: 5vw; top: -1vw;">
-                                        <i class="zmdi zmdi-plus"></i>Add</button>
+                                <!-- Button trigger modal -->
+                                <button type="button" class="au-btn au-btn-icon au-btn--blue" style="position: absolute; right: 5vw; top: -1vw;" data-toggle="modal" data-target="#addStaffModal">
+                                    <i class="zmdi zmdi-plus"></i>Add
+                                </button>
 
-                                    <span class="bus-form-popup" id="busPopup">
-                                        <div class="col-lg-6";>
-                                            <div class="card" style="width: 30vw";>
-                                                <div class="card-body" style="width: 29vw;">
-                                                    <form action="" method="post" >
-                                                        <div class="form-group" >
-                                                            <label for="cc-payment" class="control-label mb-1">Name</label>
-                                                            <input id="cc-payment" name="cc-payment" type="text" class="form-control">
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <label for="cc-number" class="control-label mb-1">ID</label>
-                                                            <input id="cc-number" name="cc-number" type="tel" class="form-control cc-number">
-                                                        </div>
-                                                        <div class="form-group" >
-                                                            <label for="cc-name" class="control-label mb-1">Email</label>
-                                                            <input id="cc-name" name="cc-name" type="text" class="form-control cc-name valid">
-                                                        </div>
-                                                        <div class="form-group" >
-                                                            <label for="cc-name" class="control-label mb-1">Phone</label>
-                                                            <input id="cc-name" name="cc-name" type="number" class="form-control cc-name valid">
-                                                        </div>                                    
-                                                        <div>
-                                                            <button id="" type="submit" class="btn btn-lg btn-info btn-block">
-                                                                DONE
-                                                            </button>
-                                                        </div>
-                                                    </form>
-                                                </div>
+                                <!-- Modal -->
+                                <div class="modal fade" id="addStaffModal" tabindex="-1" role="dialog" aria-labelledby="addStaffModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="addStaffModalLabel">Add Staff</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <form action="" method="post">
+                                                    <input type="hidden" name="add_staff" value="true">
+                                                    <div class="form-group">
+                                                        <label for="name" class="control-label mb-1">Name</label>
+                                                        <input id="name" name="name" type="text" class="form-control" required>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="email" class="control-label mb-1">Email</label>
+                                                        <input id="email" name="email" type="email" class="form-control" required>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="phone" class="control-label mb-1">Phone</label>
+                                                        <input id="phone" name="phone" type="tel" class="form-control" required>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="password" class="control-label mb-1">Password</label>
+                                                        <input id="password" name="password" type="password" class="form-control" required>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                        <button type="submit" class="btn btn-primary">Add Staff</button>
+                                                    </div>
+                                                </form>
                                             </div>
                                         </div>
-                                    </span>
+                                    </div>
                                 </div>
 
                                 <div class="table-responsive table-responsive-data2">
@@ -254,6 +281,11 @@ $connection->close();
 
     <!--Script-->
     <?php include 'scripts.php'?>
+
+    <!-- Include Bootstrap JS for the modal -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
     <!-- Main JS-->
     <script src="js/main.js"></script>
