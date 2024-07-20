@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add_staff'])) {
     $email = $_POST['email'];
     $phone = $_POST['phone'];
     $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
-    $role = 3; // Assuming '3' is the role for staff
+    $role = '3'; // '3' is the role for staff
 
     // Split name into first and last name
     $name_parts = explode(' ', $name, 2);
