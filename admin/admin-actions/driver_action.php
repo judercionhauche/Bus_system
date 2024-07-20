@@ -1,5 +1,5 @@
 <?php
-require '../config/connection.php'; 
+require '../../config/connection.php';
 
 if (isset($_POST['submit'])) {
     $email = $_POST['email'];

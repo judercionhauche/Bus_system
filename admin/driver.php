@@ -1,5 +1,6 @@
 <?php include 'styles.php'; ?>
 <?php require '../config/connection.php'; ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -175,26 +176,39 @@
         document.getElementById('email').addEventListener('blur', function() {
             var email = this.value;
             if (email) {
-                var xhr = new XMLHttpRequest();
-                xhr.open('POST', 'admin-actions/fetch_user_info.php', true);
-                xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-                xhr.onload = function() {
-                    if (this.status == 200) {
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', '../admin/admin-actions/fetch_user_info.php', true); // Correct path
+            xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+            xhr.onload = function() {
+                if (this.status == 200) {
+                    console.log('Response:', this.responseText); // Log the response
+                    try {
                         var response = JSON.parse(this.responseText);
                         if (response.success) {
                             document.getElementById('first_name').value = response.first_name;
                             document.getElementById('last_name').value = response.last_name;
+                            document.getElementById('phone').value = response.phone_number;
                         } else {
-                            alert('User not found or is not a driver.');
+                            alert(response.message || 'User not found or is not a driver.');
                             document.getElementById('first_name').value = '';
                             document.getElementById('last_name').value = '';
+                            document.getElementById('phone').value = '';
                         }
+                    } catch (e) {
+                        console.error('Parsing error:', e);
+                        alert('An error occurred while processing your request.');
                     }
-                };
-                xhr.send('email=' + encodeURIComponent(email));
-            }
-        });
-    </script>
+                } else {
+                    console.error('Server error:', this.statusText);
+                    alert('An error occurred while processing your request.');
+                }
+            };
+            xhr.send('email=' + encodeURIComponent(email));
+        }
+    });
+
+</script>
+
 </body>
 
 </html>
