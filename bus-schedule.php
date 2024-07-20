@@ -57,44 +57,39 @@
 
 
 					<!-- Bus Schedule Table -->
-					<section>
-						<table class="table table-bordered">
-							<thead>
-								<tr>
-									<th>Date</th>
-									<th>Time</th>
-									<th> Bus </th>
-									<th>Route</th>
-									<th>Available Seats</th>
-									<th>Driver</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td> </td>
-									<td> </td>
-									<td> </td>
-									<td> </td>
-									<td> </td>
-									<td> </td>
-								</tr>
-								<tr>
-									<td></td>
-									<td> </td>
-									<td> </td>
-									<td> </td>
-									<td> </td>
-									<td> </td>
-								</tr>	
-							</tbody>
-						</table>
-					</section>
-				</div>
-			</div>
-				
-			<!-- Footer -->
-			<?php include 'footer.php'?>
-		</div>
+		<!-- Bus Schedule Table -->
+<!-- Bus Schedule Table -->
+<section>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Trip ID</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Bus</th>
+                <th>Route</th>
+                <th>Available Seats</th>
+                <th>Driver</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td> </td>
+                <td> </td>
+                <td> </td>
+                <td> </td>
+                <td> </td>
+                <td> </td>
+                <td><button class="btn btn-success btn-sm">Book Ride</button></td>
+            </tr>
+        
+        </tbody>
+    </table>
+</section>
+
+
 						
 
 		<!-- Scripts -->
