@@ -54,7 +54,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add_staff'])) {
 }
 
 // Fetch staff data from the database
-$query = "SELECT first_name, last_name, phone_number, email FROM users WHERE role = '1'";
+$query = "SELECT first_name, last_name, phone_number, email FROM users WHERE role = '3'";
 $result = $connection->query($query);
 
 if ($result->num_rows > 0) {
