@@ -2,6 +2,7 @@
 require '../../config/connection.php';
 
 header('Content-Type: application/json');
+//./admin/admin-actions/driver_action.php
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $email = $_POST['email'];

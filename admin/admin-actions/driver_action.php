@@ -37,9 +37,8 @@ if (isset($_POST['submit'])) {
             }
 
             $driverSql->close();
-        } else {
-            echo "<script>alert('Driver already exists'); window.history.back();</script>";
         }
+        // If the driver already exists, do nothing
         $checkDriver->close();
     } else {
         echo "<script>alert('User not found or is not a driver'); window.history.back();</script>";
