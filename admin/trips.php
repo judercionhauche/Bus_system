@@ -53,7 +53,7 @@ $allTrips = $tripResults->fetch_all(MYSQLI_ASSOC);
                                         <div class="card" style="width: 30vw;">
                                             <div class="card-body" style="width: 29vw;">
                                                <!-- Form HTML and JavaScript -->
-                                                <form id="addTrip" action="./admin-actions/trips_action.php" method="POST">
+                                                <form id="addTrip" method="POST">
                                                     <!-- Form Fields -->
                                                     <div class="form-group">
                                                         <label for="trip-date" class="control-label mb-1">Date</label>
@@ -70,7 +70,6 @@ $allTrips = $tripResults->fetch_all(MYSQLI_ASSOC);
                                                             <option value="Legon">Legon</option>
                                                             <option value="Madina">Madina</option>
                                                             <option value="Kwabenya">Kwabenya</option>
-                                                            
                                                         </select>
                                                     </div>
                                                     <div class="form-group">
@@ -98,9 +97,7 @@ $allTrips = $tripResults->fetch_all(MYSQLI_ASSOC);
                                                         <input type="hidden" name="last_name" id="last_name">
                                                     </div>
                                                     <div>
-                                                        <button name="submit" type="submit" class="btn btn-lg btn-info btn-block">
-                                                            DONE
-                                                        </button>
+                                                        <button type="submit" class="btn btn-lg btn-info btn-block">DONE</button>
                                                     </div>
                                                 </form>
                                             </div>
@@ -150,6 +147,7 @@ $allTrips = $tripResults->fetch_all(MYSQLI_ASSOC);
             var popup = document.getElementById("busPopup");
             popup.classList.toggle("show");
         }
+
         // Update bus capacity when a bus is selected
         document.querySelector('select[name="bus"]').addEventListener('change', function() {
             var selectedBus = this.options[this.selectedIndex];
@@ -165,14 +163,8 @@ $allTrips = $tripResults->fetch_all(MYSQLI_ASSOC);
             document.getElementById('first_name').value = firstName;
             document.getElementById('last_name').value = lastName;
         });
-    </script>
 
-    <!--Script-->
-    <?php include 'scripts.php'?>
-    <!-- Main JS-->
-    <script src="../assets/js/main.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script>
+        // Handle form submission via AJAX
         document.getElementById('addTrip').addEventListener('submit', function(e) {
             e.preventDefault();
 
@@ -195,7 +187,8 @@ $allTrips = $tripResults->fetch_all(MYSQLI_ASSOC);
                             document.getElementById('addTrip').reset();
                             // Close the popup
                             document.getElementById('busPopup').classList.remove('show');
-                            // Optionally, refresh the trips table here
+                            // Add the new trip to the table
+                            addTripToTable(data.trip);
                         }
                     });
                 } else {
@@ -215,6 +208,40 @@ $allTrips = $tripResults->fetch_all(MYSQLI_ASSOC);
                 });
             });
         });
+
+        function addTripToTable(trip) {
+            var tableBody = document.querySelector('table tbody');
+            var row = document.createElement('tr');
+
+            row.innerHTML = `
+                <td>${trip.trip_id}</td>
+                <td>${trip.bus_name}</td>
+                <td>${trip.first_name}</td>
+                <td>${trip.last_name}</td>
+                <td>${trip.trip_date}</td>
+                <td>${trip.departure_time}</td>
+                <td>${trip.route}</td>
+                <td>${trip.available_seats}</td>
+                <td>
+                    <div class="table-data-feature">
+                        <button class="item" data-toggle="tooltip" data-placement="top" title="Edit">
+                            <i class="zmdi zmdi-edit"></i>
+                        </button>
+                        <button class="item" data-toggle="tooltip" data-placement="top" title="Delete">
+                            <i class="zmdi zmdi-delete"></i>
+                        </button>
+                    </div>
+                </td>
+            `;
+
+            tableBody.appendChild(row);
+        }
     </script>
+
+    <!--Script-->
+    <?php include 'scripts.php'?>
+    <!-- Main JS-->
+    <script src="../assets/js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 <!-- end document-->

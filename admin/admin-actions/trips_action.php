@@ -24,15 +24,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $last_name = htmlspecialchars($_POST['last_name'], ENT_QUOTES, 'UTF-8');
 
         // Check if the bus ID exists in the buses table
-        $bus_check_query = "SELECT COUNT(*) FROM buses WHERE bus_id = ?";
+        $bus_check_query = "SELECT bus_name, capacity FROM buses WHERE bus_id = ?";
         $stmt = $connection->prepare($bus_check_query);
         $stmt->bind_param("s", $bus_id);
         $stmt->execute();
-        $stmt->bind_result($bus_exists);
+        $stmt->bind_result($bus_name, $capacity);
         $stmt->fetch();
         $stmt->close();
 
-        if (!$bus_exists) {
+        if (empty($bus_name)) {
             throw new Exception('Selected bus does not exist.');
         }
 
@@ -78,8 +78,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $stmt->bind_param("ssssss", $trip_date, $departure_time, $route, $bus_id, $first_name, $last_name);
 
         if ($stmt->execute()) {
+            $trip_id = $stmt->insert_id;
             $response['success'] = true;
             $response['message'] = 'Trip added successfully';
+            $response['trip'] = [
+                'trip_id' => $trip_id,
+                'bus_name' => $bus_name,
+                'first_name' => $first_name,
+                'last_name' => $last_name,
+                'trip_date' => $trip_date,
+                'departure_time' => $departure_time,
+                'route' => $route,
+                'available_seats' => $capacity
+            ];
         } else {
             if ($connection->errno == 1062) {
                 throw new Exception('A trip with the same date, time, route, and driver already exists.');
