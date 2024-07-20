@@ -1,18 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php include 'styles.php'?>
+<?php require '../config/connection.php';?>
 
-<head>
-    <!-- Required meta tags-->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="au theme template">
-    <meta name="author" content="Hau Nguyen">
-    <meta name="keywords" content="au theme template">
-
-    <!-- Title Page-->
-    <?php include 'styles.php'?>
-
-</head>
 
 <body>
     <div class="page-wrapper">
@@ -22,10 +10,10 @@
         <?php include 'mobile-header.php'?>
 
         <!-- HEADER DESKTOP-->
-        <?PHP INCLUDE 'side-menu.php'?>
+        <?php include 'side-menu.php'?>
 
          <!-- HEADER DESKTOP-->
-         <?PHP INCLUDE 'desktop-header.php'?>
+         <?php include 'desktop-header.php'?>
         
         <!-- PAGE CONTENT-->
         <div class="page-container">
@@ -49,27 +37,22 @@
                                                     
                                                     <div class="card-body" style="width: 29vw;">
                                                         
-                                                        <form action="" method="post" >
+                                                        <form id="addDriver" action="./admin-actions/driver_action.php" method="POST" >
                                                             <div class="form-group" >
-                                                                <label for="cc-payment" class="control-label mb-1">Name</label>
-                                                                <input id="cc-pament" name="cc-payment" type="text" class="form-control">
+                                                                <label for="cc-payment" class="control-label mb-1">First Name</label>
+                                                                <input id="cc-pament" name="first_name" type="text" class="form-control">
+                                                            </div>
+
+                                                            <div class="form-group" >
+                                                                <label for="cc-payment" class="control-label mb-1">Last Name</label>
+                                                                <input id="cc-pament" name="last_name" type="text" class="form-control">
                                                             </div>
                                                             
-                                                            <div class="form-group">
-                                                                <label for="cc-number" class="control-label mb-1">ID</label>
-                                                                <input id="cc-number" name="cc-number" type="tel" class="form-control cc-number">
-                                                            </div>
 
                                                             <div class="form-group" >
                                                                 <label for="cc-name" class="control-label mb-1">Email</label>
-                                                                <input id="cc-name" name="cc-name" type="text" class="form-control cc-name valid">
+                                                                <input id="cc-name" name="email" type="email" class="form-control cc-name valid">
                                                             </div>
-
-                                                            <div class="form-group" >
-                                                                <label for="cc-name" class="control-label mb-1">Phone</label>
-                                                                <input id="cc-name" name="cc-name" type="number" class="form-control cc-name valid">
-                                                            </div>
-
                                                                                                                     
                                                             <div>
                                                                 <button id="" type="submit" class="btn btn-lg btn-info btn-block">
