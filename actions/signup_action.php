@@ -1,91 +1,169 @@
 <?php
+
 session_start();
-require '../config/connection.php';
-
-
 define("APPURL", "http://localhost/bus_system/");
 
-$errors = []; // Initialize errors array
+$errors = [];
+$signup_data = [];
+$signup_success = false;
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $first_name = $_POST['first_name'];
-    $last_name = $_POST['last_name'];
-    $email = $_POST['email'];
-    $password = $_POST['password'];
-    $confirm_password = $_POST['confirm_password'];
-    $phone_number = $_POST['phone_number'];
-    $role = $_POST['role'];
-
-    // Role mapping
-    $role_mapping = [
-        'staff' => 3,
-        'driver' => 2,
-        'logistics' => 1
-    ];
-
-    // Validation
-    if (empty($first_name) || empty($last_name) || empty($email) || empty($password) || empty($confirm_password) || empty($phone_number) || empty($role)) {
-        $errors[] = "All fields are required.";
-    } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        $errors[] = "Invalid email format.";
-    } elseif (is_numeric($email)) {
-        $errors[] = "Email cannot be numeric.";
-    } elseif (is_numeric($first_name) || is_numeric($last_name)) {
-        $errors[] = "Your name should not be numbers only.";
-    } elseif (!preg_match("/^[a-zA-Z0-9._%+-]+@(ashesi\.edu\.gh|gmail\.com)$/", $email)) {
-        $errors[] = "Email must end with @ashesi.edu.gh or @gmail.com.";
-    } elseif ($password !== $confirm_password) {
-        $errors[] = "Passwords do not match.";
-    } elseif (!is_numeric($phone_number)) {
-        $errors[] = "Your phone number should contain only numbers.";
-    } elseif (!array_key_exists($role, $role_mapping)) {
-        $errors[] = "Invalid role selected.";
-    }
-
-    if (count($errors) == 0) {
-        // No validation errors, proceed with signup process
-        $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-        $role_value = $role_mapping[$role];
-
-        // Use prepared statements to prevent SQL injection
-        $stmt = $connection->prepare("SELECT * FROM users WHERE email = ?");
-        $stmt->bind_param("s", $email);
-        $stmt->execute();
-        $result = $stmt->get_result();
-
-        if ($result->num_rows > 0) {
-            $errors[] = "This email has already been used to sign up.";
-        } else {
-            // Insert user into database
-            $stmt = $connection->prepare("INSERT INTO users (first_name, last_name, email, password, phone_number, role) VALUES (?, ?, ?, ?, ?, ?)");
-            $stmt->bind_param("sssssi", $first_name, $last_name, $email, $hashed_password, $phone_number, $role_value);
-
-            if ($stmt->execute()) {
-                $_SESSION['signup_success'] = true;
-                header("Location: ../auth/login.php");
-                exit();
-            } else {
-                $errors[] = "Error: " . $stmt->error;
-            }
-
-            $stmt->close();
-        }
-    }
-
-    // If there are errors, store them in session and redirect
-    if (count($errors) > 0) {
-        $_SESSION['signup_errors'] = $errors;
-        $_SESSION['signup_data'] = [
-            'first_name' => $first_name,
-            'last_name' => $last_name,
-            'email' => $email,
-            'phone_number' => $phone_number,
-            'role' => $role
-        ];
-        header("Location: ../auth/signup.php");
-        exit();
-    }
+if (isset($_SESSION['signup_errors'])) {
+    $errors = $_SESSION['signup_errors'];
+    unset($_SESSION['signup_errors']);
 }
 
-$connection->close();
+if (isset($_SESSION['signup_data'])) {
+    $signup_data = $_SESSION['signup_data'];
+    unset($_SESSION['signup_data']);
+}
+
+if (isset($_SESSION['signup_success'])) {
+    $signup_success = $_SESSION['signup_success'];
+    unset($_SESSION['signup_success']);
+}
 ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" href="../assets/css/login.css"/>
+    <title>Login/Register Page</title>
+    <style>
+        .the-error-message { 
+            color: red; 
+            margin-bottom: 10px;
+        }
+        .the-success-message { 
+            color: green; 
+            margin-bottom: 10px;
+        }
+    </style>
+    <!--The JavaScript snippet below ensures the error and success message disappears after 5 seconds -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const successMessage = document.querySelector('.the-success-message');
+            const errorMessage = document.querySelector('.the-error-message');
+
+            if (successMessage) {
+                setTimeout(() => {
+                    successMessage.style.display = 'none';
+                }, 5000);
+            }
+
+            if (errorMessage) {
+                setTimeout(() => {
+                    errorMessage.style.display = 'none';
+                }, 5000);
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <section class="form sign-up active">
+                <h1>Ashesi Bus System</h1>
+                <h2>Sign Up</h2>
+                <?php if ($signup_success): ?>
+                    <div class="the-success-message"><h2>Registration Completed Successfully! You can now sign in.</h2></div>
+                <?php endif; ?>
+                <?php if (!empty($errors)): ?>
+                    <div class="the-error-message">
+                        <ul>
+                            <?php foreach ($errors as $error): ?>
+                                <li><?php echo htmlspecialchars($error); ?></li>
+                            <?php endforeach; ?>
+                        </ul>
+                    </div>
+                <?php endif; ?>
+                <form id="Register" method="POST" action="../actions/signup_action.php">
+                    <div class="form-group">
+                        <div class="form-control">
+                            <label>First Name</label>
+                            <input type="text" name="first_name" id="firstName" value="<?= isset($signup_data['first_name']) ? htmlspecialchars($signup_data['first_name']) : '' ?>"/>
+                        </div>
+                        <div class="form-control">
+                            <label>Last Name</label>
+                            <input type="text" name="last_name" id="lastName" value="<?= isset($signup_data['last_name']) ? htmlspecialchars($signup_data['last_name']) : '' ?>"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-control">
+                            <label>Email</label>
+                            <input type="email" name="email" id="email" autocomplete="new-username" value="<?= isset($signup_data['email']) ? htmlspecialchars($signup_data['email']) : '' ?>"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-control">
+                            <label>Password</label>
+                            <input type="password" name="password" id="password" autocomplete="new-password"/>
+                        </div>
+                        <div class="form-control">
+                            <label>Confirm Password</label>
+                            <input type="password" name="confirm_password" id="confirmPassword" autocomplete="new-password"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-control">
+                            <label>Phone Number</label>
+                            <input type="tel" name="phone_number" id="phoneNumber" value="<?= isset($signup_data['phone_number']) ? htmlspecialchars($signup_data['phone_number']) : '' ?>"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-control">
+                            <label for="role-selection">Select Role</label>
+                            <select name="role" id="role-selection">
+                                <option value="">-- Select Role --</option>
+                                <option value="staff" <?= isset($signup_data['role']) && $signup_data['role'] == 'staff' ? 'selected' : '' ?>>Staff</option>
+                                <option value="driver" <?= isset($signup_data['role']) && $signup_data['role'] == 'driver' ? 'selected' : '' ?>>Driver</option>
+                                <option value="logistics" <?= isset($signup_data['role']) && $signup_data['role'] == 'logistics' ? 'selected' : '' ?>>Logistics</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit">Sign Up</button>
+                    </div>
+                </form>
+            </section>
+            <section class="form sign-in">
+                <h1>Mobility</h1>
+                <h2>Sign In</h2>
+                <?php
+                // Display login errors if any
+                if (isset($_SESSION['login_errors'])) {
+                    foreach ($_SESSION['login_errors'] as $error) {
+                        echo "<div class='the-error-message'>$error</div>";
+                    }
+                    unset($_SESSION['login_errors']);
+                }
+                ?>
+                <form id="login" method="POST" action="../actions/login_action.php">
+                    <div class="form-group">
+                        <div class="form-control">
+                            <label>Email Address</label>
+                            <input type="email" name="email" id="emailLogin" autocomplete="username"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-control">
+                            <label>Password</label>
+                            <input type="password" name="password" id="passwordLogin" autocomplete="current-password"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit">Sign In</button>
+                    </div>
+                </form>
+            </section>
+            <img src="../images/Ashesi_logo.jpg" class="corner-image" alt="Ashesi Logo">
+        </div>
+        <ul class="bottom">
+            <li class="btn active" data-btn="sign-up">Sign Up</li>
+            <li class="btn" data-btn="sign-in">Sign In</li>
+        </ul>
+    </div>
+    <script src="../assets/js/login.js"></script>
+</body>
+</html>
