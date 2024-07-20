@@ -1,6 +1,6 @@
 <?php
 
-require '../../config/connection.php';  
+// require '../config/connection.php';  
 
 if(isset($_POST['submit'])) {
     // Get the date and time from the form

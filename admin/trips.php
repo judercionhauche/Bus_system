@@ -1,6 +1,6 @@
 <!-- Title Page-->
 <?php include 'styles.php'?>
-<?php require '../../config/connection.php';?>
+<?php require '../config/connection.php';?>
 
 <?php 
 // Prepare a query --> QUERY FOR BUS

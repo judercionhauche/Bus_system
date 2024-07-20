@@ -1,26 +1,13 @@
-<?php require '../../config/connection.php';?>
 <?php
+
+
 // SQL query to fetch data
-$sql = "SELECT date, time, route, bus, available_seats, driver FROM trips";
-$result = $conn->query($sql);
-
-if ($result->num_rows > 0) {
-	// Output data of each row
-	while($row = $result->fetch_assoc()) {
-		echo "<tr>
-				<td>" . $row["date"] . "</td>
-				<td>" . $row["time"] . "</td>
-				<td>" . $row["route"] . "</td>
-				<td>" . $row["bus"] . "</td>
-				<td>" . $row["available_seats"] . "</td>
-				<td>" . $row["driver"] . "</td>
-			  </tr>";
-	}
-} else {
-	echo "<tr><td colspan='6'>No trips scheduled</td></tr>";
-}
-$conn->close();
-
+$getBuses = $connection->prepare("SELECT bus_id, bus_name, capacity FROM buses");
+// Execute the query
+$getBuses->execute();
+// Fetch results
+$busResults = $getBuses->get_result();
+$allBuses = $busResults->fetch_all(MYSQLI_ASSOC);
 
 ?>
 	
@@ -71,26 +58,6 @@ $conn->close();
 		</tr>
 	</thead>
 	<tbody>
-		<tr>
-		echo<td>" . $row["date"] . "</td>
-			<td>" . $row["time"] . "</td>
-			<td>" . $row["route"] . "</td>
-			<td>" . $row["bus"] . "</td>
-			<td>" . $row["available_seats"] . "</td>
-			<td>" . $row["driver"] . "</td>
-            
-			<td>
-                <div class="table-data-feature">
-                    <button class="item" data-toggle="tooltip" data-placement="top" title="Edit" >
-                        <i class="zmdi zmdi-edit" ></i>
-                    </button>
-                    <button class="item" data-toggle="tooltip" data-placement="top" title="Delete">
-                        <i class="zmdi zmdi-delete"></i>
-                    </button>
-                    
-                </div>
-            </td>
-		</tr>
 		<tr>
             <td></td>
 			<td> </td>
