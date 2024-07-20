@@ -1,18 +1,33 @@
-<!DOCTYPE html>
-<html lang="en">
+<!-- Title Page-->
+<?php include 'styles.php'?>
+<?php require '../config/connection.php';?>
 
-<head>
-    <!-- Required meta tags-->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="au theme template">
-    <meta name="author" content="Hau Nguyen">
-    <meta name="keywords" content="au theme template">
+<?php 
+// Prepare a query --> QUERY FOR BUS
+$getBuses = $connection->prepare("SELECT bus_id, bus_name, capacity FROM buses");
+// Execute the query
+$getBuses->execute();
+// Fetch results
+$busResults = $getBuses->get_result();
+$allBuses = $busResults->fetch_all(MYSQLI_ASSOC);
 
-    <!-- Title Page-->
-    <?php include 'styles.php'?>
+// Prepare a query --> QUERY FOR DRIVER
+$getDrivers = $connection->prepare("SELECT driver_name FROM drivers");
+// Execute the query
+$getDrivers->execute();
+// Fetch results
+$driverResults = $getDrivers->get_result();
+$allDrivers = $driverResults->fetch_all(MYSQLI_ASSOC);
 
-</head>
+// Prepare a query --> QUERY FOR TRIPS
+$getTrips = $connection->prepare("SELECT trip_date, departure_time, route FROM trips");
+// Execute the query
+$getTrips->execute();
+// Fetch results
+$tripResults = $getTrips->get_result();
+$allTrips = $tripResults->fetch_all(MYSQLI_ASSOC);
+
+?>
 
 <body>
     <div class="page-wrapper">
@@ -22,10 +37,10 @@
         <?php include 'mobile-header.php'?>
 
         <!-- HEADER DESKTOP-->
-        <?PHP INCLUDE 'side-menu.php'?>
+        <?php include 'side-menu.php'?>
 
          <!-- HEADER DESKTOP-->
-         <?PHP INCLUDE 'desktop-header.php'?>
+         <?php include 'desktop-header.php'?>
         
         <!-- PAGE CONTENT-->
         <div class="page-container">
@@ -49,54 +64,55 @@
 											
 											<div class="card-body" style="width: 29vw;">
 												
-												<form action="" method="post" >
+												<form id="addTrip" action="./admin-actions/trip_action.php" method="POST" >
 													<div class="form-group" >
-														<label for="cc-payment" class="control-label mb-1">Date</label>
-														<input id="cc-pament" name="cc-payment" type="date" class="form-control">
+														<label for="trip-date" class="control-label mb-1">Date</label>
+														<input id="date" id="trip-date" name="trip-date" type="date" class="form-control" required>
 													</div>
 													
 													<div class="form-group">
-														<label for="cc-number" class="control-label mb-1"> Time</label>
-														<input id="cc-number" name="cc-number" type="time" class="form-control cc-number">
-													</div>
+                                                        <label for="departure-time" class="control-label mb-1">Time</label>
+                                                        <input type="time" id="departure-time" name="departure_time" class="form-control" required>
+                                                    </div>
 
 													<div class="form-group" >
 														<label for="select-route">Route</label>
-														<select class="form-control" id="select-route">
+														<select class="form-control" name="route">
 															<option value="">--Select Route--</option>
-															<option value="Route A">Route A</option>
-															<option value="Route B">Route B</option>
-															<option value="Route C">Route C</option>
+															<?php foreach ($allTrips as $trip): ?>
+                                                                <option value="<?= $trip['route'] ?>"><?= $trip['route'] ?></option>
+                                                            <?php endforeach; ?>
 														</select>
 													</div>
 
 													<div class="form-group" >
 														<label for="select-bus">Bus</label>
-														<select class="form-control" id="select-route">
+														<select class="form-control" name="bus">
 															<option value="">--Select Bus--</option>
-															<option value="Route A">Bus1</option>
-															<option value="Route B">Bus2</option>
-															<option value="Route C">Bus3</option>
+                                                            <?php foreach ($allBuses as $bus): ?>
+                                                            <option value="<?= $bus['bus_id'] ?>" data-capacity="<?= $bus['capacity'] ?>"><?= $bus['bus_name'] ?></option>
+                                                            <?php endforeach; ?>
+
 														</select>
 													</div>
 
-													<div class="form-group" >
-														<label for="cc-payment" class="control-label mb-1"> Available Seats</label>
-														<input id="cc-pament" name="cc-payment" type="text" class="form-control">
-													</div>
+                                                    <div class="form-group">
+                                                        <label for="bus-capacity" class="control-label mb-1">Bus Capacity</label>
+                                                        <input id="bus-capacity" name="seats" type="text" class="form-control" readonly>
+                                                    </div>
 
 													<div class="form-group" >
-														<label for="select-bus">Bus</label>
-														<select class="form-control" id="select-route">
+														<label for="select-bus">Driver</label>
+														<select class="form-control" name="driver">
 															<option value="">--Select Driver--</option>
-															<option value="Route A">Driver 1</option>
-															<option value="Route B">Driver 2</option>
-															<option value="Route C">Driver 3</option>
+                                                            <?php foreach ($allDrivers as $driver): ?>
+                                                                <option value="<?= $driver['driver_name'] ?>"><?= $driver['driver_name'] ?></option>
+                                                            <?php endforeach; ?>
 														</select>
 													</div>
 																											
 													<div>
-														<button id="" type="submit" class="btn btn-lg btn-info btn-block">
+														<button name="submit" type="submit" class="btn btn-lg btn-info btn-block">
 															DONE
 														</button>
 													</div>
@@ -115,7 +131,7 @@
                 
             </div>
             <!-- FOOTER-->
-            <?PHP INCLUDE 'footer.php'?>
+            <?php include 'footer.php'?>
 
             <!-- END COPYRIGHT-->
         </div>
@@ -165,6 +181,13 @@
         var popup = document.getElementById("busPopup");
         popup.classList.toggle("show");
         }
+        
+        // Update bus capacity when a bus is selected
+        document.querySelector('select[name="bus"]').addEventListener('change', function() {
+        var selectedBus = this.options[this.selectedIndex];
+        var busCapacity = selectedBus.getAttribute('data-capacity');
+        document.getElementById('bus-capacity').value = busCapacity;
+        });
     </script>
 
    <!--Script-->
@@ -218,5 +241,4 @@
 
 </body>
 
-</html>
 <!-- end document-->
