@@ -196,9 +196,6 @@ $connection->close();
                                                     </td>
                                                     <td>
                                                         <div class="table-data-feature">
-                                                            <button class="item" data-toggle="tooltip" data-placement="top" title="Edit">
-                                                                <i class="zmdi zmdi-edit"></i>
-                                                            </button>
                                                             <form id="deleteForm-<?php echo $staff['email']; ?>" method="POST" action="" style="display:inline;">
                                                                 <input type="hidden" name="email" value="<?php echo htmlspecialchars($staff['email']); ?>">
                                                                 <button type="button" class="item" data-toggle="tooltip" data-placement="top" title="Delete" onclick="confirmDelete('<?php echo $staff['email']; ?>')">
