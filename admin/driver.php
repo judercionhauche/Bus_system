@@ -67,54 +67,50 @@
                                     </span>
                                 </div>
                                 <div class="table-responsive table-responsive-data2">
-                                    <table class="table table-data2">
+                                <table class="table table-data2">
                                         <thead>
                                             <tr>
+                                                <th>Driver ID</th>
                                                 <th>Name</th>
-                                                <th>ID</th>
-                                                <th>PHONE</th>
-                                                <th>EMAIL</th>
-                                                <th> ACTIONS</th>
+                                                <th>Phone</th>
+                                                <th>Email</th>
+                                                <th> Actions</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr class="tr-shadow">
-                                                <td>Lori Lynch</td>
-                                                <td>123456</td>
-                                                <td class="desc">+2335345563456</td>
-                                                <td>
-                                                    <span class="block-email">lori@example.com</span>
-                                                </td>
-                                                <td>
-                                                    <div class="table-data-feature">
-                                                        <button class="item" data-toggle="tooltip" data-placement="top" title="Edit">
-                                                            <i class="zmdi zmdi-edit"></i>
-                                                        </button>
-                                                        <button class="item" data-toggle="tooltip" data-placement="top" title="Delete">
-                                                            <i class="zmdi zmdi-delete"></i>
-                                                        </button>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr class="spacer"></tr>
-                                            <tr class="tr-shadow">
-                                                <td>Lori Lynch</td>
-                                                <td>123456</td>
-                                                <td class="desc">+2335345563456</td>
-                                                <td>
-                                                    <span class="block-email">lori@example.com</span>
-                                                </td>
-                                                <td>
-                                                    <div class="table-data-feature">
-                                                        <button class="item" data-toggle="tooltip" data-placement="top" title="Edit">
-                                                            <i class="zmdi zmdi-edit"></i>
-                                                        </button>
-                                                        <button class="item" data-toggle="tooltip" data-placement="top" title="Delete">
-                                                            <i class="zmdi zmdi-delete"></i>
-                                                        </button>
-                                                    </div>
-                                                </td>
-                                            </tr>
+                                            <?php
+                                            // Fetch data from the drivers table
+                                            $query = "SELECT driver_id, driver_name, phone_number, email FROM drivers";
+                                            $result = $connection->query($query);
+
+                                            if ($result->num_rows > 0) {
+                                                while ($row = $result->fetch_assoc()) { ?>
+                                                    <tr class="tr-shadow">
+                                                        <td><?php echo htmlspecialchars($row['driver_id']); ?></td>
+                                                        <td><?php echo htmlspecialchars($row['driver_name']); ?></td>
+                                                        <td class="desc"><?php echo htmlspecialchars($row['phone_number']); ?></td>
+                                                        <td><span class="block-email"><?php echo htmlspecialchars($row['email']); ?></span></td>
+                                                        <td>
+                                                            <div class="table-data-feature">
+                                                                <button class="item" data-toggle="tooltip" data-placement="top" title="Edit">
+                                                                    <i class="zmdi zmdi-edit"></i>
+                                                                </button>
+                                                                <button class="item" data-toggle="tooltip" data-placement="top" title="Delete">
+                                                                    <i class="zmdi zmdi-delete"></i>
+                                                                </button>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr class="spacer"></tr>
+                                                <?php }
+                                            } else { ?>
+                                                <tr>
+                                                    <td colspan="5">No drivers found</td>
+                                                </tr>
+                                            <?php }
+
+                                            $connection->close();
+                                            ?>
                                         </tbody>
                                     </table>
                                 </div>
