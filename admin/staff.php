@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add_staff'])) {
     $email = $_POST['email'];
     $phone = $_POST['phone'];
     $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
-    $role = '1'; // Assuming '1' is the role for staff
+    $role = 3; // Assuming '3' is the role for staff
 
     // Split name into first and last name
     $name_parts = explode(' ', $name, 2);
@@ -54,7 +54,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add_staff'])) {
 }
 
 // Fetch staff data from the database
-$query = "SELECT first_name, last_name, phone_number, email FROM users WHERE role = '3'";
+$query = "SELECT first_name, last_name, phone_number, email FROM users WHERE role = 3";
 $result = $connection->query($query);
 
 if ($result->num_rows > 0) {
@@ -237,4 +237,3 @@ $connection->close();
     <script src="js/main.js"></script>
 </body>
 </html>
-<!-- end document-->
