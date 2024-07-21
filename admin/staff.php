@@ -1,11 +1,11 @@
 <?php
 session_start();
-require '../config/connection.php'; // Adjust the path if needed
+require '../config/connection.php'; 
 
 // Enable error reporting for debugging
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+// ini_set('display_errors', 1);
+// ini_set('display_startup_errors', 1);
+// error_reporting(E_ALL);
 
 // Initialize messages
 $message = '';
