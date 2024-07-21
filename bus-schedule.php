@@ -1,4 +1,5 @@
 <?php
+session_start();
 require './config/connection.php';
 
 // Fetch unique dates, times, and routes
@@ -51,6 +52,12 @@ $connection->close();
             cursor: pointer;
             border-radius: 8px;
         }
+        .button-container .btn {
+            margin-right: 10px; /* Add some space between buttons */
+        }
+        .button-container .btn:last-child {
+            margin-right: 0; /* Remove margin from the last button to avoid extra space */
+        }
     </style>
 </head>
 <body class="is-preload">
@@ -67,6 +74,14 @@ $connection->close();
         <div id="main">
             <div class="inner">
                 <h1>Bus Schedule</h1>
+
+                <!-- Error Message -->
+                <?php if (isset($_SESSION['error_message'])): ?>
+                    <div class="alert alert-danger">
+                        <?= $_SESSION['error_message'] ?>
+                    </div>
+                    <?php unset($_SESSION['error_message']); ?>
+                <?php endif; ?>
 
                 <!-- Filter Options -->
                 <section>
@@ -104,7 +119,7 @@ $connection->close();
                                     <?php endforeach; ?>
                                 </select>
                             </div>
-                            <div class="col-md-3 mb-3 align-self-end">
+                            <div class="col-md-3 mb-3 align-self-end button-container">
                                 <button type="button" class="custom-apply-button" onclick="applyFilters()">Apply</button>
                                 <button type="button" class="custom-clear-button" onclick="clearFilters()">Clear</button>
                             </div>
@@ -170,7 +185,12 @@ $connection->close();
                     <td>${trip.route}</td>
                     <td>${trip.available_seats}</td>
                     <td>${trip.first_name} ${trip.last_name}</td>
-                    <td><button class="btn btn-success btn-sm">Book Ride</button></td>
+                    <td>
+                        <form action="book-ride.php" method="POST">
+                            <input type="hidden" name="trip_id" value="${trip.trip_id}">
+                            <button type="submit" class="btn btn-success btn-sm">Book Ride</button>
+                        </form>
+                    </td>
                 `;
                 tbody.appendChild(row);
             });
