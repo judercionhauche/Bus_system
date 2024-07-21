@@ -64,7 +64,7 @@ if (isset($_SESSION['signup_success'])) {
     <div class="container">
         <div class="row">
             <section class="form sign-up active">
-                <h1>Ashesi Bus System</h1>
+                <h1>Mobility</h1>
                 <h2>Sign Up</h2>
                 <?php if ($signup_success): ?>
                     <div class="the-success-message"><h2>Registration Completed Successfully! You can now sign in.</h2></div>
