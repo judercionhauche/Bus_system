@@ -38,7 +38,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $errors[] = "Incorrect password.";
             }
         } else {
-            $errors[] = "User not found: Email does not exist.";
+            $errors[] = "User not does not exist.";
         }
     }
 
