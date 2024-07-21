@@ -93,5 +93,6 @@ $connection->close();
 		<script src="assets/js/jquery.scrollex.min.js"></script>
 		<script src="assets/js/main.js"></script>
 </body>
+<!--When they click on Book Now, it takes them to the payment page with the user_id and email to make payment for that specific user-->
 
 </html>

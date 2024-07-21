@@ -9,7 +9,7 @@
     <meta name="keywords" content="bus management, logistics, dashboard">
 
     <!-- Title Page-->
-    <title>Bus Management Dashboard</title>
+    <title>Mobility Dashboard</title>
 
     <!-- CSS STYLES-->
     <?php include 'styles.php'?>
