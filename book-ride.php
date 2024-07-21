@@ -12,7 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = $_SESSION['email'];
 
     // Fetch trip details
-    $stmt = $connection->prepare("SELECT t.trip_date, t.departure_time, t.route, b.bus_name, CONCAT(t.driver_first_name, ' ', t.driver_last_name) as driver 
+    $stmt = $connection->prepare("SELECT t.trip_date, t.departure_time, t.route, b.bus_name, CONCAT(t.first_name, ' ', t.last_name) as driver 
                                   FROM trips t 
                                   JOIN buses b ON t.bus_id = b.bus_id 
                                   WHERE t.trip_id = ?");

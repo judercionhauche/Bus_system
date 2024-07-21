@@ -1,6 +1,9 @@
 <?php
 session_start();
 
+// Debugging: Check all session variables
+echo '<pre>' . print_r($_SESSION, true) . '</pre>';
+
 if (isset($_SESSION['user_id']) && isset($_SESSION['email'])) {
     $userId = $_SESSION['user_id'];
     $firstName = $_SESSION['first_name'];

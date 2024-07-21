@@ -1,5 +1,4 @@
 <?php
-session_start();
 require './config/connection.php';
 
 // Fetch unique dates, times, and routes

@@ -30,15 +30,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 // Set session variables
                 $_SESSION['email'] = $row['email'];
                 $_SESSION['user_id'] = $row['user_id'];
-                
+                $_SESSION['first_name'] = $row['first_name'];
+                $_SESSION['last_name'] = $row['last_name'];
+
                 // Redirect on successful login
-                header("Location: ../index.php");
+                header("Location: ../bus-schedule.php");
                 exit();
             } else {
                 $errors[] = "Incorrect password.";
             }
         } else {
-            $errors[] = "User not does not exist.";
+            $errors[] = "User does not exist.";
         }
     }
 
