@@ -1,10 +1,13 @@
 <?php
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
 session_start();
 require 'config/connection.php';
 
 if (isset($_SESSION['user_id'])) {
 	$user_id = $_SESSION['user_id'];
-	$sql = "SELECT * FROM booking WHERE user_id = ? ORDER BY created_at DESC LIMIT 1";
+	var_dump($user_id );
+	$sql = "SELECT * FROM booking WHERE user_id = ? ORDER BY booking_date DESC LIMIT 1";
 	if ($stmt = $connection->prepare($sql)) {
 		$stmt->bind_param("i", $user_id);
 		$stmt->execute();
@@ -47,14 +50,7 @@ $connection->close();
 		?>
 
 		<!-- Main -->
-		<div>
-			<?php
-			ini_set('display_errors', 1);
-			error_reporting(E_ALL);
-			require 'Functions/functions.php'; // Adjust the path as necessary
-			require 'Functions/session.php'; // Adjust the path as necessary
-			echo display_msg($msg); ?>
-		</div>
+		
 		<div id="main">
 			<div class="inner">
 				<h1>Booking Details</h1>
@@ -66,13 +62,9 @@ $connection->close();
 									Confirmed Trip Details
 								</div>
 								<div class="card-body">
-									<p><strong>Full Name:</strong> <?php echo $booking['fname'] . ' ' . $booking['lname']; ?></p>
 									<p><strong>Invoice:</strong> <?php echo $booking['invoice_number']; ?></p>
-									<p><strong>Date:</strong> <?php echo $booking['created_at']; ?></p>
-									<p><strong>Departure Time:</strong> <?php echo $booking['departure_time']; ?></p>
-									<p><strong>Destination:</strong> <?php echo $booking['dropoff_location']; ?></p>
-									<p><strong>Bus Number:</strong> <?php echo $booking['pickup_location']; ?></p>
-
+									<p><strong>Date:</strong> <?php echo $booking['booking_date']; ?></p>
+									<p><strong>Seats</strong> <?php echo $booking['number_of_seats']; ?></p>
 									<button onclick="window.print()">Print Details</button>
 									<button onclick="saveBookingDetails()">Save Details</button>
 								</div>

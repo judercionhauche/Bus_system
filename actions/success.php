@@ -3,10 +3,6 @@ ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
 require '../config/connection.php'; // Adjust the path as necessary
-require '../Functions/functions.php'; // Adjust the path as necessary
-require '../Functions/session.php'; // Adjust the path as necessary
-
-
 
 if (isset($_GET['ref'])) {
     $reference = $_GET['ref'];
@@ -40,50 +36,66 @@ if (isset($_GET['ref'])) {
         $response_data = json_decode($response, true);
         if ($response_data['status'] && $response_data['data']['status'] == 'success') {
             session_start();
-
             // Process form data from the URL
-            if (isset($_SESSION['user_id'])) {
+            if (isset($_SESSION['user_id']) && isset($_GET['trip_id']) && isset($_GET['number_of_seats'])) {
                 $user_id = $_SESSION['user_id'];
-                 
-                $booking_date = date("Y-m-d H:i:s");
-                $invoice_no = mt_rand();
-                $phone = $connection->real_escape_string($_GET['phone']);
-                $title = $connection->real_escape_string($_GET['title']);
-                $fname = $connection->real_escape_string($_GET['fname']);
-                $lname = $connection->real_escape_string($_GET['lname']);
-                $email = $connection->real_escape_string($_GET['email']);
-                $departure_time = $connection->real_escape_string($_GET['departure_time']);
-                $pickup = $connection->real_escape_string($_GET['pickup_location']);
-                $dropoff = $connection->real_escape_string($_GET['dropoff_location']);
-                $seats = $connection->real_escape_string($_GET['number_of_seats']);          
-                $sql = "INSERT INTO booking (user_id, title, fname, lname, email, phone, departure_time, pickup_location, dropoff_location, number_of_seats, invoice_number, created_at)
-                        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-                         
-                if ($stmt = $connection->prepare($sql)) {
-                    $stmt->bind_param("issssssssiss", $user_id, $title, $fname, $lname, $email, $phone, $departure_time, $pickup, $dropoff, $seats, $invoice_no, $booking_date);
-                    echo 'good';
-                    if ($stmt->execute()) {
-                      $session->msg("s", "Booking and Payment Successful");
-                        echo "Booking successful.";
-                        header('Location: ../trip-details.php');
-                        exit;
-                    } else {
-                        echo "Error: " . $stmt->error;
-                    }
+                $trip_id = $_GET['trip_id'];
+                $number_of_seats = $_GET['number_of_seats'];
+                $booking_date = date("Y-m-d H:i:s"); // Correct timestamp format
+                $invoice = mt_rand();
 
-                    $stmt->close();
-                } else {
-                    echo "Error: " . $conn->error;
+                // Insert booking
+                $sql = "INSERT INTO booking (trip_id, user_id, booking_date, invoice_number, number_of_seats) VALUES (?, ?, ?, ?, ?)";
+                if ($stmt = $connection->prepare($sql)) {
+                    $stmt->bind_param("iissi", $trip_id, $user_id, $booking_date, $invoice, $number_of_seats);
+                    if ($stmt->execute()) {
+                        $booking_id = $stmt->insert_id; // Get the last inserted booking ID
+
+                        // Insert payment details only if booking is successfully inserted
+                        $payment_amount = $number_of_seats * 35; // Assuming price per seat is 35 GHS
+                        $payment_date = date("Y-m-d H:i:s");
+
+                        $payment_sql = "INSERT INTO payment (booking_id, user_id, payment_date, amount) VALUES (?, ?, ?, ?)";
+                        if ($payment_stmt = $connection->prepare($payment_sql)) {
+                            $payment = $response_data['data']['amount'] / 100; // Convert back to currency unit
+                            $payment_stmt->bind_param("iisd", $booking_id, $user_id, $payment_date, $payment_amount);
+                            if ($payment_stmt->execute()) {
+
+                                // Update the number of available seats in the trips table
+                                $update_seats_sql = "UPDATE buses SET capacity = capacity - ? WHERE bus_id = ?";
+                                if ($update_seats_stmt = $connection->prepare($update_seats_sql)) {
+                                    $update_seats_stmt->bind_param("ii", $number_of_seats, $trip_id);
+                                    $update_seats_stmt->execute();
+                                }
+
+                                // Redirect to trip-details.php after successful booking and payment
+                                header("Location: ../trip-details.php");
+                                exit();
+                            } else {
+                                echo "Error inserting payment details: " . $connection->error;
+                            }
+                        }
+                    } else {
+                        echo "Error inserting booking: " . $connection->error;
+                    }
                 }
-                $connection->close();
             } else {
-                echo "Invalid request.";
+                echo "<script>
+                        alert('Required session data is not available.');
+                        window.location.href = '../index.php'; // Redirect to home or other relevant page
+                      </script>";
             }
         } else {
-            echo "Transaction verification failed.";
+            echo "<script>
+                    alert('The payment could not be verified. Please try again.');
+                    window.location.href = '../index.php'; // Redirect to home or other relevant page
+                  </script>";
         }
     }
 } else {
-    echo "No reference provided.";
+    echo "<script>
+            alert('No payment reference provided.');
+            window.location.href = '../index.php'; // Redirect to home or other relevant page
+          </script>";
 }
 ?>
