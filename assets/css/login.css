@@ -7,28 +7,24 @@
   box-sizing: border-box;
 }
 
-/* Set base font size */
-html {
-  font-size: 62.5%;
-}
 
 /* CSS variables for consistent theming */
 :root {
   --primary-color: #9E4244;
   --secondary-color: #ff86f3;
   --tertiary-color: #5f68cd;
-  --bg-color: #ffffff;
-  --white-color: #ffffff;
+  --bg-color: #fff;
+  --white-color: #fff;
   --error-color: #ff0000;
   --border-color: #dedede;
-  --font-family: "Open Sans", sans-serif;
+  --font-family:  sans-serif;
   --font-weight-normal: 400;
   --font-weight-bold: 600;
   --font-size-small: 1.2rem;
   --font-size-medium: 1.6rem;
   --font-size-large: 1.8rem;
   --container-bg-color: #f9f9f9;
-  --container-border-color: #ccc;
+  --container-border-color: #fff;
   --h1-color: #9E4244;  
 }
 
@@ -50,8 +46,8 @@ ul {
 
 /* Main container styling */
 .container {
-  max-width: 80rem;
-  width: 100%;
+  max-width: 50rem;
+  width: 70%;
   padding: 2rem; 
   background-color: var(--container-bg-color); 
   border: 0.2rem solid var(--container-border-color); 
@@ -69,8 +65,9 @@ ul {
 
 /* Base styling for forms, initially hidden */
 .form {
-  flex: 1 0 100%;
-  min-height: 60rem;
+  
+  min-height: 50rem;
+  font-family: var(--font-family);
   display: none;
   opacity: 0;
   visibility: hidden;
@@ -98,6 +95,7 @@ section {
 
 /* Styling for h1 elements */
 .row .form h1 {
+  font-family: sans-serif;
   font-size: 2.4rem; 
   font-weight: var(--font-weight-bold);
   color: var(--h1-color);
@@ -261,14 +259,7 @@ section {
 
 
 
-/* Corner logo image styling */
-.corner-image {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  width: 50px; 
-  height: auto;
-}
+
 
 /* Responsive styling for larger screens */
 @media (min-width: 540px) {

@@ -28,43 +28,30 @@ if (isset($_SESSION['signup_success'])) {
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <link rel="stylesheet" href="../assets/css/login.css"/>
+    <link rel="stylesheet" href="../assets/css/font-awesome.min.css"/>
+
     <title>Login/Register Page</title>
-    <style>
-        .the-error-message { 
-            color: red; 
-            margin-bottom: 10px;
-        }
-        .the-success-message { 
-            color: green; 
-            margin-bottom: 10px;
-        }
-    </style>
-    <!--The JavaScript snippet below ensures the error and success message disappears after 5 seconds -->
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const successMessage = document.querySelector('.the-success-message');
-            const errorMessage = document.querySelector('.the-error-message');
-
-            if (successMessage) {
-                setTimeout(() => {
-                    successMessage.style.display = 'none';
-                }, 5000);
-            }
-
-            if (errorMessage) {
-                setTimeout(() => {
-                    errorMessage.style.display = 'none';
-                }, 5000);
-            }
-        });
-    </script>
+    
 </head>
 
-<body>
+<body>        
+
     <div class="container">
+    
+        <h1>
+            <div class="header">
+            <!-- Logo -->
+                <a href="index.php" class="logo">
+                    <span class="fa fa-bus" style="color:#9E4244"></span> <span class="title" style="color: #9E4244;">Ashesi Bus System</span> 
+                </a>
+
+                
+            </div>
+        </h1>
         <div class="row">
             <section class="form sign-up active">
-                <h1>Mobility</h1>
+            <img src="../images/Ashesi_logo.jpg" class="corner-image" alt="Ashesi Logo">
+                
                 <h2>Sign Up</h2>
                 <?php if ($signup_success): ?>
                     <div class="the-success-message"><h2>Registration Completed Successfully! You can now sign in.</h2></div>
@@ -128,7 +115,7 @@ if (isset($_SESSION['signup_success'])) {
                 </form>
             </section>
             <section class="form sign-in">
-                <h1>Mobility</h1>
+                
                 <h2>Sign In</h2>
                 <?php
                 // Display login errors if any
@@ -157,13 +144,78 @@ if (isset($_SESSION['signup_success'])) {
                     </div>
                 </form>
             </section>
-            <img src="../images/Ashesi_logo.jpg" class="corner-image" alt="Ashesi Logo">
+            
         </div>
         <ul class="bottom">
             <li class="btn active" data-btn="sign-up">Sign Up</li>
             <li class="btn" data-btn="sign-in">Sign In</li>
         </ul>
     </div>
+
+
+    <style>
+        .the-error-message { 
+            color: red; 
+            margin-bottom: 10px;
+        }
+        .the-success-message { 
+            color: green; 
+            margin-bottom: 10px;
+        }
+
+
+        .header {
+		padding: 2em 0 0.1em 0 ;}
+
+		.header .logo {
+			display: block;
+			border-bottom: 0;
+			color: inherit;
+			font-weight: 900;
+			letter-spacing: 0.35em;
+			margin: 0 0 2.5em 0;
+			text-decoration: none;
+			text-transform: uppercase;
+			display: inline-block;
+		}
+
+			.header .logo > * {
+				display: inline-block;
+				vertical-align: middle;
+			}
+
+			.header .logo .symbol {
+				margin-right: 0.65em;
+			}
+
+				.header .logo .symbol img {
+					display: block;
+					width: 2em;
+					height: 2em;
+				}
+
+    </style>
+
     <script src="../assets/js/login.js"></script>
+    
+    <!--The JavaScript snippet below ensures the error and success message disappears after 5 seconds -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const successMessage = document.querySelector('.the-success-message');
+            const errorMessage = document.querySelector('.the-error-message');
+
+            if (successMessage) {
+                setTimeout(() => {
+                    successMessage.style.display = 'none';
+                }, 5000);
+            }
+
+            if (errorMessage) {
+                setTimeout(() => {
+                    errorMessage.style.display = 'none';
+                }, 5000);
+            }
+        });
+    </script>
 </body>
 </html>
