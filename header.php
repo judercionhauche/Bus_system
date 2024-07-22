@@ -1,6 +1,5 @@
 <?php
     //include "header.php";
-    session_start();	
     define("APPURL","http://localhost/bus_system/")?>
 <!-- Header -->
 <header id="header">

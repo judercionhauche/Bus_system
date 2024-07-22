@@ -185,7 +185,7 @@ $connection->close();
                     <td>${trip.available_seats}</td>
                     <td>${trip.first_name} ${trip.last_name}</td>
                     <td>
-                        <form action="book-ride.php" method="POST">
+                        <form action="booking.php" method="POST">
                             <input type="hidden" name="trip_id" value="${trip.trip_id}">
                             <button type="submit" class="btn btn-success btn-sm">Book Ride</button>
                         </form>

@@ -91,43 +91,6 @@
                         </div>
                         
                         <!-- Bus Information Table-->
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <h2 class="title-1 m-b-25">Bus Information</h2>
-                                <div class="table-responsive table--no-card m-b-40">
-                                    <table class="table table-borderless table-striped table-earning">
-                                        <thead>
-                                            <tr>
-                                                <th>Bus Number</th>
-                                                <th>Seating Capacity</th>
-                                                <th>Availability</th>
-                                                <th>Actions</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>BUS123</td>
-                                                <td>50</td>
-                                                <td>Available</td>
-                                                <td>
-                                                    <button class="btn btn-success">Edit</button>
-                                                    <button class="btn btn-danger">Delete</button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>BUS456</td>
-                                                <td>40</td>
-                                                <td>Not Available</td>
-                                                <td>
-                                                    <button class="btn btn-success">Edit</button>
-                                                    <button class="btn btn-danger">Delete</button>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>  
 
                         <!-- Driver Assignment Section-->
                         <div class="row">
