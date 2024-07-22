@@ -41,7 +41,7 @@ if (isset($_GET['ref'])) {
                 $user_id = $_SESSION['user_id'];
                 $trip_id = $_GET['trip_id'];
                 $number_of_seats = $_GET['number_of_seats'];
-                $booking_date = date("Y-m-d H:i:s");
+                $booking_date = date("Y-m-d H:i:s"); // Correct timestamp format
                 $invoice = mt_rand();
 
                 // Insert booking
@@ -62,7 +62,7 @@ if (isset($_GET['ref'])) {
                             if ($payment_stmt->execute()) {
 
                                 // Update the number of available seats in the trips table
-                                $update_seats_sql = "UPDATE trips SET available_seats = available_seats - ? WHERE trip_id = ?";
+                                $update_seats_sql = "UPDATE buses SET capacity = capacity - ? WHERE bus_id = ?";
                                 if ($update_seats_stmt = $connection->prepare($update_seats_sql)) {
                                     $update_seats_stmt->bind_param("ii", $number_of_seats, $trip_id);
                                     $update_seats_stmt->execute();
