@@ -1,3 +1,46 @@
+<?php
+// Include database connection
+include '../config/connection.php';
+
+// Fetch total number of buses available
+$getBusesAvailable = $connection->prepare("SELECT COUNT(*) as total_buses FROM buses WHERE bus_status = 'active'");
+$getBusesAvailable->execute();
+$busesResult = $getBusesAvailable->get_result();
+$busesData = $busesResult->fetch_assoc();
+$totalBuses = $busesData['total_buses'];
+
+// Fetch total number of drivers assigned
+$getDriversAssigned = $connection->prepare("SELECT COUNT(DISTINCT CONCAT(first_name, ' ', last_name)) as total_drivers FROM trips");
+$getDriversAssigned->execute();
+$driversResult = $getDriversAssigned->get_result();
+$driversData = $driversResult->fetch_assoc();
+$totalDrivers = $driversData['total_drivers'];
+
+// Fetch total number of trips scheduled
+$getTripsScheduled = $connection->prepare("SELECT COUNT(DISTINCT trip_id) as total_trips FROM trips");
+$getTripsScheduled->execute();
+$tripsResult = $getTripsScheduled->get_result();
+$tripsData = $tripsResult->fetch_assoc();
+$totalTrips = $tripsData['total_trips'];
+
+// Fetch assigned drivers
+$getAssignedDrivers = $connection->prepare("
+    SELECT CONCAT(t.first_name, ' ', t.last_name) AS driver_name, 
+           b.bus_number, 
+           t.trip_date,
+           t.departure_time,
+           t.route
+    FROM trips t
+    JOIN buses b ON t.bus_id = b.bus_id
+    GROUP BY t.first_name, t.last_name, b.bus_number, t.trip_date, t.departure_time, t.route
+");
+$getAssignedDrivers->execute();
+$assignedDriversResult = $getAssignedDrivers->get_result();
+
+$connection->close();
+?>
+
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -28,7 +71,6 @@
 
         <!-- PAGE CONTAINER-->
         <div class="page-container">
-           
             
             <!-- MAIN CONTENT-->
             <div class="main-content">
@@ -46,58 +88,56 @@
                         <!-- Bus Management Section-->
                         <div class="row m-t-25">
                             <div class="col-sm-6 col-lg-4">
-                                <div class="overview-item overview-item--c1">
+                                <a href="bus.php" class="overview-item overview-item--c1">
                                     <div class="overview__inner">
                                         <div class="overview-box clearfix">
                                             <div class="icon">
                                                 <i class="zmdi zmdi-bus"></i>
                                             </div>
                                             <div class="text">
-                                                <h2>20</h2>
+                                                <h2><?php echo $totalBuses; ?></h2>
                                                 <span>Buses Available</span>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </a>
                             </div>
                             <div class="col-sm-6 col-lg-4">
-                                <div class="overview-item overview-item--c2">
+                                <a href="driver.php" class="overview-item overview-item--c2">
                                     <div class="overview__inner">
                                         <div class="overview-box clearfix">
                                             <div class="icon">
                                                 <i class="zmdi zmdi-account-box"></i>
                                             </div>
                                             <div class="text">
-                                                <h2>15</h2>
+                                                <h2><?php echo $totalDrivers; ?></h2>
                                                 <span>Drivers Assigned</span>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </a>
                             </div>
                             <div class="col-sm-6 col-lg-4">
-                                <div class="overview-item overview-item--c3">
+                                <a href="trips.php" class="overview-item overview-item--c3">
                                     <div class="overview__inner">
                                         <div class="overview-box clearfix">
                                             <div class="icon">
                                                 <i class="zmdi zmdi-calendar"></i>
                                             </div>
                                             <div class="text">
-                                                <h2>30</h2>
+                                                <h2><?php echo $totalTrips; ?></h2>
                                                 <span>Trips Scheduled</span>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </a>
                             </div>
                         </div>
                         
-                        <!-- Bus Information Table-->
-
                         <!-- Driver Assignment Section-->
                         <div class="row">
-                            <div class="col-lg-6">
-                                <h2 class="title-1 m-b-25">Assign Drivers</h2>
+                            <div class="col-lg-12">
+                                <h2 class="title-1 m-b-25">Assigned Drivers</h2>
                                 <div class="table-responsive table--no-card m-b-40">
                                     <table class="table table-borderless table-striped table-earning">
                                         <thead>
@@ -105,69 +145,22 @@
                                                 <th>Driver</th>
                                                 <th>Bus Number</th>
                                                 <th>Trip Date</th>
-                                                <th>Actions</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>John Doe</td>
-                                                <td>BUS123</td>
-                                                <td>2024-07-10</td>
-                                                <td>
-                                                    <button class="btn btn-success">Assign</button>
-                                                    <button class="btn btn-danger">Remove</button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>Jane Smith</td>
-                                                <td>BUS456</td>
-                                                <td>2024-07-11</td>
-                                                <td>
-                                                    <button class="btn btn-success">Assign</button>
-                                                    <button class="btn btn-danger">Remove</button>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>  
-                        
-                        <!-- Driver Dashboard Section-->
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <h2 class="title-1 m-b-25">Driver Dashboard</h2>
-                                <div class="table-responsive table--no-card m-b-40">
-                                    <table class="table table-borderless table-striped table-earning">
-                                        <thead>
-                                            <tr>
-                                                <th>Bus Number</th>
-                                                <th>Route</th>
                                                 <th>Departure Time</th>
-                                                <th>Actions</th>
+                                                <th>Route</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>BUS123</td>
-                                                <td>Route A</td>
-                                                <td>08:00 AM</td>
-                                                <td>
-                                                    <button class="btn btn-success">Mark Attendance</button>
-                                                    <button class="btn btn-info">Manage Passengers</button>
-                                                    <button class="btn btn-warning">Update Status</button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>BUS456</td>
-                                                <td>Route B</td>
-                                                <td>09:00 AM</td>
-                                                <td>
-                                                    <button class="btn btn-success">Mark Attendance</button>
-                                                    <button class="btn btn-info">Manage Passengers</button>
-                                                    <button class="btn btn-warning">Update Status</button>
-                                                </td>
-                                            </tr>
+                                            <?php
+                                            while ($driver = $assignedDriversResult->fetch_assoc()) {
+                                                echo "<tr>
+                                                        <td>{$driver['driver_name']}</td>
+                                                        <td>{$driver['bus_number']}</td>
+                                                        <td>{$driver['trip_date']}</td>
+                                                        <td>{$driver['departure_time']}</td>
+                                                        <td>{$driver['route']}</td>
+                                                      </tr>";
+                                            }
+                                            ?>
                                         </tbody>
                                     </table>
                                 </div>
