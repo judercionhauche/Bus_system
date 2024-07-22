@@ -17,18 +17,14 @@
 
 </head>
 
-<body class="animsition">
+<body >
     <div class="page-wrapper">
+    <?php include '../header.php'?>
         <div class="page-content--bge5">
+            
             <div class="container">
                 <div class="login-wrap">
-                    <div class="login-content">
-                        <div class="login-logo">
-                            <a href="index.php" class="logo">
-                            <span class="fa fa-bus" style="color:#9E4244; font-size: larger;"> ASHESI BUS SYSTEM</span>
-                        </a>
-
-                        </div>
+                     </div>
                         <div class="login-form">
                             <form action="" method="post">
                                 <div class="form-group">
