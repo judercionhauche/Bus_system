@@ -1,12 +1,7 @@
-<aside class="menu-sidebar d-none d-lg-block">
-    <div class="logo">
-        
+<aside class="menu-sidebar d-none d-lg-block" style="margin-top: 78px">
 
-        <a href="index.php">  
-            <span class="fa fa-bus" style="color:#9E4244; font-size: larger;" > ASHESI BUS SYSTEM </span> 
-        </a>
 
-    </div>
+   
     <div class="menu-sidebar__content js-scrollbar1">
         <nav class="navbar-sidebar">
             <ul class="list-unstyled navbar__list">

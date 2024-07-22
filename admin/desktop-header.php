@@ -1,8 +1,11 @@
-<header class="header-desktop">
+<header class="header-desktop" >
                 <div class="section__content section__content--p30">
                     <div class="container-fluid">
                         <div class="header-wrap">
                             
+                            <a href="index.php" class="logo">  
+                                <span class="fa fa-bus" style="color:#9E4244; font-size: larger;" > ASHESI BUS SYSTEM </span> 
+                            </a>
 
 
                             <form class="form-header" action="" method="POST">
