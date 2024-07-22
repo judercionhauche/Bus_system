@@ -17,8 +17,8 @@
 
 <body>
     <div class="page-wrapper">
-         <!-- HEADER DESKTOP-->
-         <?php include 'desktop-header.php'?>
+        <!-- HEADER DESKTOP-->
+        <?php include 'desktop-header.php'?>
 
         <!-- HEADER MOBILE-->
         <?php include 'mobile-header.php'?>
