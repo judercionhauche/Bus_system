@@ -17,6 +17,9 @@
 
 <body>
     <div class="page-wrapper">
+        <!-- HEADER DESKTOP-->
+        <?php include 'desktop-header.php'?>
+
         <!-- HEADER MOBILE-->
         <?php include 'mobile-header.php'?>
 
@@ -25,8 +28,7 @@
 
         <!-- PAGE CONTAINER-->
         <div class="page-container">
-            <!-- HEADER DESKTOP-->
-            <?php include 'desktop-header.php'?>
+           
             
             <!-- MAIN CONTENT-->
             <div class="main-content">
