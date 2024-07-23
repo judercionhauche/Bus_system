@@ -4,12 +4,10 @@ error_reporting(E_ALL);
 require 'config/connection.php'; 
 
 // Start session to use session variables
-session_start();
 
 // Set trip ID from the POST request
 if (isset($_POST['trip_id'])) {
     $_SESSION['trip_id'] = $_POST['trip_id'];
-    var_dump($_SESSION['trip_id']);
 } elseif (!isset($_SESSION['trip_id'])) {
     header('Location: bus_schedule.php'); // Redirect if no trip ID is provided
     exit;

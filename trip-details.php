@@ -1,12 +1,10 @@
 <?php
-ini_set('display_errors', 1);
-error_reporting(E_ALL);
+
 session_start();
 require 'config/connection.php';
 
 if (isset($_SESSION['user_id'])) {
 	$user_id = $_SESSION['user_id'];
-	var_dump($user_id );
 	$sql = "SELECT * FROM booking WHERE user_id = ? ORDER BY booking_date DESC LIMIT 1";
 	if ($stmt = $connection->prepare($sql)) {
 		$stmt->bind_param("i", $user_id);
