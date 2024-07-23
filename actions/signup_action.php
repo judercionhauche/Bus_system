@@ -82,7 +82,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             'phone_number' => $phone_number,
             'role' => $role
         ];
-        header("Location: ../auth/signup.php");
+        header("Location: ../auth/login.php");
         exit();
     }
 }

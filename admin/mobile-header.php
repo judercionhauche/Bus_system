@@ -3,12 +3,12 @@
 session_start();
 
 // Check if the user is logged in and has a role
-if (!isset($_SESSION['user_role'])) {
-    $_SESSION['user_role'] = 2; // Default role if not set
+if (!isset($_SESSION['role'])) {
+    $_SESSION['role'] = 2; // Default role if not set
 }
 
 // Retrieve the user role from the session
-$user_role = $_SESSION['user_role'];
+$user_role = $_SESSION['role'];
 
 // Redirect to login page if role is 3 or more
 if ($user_role >= 3) {

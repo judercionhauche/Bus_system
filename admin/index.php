@@ -184,24 +184,9 @@ $connection->close();
                         </div>  
                         
                         <!-- Home Page Section-->
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <h2 class="title-1 m-b-25">Home Page</h2>
-                                <div class="overview-wrap">
-                                    <p>Welcome to the Bus Management System. Use the quick links below to get started:</p>
-                                    <button class="au-btn au-btn-icon au-btn--blue">
-                                        <i class="zmdi zmdi-bus"></i>Book a Ride</button>
-                                    <button class="au-btn au-btn-icon au-btn--green">
-                                        <i class="zmdi zmdi-calendar"></i>View Trips</button>
-                                    <button class="au-btn au-btn-icon au-btn--red">
-                                        <i class="zmdi zmdi-settings"></i>Manage Bookings</button>
-                                </div>
-
+                        
                                 <!-- link for viewing booking details  -->
-                                <div class="overview-wrap">
-                                    <ul>
-                                        <li><a href="booking_details.php">View Booking Details</a></li>
-                                    </ul>
+                                
                                 </div>
                             </div>
                         </div>  
