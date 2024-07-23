@@ -6,7 +6,7 @@ function checkLogin() {
     session_start();
 
     // Check if userId session exists
-    if (!isset($_SESSION['name'])) {
+    if (!isset($_SESSION['user_id'])) {
         // Redirect to login page if session doesn't exist
         header("Location: login.php");
         // Terminate script execution after redirection

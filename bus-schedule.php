@@ -67,6 +67,8 @@ $connection->close();
         <?php 
         include "header.php";
         include "menu.php";
+      
+
         ?>
 
         <!-- Main -->
@@ -217,4 +219,5 @@ $connection->close();
         document.addEventListener('DOMContentLoaded', fetchAllTrips);
     </script>
 </body>
+<?php include "footer.php";?>
 </html>
