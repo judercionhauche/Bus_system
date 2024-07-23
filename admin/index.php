@@ -3,13 +3,13 @@
 session_start();
 
 // Check if the user is logged in and has a role
-if (!isset($_SESSION['user_role'])) {
+if (!isset($_SESSION['role'])) {
     header('Location: ../auth/login.php');
     exit(); // Redirect if not logged in
 }
 
 // Retrieve the user role from the session
-$user_role = $_SESSION['user_role'];
+$user_role = $_SESSION['role'];
 
 
 // Redirect to login page if role is 3 or more

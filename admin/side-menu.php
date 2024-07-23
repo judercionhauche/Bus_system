@@ -1,3 +1,18 @@
+<?php
+// Start the session
+session_start();
+
+// Check if the user is logged in and has a role
+if (!isset($_SESSION['role'])) {
+    // Redirect to login page if the user role is not set
+    header('Location: ../auth/login.php');
+    exit();
+}
+
+// Retrieve the user role from the session
+$user_role = $_SESSION['role'];
+?>
+
 <aside class="menu-sidebar d-none d-lg-block">
     <div class="menu-sidebar__content js-scrollbar1">
         <div class="header">

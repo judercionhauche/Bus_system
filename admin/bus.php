@@ -24,8 +24,7 @@
 <body>
     <div>
         <?php
-        ini_set('display_errors', 1);
-        error_reporting(E_ALL);
+      
         require '../Functions/functions.php';
         require '../Functions/session.php';
         echo display_msg($msg); ?>
