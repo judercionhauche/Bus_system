@@ -1,4 +1,23 @@
 <?php
+// Start the session
+session_start();
+
+// Check if the user is logged in and has a role
+if (!isset($_SESSION['user_role'])) {
+    header('Location: ../auth/login.php');
+    exit(); // Redirect if not logged in
+}
+
+// Retrieve the user role from the session
+$user_role = $_SESSION['user_role'];
+
+
+// Redirect to login page if role is 3 or more
+if ($user_role >= 3) {
+    header('Location: ../auth/login.php');
+    exit(); // Ensure no further code is executed after redirection
+}
+
 // Include database connection
 include '../config/connection.php';
 
@@ -42,7 +61,6 @@ $connection->close();
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <!-- Required meta tags-->
     <meta charset="UTF-8">
@@ -57,7 +75,6 @@ $connection->close();
     <!-- CSS STYLES-->
     <?php include 'styles.php'?>
 </head>
-
 <body>
     <div class="page-wrapper">
         <!-- HEADER DESKTOP-->
@@ -71,7 +88,6 @@ $connection->close();
 
         <!-- PAGE CONTAINER-->
         <div class="page-container">
-            
             <!-- MAIN CONTENT-->
             <div class="main-content">
                 <div class="section__content section__content--p30">
@@ -198,12 +214,10 @@ $connection->close();
             <!-- END MAIN CONTENT-->
             <!-- END PAGE CONTAINER-->
         </div>
-
     </div>
 
     <!-- SCRIPTS-->
     <?php include 'scripts.php'?>
     
 </body>
-
 </html>

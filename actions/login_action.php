@@ -30,6 +30,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 // Set session variables
                 $_SESSION['email'] = $row['email'];
                 $_SESSION['user_id'] = $row['user_id'];
+                $_SESSION['user_id'] = $row['role'];
+
                 $_SESSION['first_name'] = $row['first_name'];
                 $_SESSION['last_name'] = $row['last_name'];
 
