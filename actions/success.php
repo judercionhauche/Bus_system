@@ -2,7 +2,7 @@
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
-require '../config/connection.php'; // Adjust the path as necessary
+require '../config/connection.php'; 
 
 if (isset($_GET['ref'])) {
     $reference = $_GET['ref'];
@@ -41,7 +41,7 @@ if (isset($_GET['ref'])) {
                 $user_id = $_SESSION['user_id'];
                 $trip_id = $_GET['trip_id'];
                 $number_of_seats = $_GET['number_of_seats'];
-                $booking_date = date("Y-m-d H:i:s"); // Correct timestamp format
+                $booking_date = date("Y-m-d H:i:s"); 
                 $invoice = mt_rand();
 
                 // Insert booking
@@ -49,7 +49,7 @@ if (isset($_GET['ref'])) {
                 if ($stmt = $connection->prepare($sql)) {
                     $stmt->bind_param("iissi", $trip_id, $user_id, $booking_date, $invoice, $number_of_seats);
                     if ($stmt->execute()) {
-                        $booking_id = $stmt->insert_id; // Get the last inserted booking ID
+                        $booking_id = $stmt->insert_id; 
 
                         // Insert payment details only if booking is successfully inserted
                         $payment_amount = $number_of_seats * 35; // Assuming price per seat is 35 GHS
@@ -61,16 +61,30 @@ if (isset($_GET['ref'])) {
                             $payment_stmt->bind_param("iisd", $booking_id, $user_id, $payment_date, $payment_amount);
                             if ($payment_stmt->execute()) {
 
-                                // Update the number of available seats in the trips table
-                                $update_seats_sql = "UPDATE buses SET capacity = capacity - ? WHERE bus_id = ?";
-                                if ($update_seats_stmt = $connection->prepare($update_seats_sql)) {
-                                    $update_seats_stmt->bind_param("ii", $number_of_seats, $trip_id);
-                                    $update_seats_stmt->execute();
-                                }
+                                // Get the bus_id from the trips table
+                                $bus_id_sql = "SELECT bus_id FROM trips WHERE trip_id = ?";
+                                if ($bus_id_stmt = $connection->prepare($bus_id_sql)) {
+                                    $bus_id_stmt->bind_param("i", $trip_id);
+                                    $bus_id_stmt->execute();
+                                    $bus_id_stmt->bind_result($bus_id);
+                                    $bus_id_stmt->fetch();
+                                    $bus_id_stmt->close();
 
-                                // Redirect to trip-details.php after successful booking and payment
-                                header("Location: ../trip-details.php");
-                                exit();
+                                    // Update the number of available seats in the buses table
+                                    $update_seats_sql = "UPDATE buses SET capacity = capacity - ? WHERE bus_id = ?";
+                                    if ($update_seats_stmt = $connection->prepare($update_seats_sql)) {
+                                        $update_seats_stmt->bind_param("ii", $number_of_seats, $bus_id);
+                                        if ($update_seats_stmt->execute()) {
+                                            // Redirect to trip-details.php after successful booking and payment
+                                            header("Location: ../trip-details.php");
+                                            exit();
+                                        } else {
+                                            echo "Error updating bus capacity: " . $connection->error;
+                                        }
+                                    }
+                                } else {
+                                    echo "Error fetching bus ID: " . $connection->error;
+                                }
                             } else {
                                 echo "Error inserting payment details: " . $connection->error;
                             }
