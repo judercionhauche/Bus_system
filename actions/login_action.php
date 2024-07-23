@@ -34,7 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $_SESSION['last_name'] = $row['last_name'];
 
                 // Redirect on successful login
-                header("Location: ../bus-schedule.php");
+                header("Location: ../index.php");
                 exit();
             } else {
                 $errors[] = "Incorrect password.";
