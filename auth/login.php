@@ -50,7 +50,6 @@ if (isset($_SESSION['signup_success'])) {
         </h1>
         <div class="row">
             <section class="form sign-up active">
-            <img src="../images/Ashesi_logo.jpg" class="corner-image" alt="Ashesi Logo">
                 
                 <h2>Sign Up</h2>
                 <?php if ($signup_success): ?>
