@@ -37,7 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 header("Location: ../bus-schedule.php");
                 exit();
             } else {
-                $errors[] = "Incorrect password.";
+                $errors[] = "Incorrect password or email.";
             }
         } else {
             $errors[] = "User does not exist.";
