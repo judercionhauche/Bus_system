@@ -30,13 +30,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 // Set session variables
                 $_SESSION['email'] = $row['email'];
                 $_SESSION['user_id'] = $row['user_id'];
-                $_SESSION['user_id'] = $row['role'];
+                $_SESSION['role'] = $row['role'];
 
                 $_SESSION['first_name'] = $row['first_name'];
                 $_SESSION['last_name'] = $row['last_name'];
 
-                // Redirect on successful login
-                header("Location: ../index.php");
+                // Redirect based on user role
+                if ($row['role'] == 1) {
+                    header("Location: ../admin/index.php");
+                } elseif ($row['role'] == 2) {
+                    header("Location: ../admin/index.php");
+                } elseif ($row['role'] == 3) {
+                    header("Location: ../index.php");
+                }
                 exit();
             } else {
                 $errors[] = "Incorrect password or email.";
